@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -34,6 +34,11 @@ import SmartHomeSmartGarage from './pages/services page/Smart Home/SmartHomeSmar
 import WiFiConnection from './pages/services page/Smart Home/WiFiConnection';
 import SmartHomeWifiConnectionSetup from './pages/services page/Smart Home/SmartHomeWifiConnectionSetup';
 import SmartHomeSingleExtensionSetup from './pages/services page/Smart Home/SmartHomeSingleExtensionSetup';
+import InstantQuotePage from './pages/dashboard pages/InstantQuotePage';
+import ContactUsPage from './pages/dashboard pages/ContactUsPage';
+import Orders from './pages/dashboard pages/Orders';
+import RateUsPage from './pages/dashboard pages/RateUsPage';
+import DashboardLogin from './pages/dashboard pages/DashboardLogin';
 
 import StripeCheckoutForm from "./components/payment/StripeCheckoutForm"
 import { Elements } from '@stripe/react-stripe-js';
@@ -49,7 +54,9 @@ const data = {
   'automatic_payment_methods[enabled]': true,
 };
 
+
 function App() {
+  const isAuth = sessionStorage.getItem("id") ? true : false;
   const [secret, setSecret] = useState(null)
 
   useEffect(() => {
@@ -119,6 +126,20 @@ function App() {
             <StripeCheckoutForm />
           </Elements>
         } />
+
+        <Route exact path={`/admin/login`} element={<DashboardLogin />} />
+        {
+          isAuth ? <>
+            <Route exact path={`/admin/dashboard/instant-quotes-data`} element={<InstantQuotePage />} />
+            <Route exact path={`/admin/dashboard/contact-data`} element={<ContactUsPage />} />
+            <Route exact path={`/admin/dashboard/Orders`} element={<Orders />} />
+            <Route exact path={`/admin/dashboard/rate-us-data`} element={<RateUsPage />} />
+
+          </>
+            :
+            <Route path='*' element={<Navigate to="/" replace={true} />} />
+        }
+
 
         {/* <Route exact path="/checkout" element={<Car />} /> */}
       </Routes>

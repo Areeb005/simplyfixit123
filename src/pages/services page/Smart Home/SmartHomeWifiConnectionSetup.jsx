@@ -123,14 +123,14 @@ function SmartHomeWifiConnectionSetup() {
 
     const checkboxData = (item, id, no) => {
         item.no = no
-        let SmartHomeWifiConnectionSetupData = JSON.parse(window.sessionStorage.getItem('SmartHomeWifiConnectionSetupData'))
+        let SmartHomeWifiConnectionSetupData = JSON.parse(window.localStorage.getItem('SmartHomeWifiConnectionSetupData'))
         if (SmartHomeWifiConnectionSetupData == null) SmartHomeWifiConnectionSetupData = [[]];
 
         let checkbox = window.document.getElementById(`checkValue${id}`)
 
         if (checkbox.checked) {
             SmartHomeWifiConnectionSetupData[SmartHomeWifiConnectionSetupData.length - 1].push(item)
-            window.sessionStorage.setItem('SmartHomeWifiConnectionSetupData', JSON.stringify(SmartHomeWifiConnectionSetupData))
+            window.localStorage.setItem('SmartHomeWifiConnectionSetupData', JSON.stringify(SmartHomeWifiConnectionSetupData))
             setselected(SmartHomeWifiConnectionSetupData)
         } else if (!checkbox.checked) {
             const t = SmartHomeWifiConnectionSetupData[SmartHomeWifiConnectionSetupData.length - 1]
@@ -140,7 +140,7 @@ function SmartHomeWifiConnectionSetup() {
                 if (e.id == id && e.no == no) {
                     found = i
                     SmartHomeWifiConnectionSetupData[SmartHomeWifiConnectionSetupData.length - 1].splice(i, 1)
-                    window.sessionStorage.setItem('SmartHomeWifiConnectionSetupData', JSON.stringify(SmartHomeWifiConnectionSetupData))
+                    window.localStorage.setItem('SmartHomeWifiConnectionSetupData', JSON.stringify(SmartHomeWifiConnectionSetupData))
                     setselected(SmartHomeWifiConnectionSetupData)
                     return e
                 }
@@ -150,7 +150,7 @@ function SmartHomeWifiConnectionSetup() {
     }
 
     const findCheckValue = (id, no) => {
-        let SmartHomeWifiConnectionSetupData = JSON.parse(window.sessionStorage.getItem('SmartHomeWifiConnectionSetupData'))
+        let SmartHomeWifiConnectionSetupData = JSON.parse(window.localStorage.getItem('SmartHomeWifiConnectionSetupData'))
         if (SmartHomeWifiConnectionSetupData == null) SmartHomeWifiConnectionSetupData = [[]];
 
         if (SmartHomeWifiConnectionSetupData.length > 0) {

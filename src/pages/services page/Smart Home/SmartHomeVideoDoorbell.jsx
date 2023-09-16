@@ -111,14 +111,14 @@ function SmartHomeVideoDoorbell() {
     ]
     const checkboxData = (item, id, no) => {
         item.no = no
-        let smartHomeVideoDoorbellData = JSON.parse(window.sessionStorage.getItem('smartHomeVideoDoorbellData'))
+        let smartHomeVideoDoorbellData = JSON.parse(window.localStorage.getItem('smartHomeVideoDoorbellData'))
         if (smartHomeVideoDoorbellData == null) smartHomeVideoDoorbellData = [[]];
 
         let checkbox = window.document.getElementById(`checkValue${id}`)
 
         if (checkbox.checked) {
             smartHomeVideoDoorbellData[smartHomeVideoDoorbellData.length - 1].push(item)
-            window.sessionStorage.setItem('smartHomeVideoDoorbellData', JSON.stringify(smartHomeVideoDoorbellData))
+            window.localStorage.setItem('smartHomeVideoDoorbellData', JSON.stringify(smartHomeVideoDoorbellData))
             setselected(smartHomeVideoDoorbellData)
         } else if (!checkbox.checked) {
             const t = smartHomeVideoDoorbellData[smartHomeVideoDoorbellData.length - 1]
@@ -128,7 +128,7 @@ function SmartHomeVideoDoorbell() {
                 if (e.id == id && e.no == no) {
                     found = i
                     smartHomeVideoDoorbellData[smartHomeVideoDoorbellData.length - 1].splice(i, 1)
-                    window.sessionStorage.setItem('smartHomeVideoDoorbellData', JSON.stringify(smartHomeVideoDoorbellData))
+                    window.localStorage.setItem('smartHomeVideoDoorbellData', JSON.stringify(smartHomeVideoDoorbellData))
                     setselected(smartHomeVideoDoorbellData)
                     return e
                 }
@@ -138,7 +138,7 @@ function SmartHomeVideoDoorbell() {
     }
 
     const findCheckValue = (id, no) => {
-        let smartHomeVideoDoorbellData = JSON.parse(window.sessionStorage.getItem('smartHomeVideoDoorbellData'))
+        let smartHomeVideoDoorbellData = JSON.parse(window.localStorage.getItem('smartHomeVideoDoorbellData'))
         if (smartHomeVideoDoorbellData == null) smartHomeVideoDoorbellData = [[]];
 
         if (smartHomeVideoDoorbellData.length > 0) {

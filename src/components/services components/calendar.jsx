@@ -1,17 +1,23 @@
 import React from 'react'
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import usePersistedState from 'use-persisted-state-hook'
 
 
 
+
 const Calendar = () => {
+    let navigate = useNavigate()
     const [num, setNum] = usePersistedState('num', 0)
     const timeSlots = ['11am - 1pm', '12pm - 2pm', '1pm - 3pm', '2pm - 4pm', '3pm - 5pm', '4pm - 6pm', '5pm - 7pm', '6pm - 8pm']
     const daysName = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     const [SelectedTimeSlot, setSelectedTimeSlot] = useState('11am - 1pm')
+
+    const [cart, setCart] = usePersistedState('thisCart', {})
+    console.log("cart", cart);
+
 
     let ___date = new Date()
     let day = ___date.getDate()
@@ -55,6 +61,10 @@ const Calendar = () => {
                 bookes: false
             },
         ]
+    }
+
+    const getCustomerData = () => {
+        return JSON.parse(localStorage.getItem('Calendar'));
     }
 
     const [SelectedDate, setSelectedDate] = useState(obj123)
@@ -123,9 +133,7 @@ const Calendar = () => {
         return d.getDate()
     }
 
-    const getCustomerData = () => {
-        return JSON.parse(localStorage.getItem('Calendar'));
-    }
+
 
     const submitData = (e) => {
 
@@ -157,6 +165,12 @@ const Calendar = () => {
         console.log(data);
 
         localStorage.setItem('Calendar', JSON.stringify(data))
+
+
+        navigate('/cart')
+
+
+
     }
 
     useEffect(() => {
@@ -170,6 +184,7 @@ const Calendar = () => {
         return () => {
             window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
         }
+
     }, [])
 
     return <>
@@ -182,7 +197,7 @@ const Calendar = () => {
                             {
                                 (data).map((thisDate) => {
                                     return <div key={thisDate.date} className="col-lg-1 col-md-2 col-sm-2 col-2 days_col">
-                                        <button type='button' className={`btn ${SelectedDate == thisDate ? 'active' : 'date_btn'}`} onClick={() => { setSelectedDate(thisDate) }}>
+                                        <button type='button' className={`btn ${SelectedDate == thisDate ? 'active' : 'date_btn'}`} onClick={() => { setSelectedDate(thisDate); setCart({...cart, date: thisDate.date}) }}>
                                             {/* <small>Thu</small> */}
                                             <p className='mb-0'>{thisDate.date == undefined ? '' : showDate(thisDate.date)}</p>
                                         </button>
@@ -199,7 +214,7 @@ const Calendar = () => {
                                 SelectedDate &&
                                 (SelectedDate.slots).map((e, i) => {
                                     return <div key={e.time} className="col-lg-2 col-md-2 col-sm-2 col-4 me-4 mb-4 time_col">
-                                        <button type='button' disabled={e.bookes} onClick={() => setSelectedTimeSlot(e)} className={`btn ${SelectedTimeSlot == e ? 'active' : 'time_btn'}`}>{e.time}</button>
+                                        <button type='button' disabled={e.bookes} onClick={() => {setSelectedTimeSlot(e); setCart({...cart, Time_Slot: e.time})}} className={`btn ${SelectedTimeSlot == e ? 'active' : 'time_btn'}`}>{e.time}</button>
                                     </div>
                                 })
                             }
@@ -207,9 +222,7 @@ const Calendar = () => {
                     </div>
 
                     <div className="button d-flex jc-center">
-                        <Link to="/cart" style={{textDecoration: "none"}}>
-                            <button className='btn continue_btn'>Schedule It</button>
-                        </Link>
+                        <button className='btn continue_btn'>Schedule It</button>
                     </div>
                 </div>
             </section>

@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { TypeAnimation } from 'react-type-animation'
 import { BsArrowRight } from 'react-icons/bs'
+import { addContactUsData } from '../firebase/apis';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Navbar from '../components/Navbar'
 
@@ -19,13 +22,56 @@ import SimpleSlider from '../components/Slider/Slider'
 
 import TV from "../assets/Services/TV mounting.webp"
 
+
+
+
 function Homepage() {
 
     const [services, setServices] = useState(1);
 
+
+    const notify = () => toast("Submitted", {
+        draggable: true,
+        theme: "light",
+        className: "react-toast-added"
+    });
+
+
+    const [your_name, setyour_name] = useState('')
+    const [your_email, setyour_email] = useState('')
+    const [your_phone, setyour_phone] = useState('')
+    const [your_address, setyour_address] = useState('')
+    const [your_subject, setyour_subject] = useState('')
+    const [your_message, setyour_message] = useState('')
+
+    const submitContactUsForm = (e) => {
+
+        e.preventDefault()
+
+        const obj = {
+            your_name,
+            your_email,
+            your_phone,
+            your_address,
+            your_subject,
+            your_message,
+        }
+
+        addContactUsData(obj);
+
+        notify();
+        setyour_name('')
+        setyour_address('')
+        setyour_subject('')
+        setyour_phone('')
+        setyour_email('')
+        setyour_message('')
+
+    }
+
     useEffect(() => {
         localStorage.clear();
-        sessionStorage.clear();
+        localStorage.clear();
 
     })
 
@@ -33,6 +79,7 @@ function Homepage() {
         <>
             {/* =========================== H E R O - S E C T I O N =========================== */}
 
+            <ToastContainer />
             <SimpleSlider />
 
             <section className='hero-section'>
@@ -438,47 +485,49 @@ function Homepage() {
                             </div>
                         </div>
                         <div className="col-md-6">
-                            <div className="row">
-                                <div className='col-md-6 mb-3'>
-                                    <div>
-                                        <label className="form-label">Name</label>
-                                        <input type="text" className="form-control" placeholder="Enter your name" />
+                            <form action="" onSubmit={(e) => submitContactUsForm(e)}>
+                                <div className="row">
+                                    <div className='col-md-6 mb-3'>
+                                        <div>
+                                            <label className="form-label">Name</label>
+                                            <input type="text" className="form-control" value={your_name} onChange={(e) => setyour_name(e.target.value)} placeholder="Enter your name" required />
+                                        </div>
+                                    </div>
+                                    <div className='col-md-6 mb-3'>
+                                        <div>
+                                            <label className="form-label">Email</label>
+                                            <input type="email" className="form-control" value={your_email} onChange={(e) => setyour_email(e.target.value)} placeholder="Enter your email" required />
+                                        </div>
+                                    </div>
+                                    <div className='col-md-6 mb-3'>
+                                        <div>
+                                            <label className="form-label">Phone</label>
+                                            <input type="text" className="form-control" value={your_phone} onChange={(e) => setyour_phone(e.target.value)} placeholder="Enter your phone" required />
+                                        </div>
+                                    </div>
+                                    <div className='col-md-6 mb-3'>
+                                        <div>
+                                            <label className="form-label">Address</label>
+                                            <input type="text" className="form-control" value={your_address} onChange={(e) => setyour_address(e.target.value)} placeholder="Enter your address" required />
+                                        </div>
+                                    </div>
+                                    <div className='col-md-12 mb-3'>
+                                        <div>
+                                            <label className="form-label">Subject</label>
+                                            <input type="text" className="form-control" value={your_subject} onChange={(e) => setyour_subject(e.target.value)} placeholder="Enter your subject" required />
+                                        </div>
+                                    </div>
+                                    <div className="col-md-12 mb-3">
+                                        <div>
+                                            <label className="form-label">Message</label>
+                                            <textarea className="form-control" value={your_message} onChange={(e) => setyour_message(e.target.value)} placeholder='Type your message here...' rows="4" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div className="button">
+                                        <button className='btn submit_btn'>Submit</button>
                                     </div>
                                 </div>
-                                <div className='col-md-6 mb-3'>
-                                    <div>
-                                        <label className="form-label">Email</label>
-                                        <input type="email" className="form-control" placeholder="Enter your email" />
-                                    </div>
-                                </div>
-                                <div className='col-md-6 mb-3'>
-                                    <div>
-                                        <label className="form-label">Phone</label>
-                                        <input type="text" className="form-control" placeholder="Enter your phone" />
-                                    </div>
-                                </div>
-                                <div className='col-md-6 mb-3'>
-                                    <div>
-                                        <label className="form-label">Address</label>
-                                        <input type="text" className="form-control" placeholder="Enter your address" />
-                                    </div>
-                                </div>
-                                <div className='col-md-12 mb-3'>
-                                    <div>
-                                        <label className="form-label">Subject</label>
-                                        <input type="text" className="form-control" placeholder="Enter your subject" />
-                                    </div>
-                                </div>
-                                <div className="col-md-12 mb-3">
-                                    <div>
-                                        <label className="form-label">Message</label>
-                                        <textarea className="form-control" placeholder='Type your message here...' rows="4"></textarea>
-                                    </div>
-                                </div>
-                                <div className="button">
-                                    <button className='btn submit_btn'>Submit</button>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

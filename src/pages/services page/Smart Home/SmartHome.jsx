@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Navbar from '../../../components/Navbar'
 import TextComponent from '../../../components/services components/TextComponent'
 
+
 function SmartHome() {
     return (
         <>
@@ -32,9 +33,9 @@ function SmartHome() {
                     <Link to="/services/smart-home-installation-smart-garage" className='services_link'>
                         <TextComponent text="Smart Garage" />
                     </Link>
-                    <Link to="#" className='services_link'>
+                    {/* <Link to="#" className='services_link'>
                         <TextComponent text="Home Theater" />
-                    </Link>
+                    </Link> */}
                     <Link to="/services/smart-home-installation/wifi-connection" className='services_link'>
                         <TextComponent text="WiFi connection" />
                     </Link>

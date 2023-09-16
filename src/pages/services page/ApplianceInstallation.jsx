@@ -13,6 +13,7 @@ function ApplianceInstallation() {
 
     const navigate = useNavigate();
     const { hash } = useLocation();
+    const [cart, setCart] = usePersistedState('thisCart', {})
 
     let [faltu, getHashValue] = hash.split('#')
     const url = useLocation().pathname;
@@ -26,7 +27,6 @@ function ApplianceInstallation() {
     const [ApplianceInstallationPics, setApplianceInstallationPics] = usePersistedState('ApplianceInstallationPics', '')
 
     console.log(`${InstallationType} + ${InstallationTime} + ${FuelSource} + ${WireOrGaseAvail} + ${ApplianceInstallationDesc}`);
-
 
     const [calendar, setcalendar] = useState(false)
 
@@ -120,6 +120,8 @@ function ApplianceInstallation() {
         setcalendar(false)
     }, [hashValue])
 
+
+
     return <>
 
         <Navbar />
@@ -182,7 +184,19 @@ function ApplianceInstallation() {
                     <div>
                         <ImageUploadComponent onChange={(e) => onChange(e)} img={ApplianceInstallationPics} />
                         <div className="button">
-                            <button className='continue_btn' onClick={() => setcalendar(true)}>Schedule Your Service</button>
+                            <button className='continue_btn' onClick={() => {
+                                setcalendar(true);
+                                setCart({
+                                    InstallationType,
+                                    InstallationTime,
+                                    FuelSource,
+                                    WireOrGaseAvail,
+                                    ApplianceInstallationDesc,
+                                    ApplianceInstallationPics,
+                                })
+                                }}>
+                                    Schedule Your Service
+                                </button>
                         </div>
                     </div>
                 }

@@ -314,7 +314,7 @@ function Cart() {
                 </div >
             </section >
 
-            <Checkout />
+            {/* <Checkout /> */}
 
             {/* <StripeCheckoutForm /> */}
 

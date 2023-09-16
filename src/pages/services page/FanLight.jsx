@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import TextComponent from '../../components/services components/TextComponent'
 import { Link } from 'react-router-dom'
 import Navbar from '../../components/Navbar'
 
 function FanLight() {
+    useEffect(() => {
+        localStorage.clear()
+    }, [])
+
     return (
         <>
 

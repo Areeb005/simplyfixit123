@@ -14,6 +14,7 @@ function HandymanWallhanging() {
 
     const navigate = useNavigate();
     const { hash } = useLocation();
+    const [cart, setCart] = usePersistedState('thisCart', {})
 
     let [faltu, getHashValue] = hash.split('#')
     const url = useLocation().pathname;
@@ -111,14 +112,14 @@ function HandymanWallhanging() {
 
     const checkboxData = (item, id, no) => {
         item.no = no
-        let dataWallhanging = JSON.parse(window.sessionStorage.getItem('dataWallhanging'))
+        let dataWallhanging = JSON.parse(window.localStorage.getItem('dataWallhanging'))
         if (dataWallhanging == null) dataWallhanging = [[]];
 
         let checkbox = window.document.getElementById(`checkValue${id}`)
 
         if (checkbox.checked) {
             dataWallhanging[dataWallhanging.length - 1].push(item)
-            window.sessionStorage.setItem('dataWallhanging', JSON.stringify(dataWallhanging))
+            window.localStorage.setItem('dataWallhanging', JSON.stringify(dataWallhanging))
             setselected(dataWallhanging)
         } else if (!checkbox.checked) {
             const t = dataWallhanging[dataWallhanging.length - 1]
@@ -128,7 +129,7 @@ function HandymanWallhanging() {
                 if (e.id == id && e.no == no) {
                     found = i
                     dataWallhanging[dataWallhanging.length - 1].splice(i, 1)
-                    window.sessionStorage.setItem('dataWallhanging', JSON.stringify(dataWallhanging))
+                    window.localStorage.setItem('dataWallhanging', JSON.stringify(dataWallhanging))
                     setselected(dataWallhanging)
                     return e
                 }
@@ -138,7 +139,7 @@ function HandymanWallhanging() {
     }
 
     const findCheckValue = (id, no) => {
-        let dataWallhanging = JSON.parse(window.sessionStorage.getItem('dataWallhanging'))
+        let dataWallhanging = JSON.parse(window.localStorage.getItem('dataWallhanging'))
         if (dataWallhanging == null) dataWallhanging = [[]];
 
         if (dataWallhanging.length > 0) {
@@ -155,10 +156,13 @@ function HandymanWallhanging() {
     }, [hashValue])
 
     useEffect(() => {
-
         setTotalItemsQuantity(SmallItems + LargeItems + ExtraLargeItems)
 
     }, [SmallItems, LargeItems, ExtraLargeItems])
+
+
+
+
 
     return <>
 
@@ -222,7 +226,22 @@ function HandymanWallhanging() {
                     <div>
                         <ImageUploadComponent onChange={(e) => onChange(e)} img={WallHangingPics} />
                         <div className="button">
-                            <button className='continue_btn' onClick={() => setcalendar(true)}>Schedule Your Service</button>
+                            <button className='continue_btn'
+                                onClick={() => {
+                                    setcalendar(true);
+                                    setCart({
+                                        "wall_types": selected[0].map((e) => e.q),
+                                        SmallItems,
+                                        LargeItems,
+                                        ExtraLargeItems,
+                                        TotalItemsQuantity,
+                                        WallHangingDesc,
+                                        WallHangingHeight,
+                                        WallHangingPics,
+                                    })
+                                }}>
+                                Schedule Your Service
+                            </button>
                         </div>
                     </div>
                 }

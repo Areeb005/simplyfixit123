@@ -110,14 +110,14 @@ function SmartHomeSecurityCamera() {
     ]
     const checkboxData = (item, id, no) => {
         item.no = no
-        let smartHomeCameraData = JSON.parse(window.sessionStorage.getItem('smartHomeCameraData'))
+        let smartHomeCameraData = JSON.parse(window.localStorage.getItem('smartHomeCameraData'))
         if (smartHomeCameraData == null) smartHomeCameraData = [[]];
 
         let checkbox = window.document.getElementById(`checkValue${id}`)
 
         if (checkbox.checked) {
             smartHomeCameraData[smartHomeCameraData.length - 1].push(item)
-            window.sessionStorage.setItem('smartHomeCameraData', JSON.stringify(smartHomeCameraData))
+            window.localStorage.setItem('smartHomeCameraData', JSON.stringify(smartHomeCameraData))
             setselected(smartHomeCameraData)
         } else if (!checkbox.checked) {
             const t = smartHomeCameraData[smartHomeCameraData.length - 1]
@@ -127,7 +127,7 @@ function SmartHomeSecurityCamera() {
                 if (e.id == id && e.no == no) {
                     found = i
                     smartHomeCameraData[smartHomeCameraData.length - 1].splice(i, 1)
-                    window.sessionStorage.setItem('smartHomeCameraData', JSON.stringify(smartHomeCameraData))
+                    window.localStorage.setItem('smartHomeCameraData', JSON.stringify(smartHomeCameraData))
                     setselected(smartHomeCameraData)
                     return e
                 }
@@ -137,7 +137,7 @@ function SmartHomeSecurityCamera() {
     }
 
     const findCheckValue = (id, no) => {
-        let smartHomeCameraData = JSON.parse(window.sessionStorage.getItem('smartHomeCameraData'))
+        let smartHomeCameraData = JSON.parse(window.localStorage.getItem('smartHomeCameraData'))
         if (smartHomeCameraData == null) smartHomeCameraData = [[]];
 
         if (smartHomeCameraData.length > 0) {

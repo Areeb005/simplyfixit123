@@ -146,7 +146,7 @@ const TvMounting = () => {
 
     const collect = (item, no) => {
 
-        let dataTvMounting = JSON.parse(window.sessionStorage.getItem('dataTvMounting'))
+        let dataTvMounting = JSON.parse(window.localStorage.getItem('dataTvMounting'))
         if (!dataTvMounting) dataTvMounting = []
 
 
@@ -162,14 +162,14 @@ const TvMounting = () => {
         console.log(dataTvMounting, 'after');
 
 
-        window.sessionStorage.setItem('dataTvMounting', JSON.stringify(dataTvMounting))
+        window.localStorage.setItem('dataTvMounting', JSON.stringify(dataTvMounting))
         setselected(dataTvMounting)
     }
 
     const checkboxData = (item, id, no) => {
         item.no = no
 
-        let dataTvMounting = JSON.parse(window.sessionStorage.getItem('dataTvMounting'))
+        let dataTvMounting = JSON.parse(window.localStorage.getItem('dataTvMounting'))
 
         console.log(dataTvMounting, 'before');
 
@@ -180,7 +180,7 @@ const TvMounting = () => {
 
         if (checkbox.checked) {
             dataTvMounting[dataTvMounting.length - 1].push(item)
-            window.sessionStorage.setItem('dataTvMounting', JSON.stringify(dataTvMounting))
+            window.localStorage.setItem('dataTvMounting', JSON.stringify(dataTvMounting))
             setselected(dataTvMounting)
 
         } else if (!checkbox.checked) {
@@ -191,7 +191,7 @@ const TvMounting = () => {
                 if (e.id == id && e.no == no) {
                     found = i
                     dataTvMounting[dataTvMounting.length - 1].splice(i, 1)
-                    window.sessionStorage.setItem('dataTvMounting', JSON.stringify(dataTvMounting))
+                    window.localStorage.setItem('dataTvMounting', JSON.stringify(dataTvMounting))
                     setselected(dataTvMounting)
                     return e
                 }
@@ -207,7 +207,7 @@ const TvMounting = () => {
 
 
     const findCheckValue = (id, no) => {
-        let dataTvMounting = JSON.parse(window.sessionStorage.getItem('dataTvMounting'))
+        let dataTvMounting = JSON.parse(window.localStorage.getItem('dataTvMounting'))
         const found = dataTvMounting[dataTvMounting.length - 1].find((e) => (e.id == id && e.no == no))
 
         if (found) return true
@@ -219,7 +219,7 @@ const TvMounting = () => {
     }, [hashValue])
 
     useEffect(() => {
-        let dataTvMounting = JSON.parse(window.sessionStorage.getItem('dataTvMounting'))
+        let dataTvMounting = JSON.parse(window.localStorage.getItem('dataTvMounting'))
         if (!dataTvMounting) {
             dataTvMounting = []
         }
@@ -237,6 +237,8 @@ const TvMounting = () => {
         })
 
     }, [selected])
+
+
 
     return <>
 
@@ -321,8 +323,6 @@ const TvMounting = () => {
                                     <th></th>
                                 </thead>
 
-
-
                                 {
                                     selected.map(ele => {
                                         return <div style={{ marginTop: '40px' }}>
@@ -337,10 +337,9 @@ const TvMounting = () => {
                                                 }
                                             </tbody>
                                         </div>
-
-
                                     })
                                 }
+                                
                                 <tr className='tfoot'>
                                     <td>Estimated</td>
                                     <td>${price}</td>

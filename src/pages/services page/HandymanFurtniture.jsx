@@ -32,6 +32,16 @@ function HandymanFurniture() {
 
     const [calendar, setcalendar] = useState(false)
 
+    const [cart, setCart] = usePersistedState('thisCart', {
+        SmallFurniture,
+        MediumFurniture,
+        LargeFurniture,
+        ExtraLargeFurniture,
+        TotalFurnitureQuantity,
+        Desc,
+        Pics,
+    })
+
 
     const Furniture = [
         {
@@ -77,6 +87,10 @@ function HandymanFurniture() {
 
     const onLoad = (fileString) => {
         setPics(fileString)
+        setCart({
+            ...cart,
+            Pics: fileString
+        })
     };
 
     const getBase64 = (file) => {
@@ -92,7 +106,7 @@ function HandymanFurniture() {
     }, [hashValue])
 
     useEffect(() => {
-        let furnitureService = JSON.parse(window.sessionStorage.getItem('furnitureService'))
+        let furnitureService = JSON.parse(window.localStorage.getItem('furnitureService'))
         if (!furnitureService) {
             furnitureService = []
         }
@@ -101,7 +115,19 @@ function HandymanFurniture() {
 
     useEffect(() => {
         setTotalFurnitureQuantity(SmallFurniture + MediumFurniture + LargeFurniture + ExtraLargeFurniture)
+
+        setCart({
+            ...cart,
+            SmallFurniture,
+            MediumFurniture,
+            LargeFurniture,
+            ExtraLargeFurniture,
+            TotalFurnitureQuantity,
+        })
     }, [SmallFurniture, MediumFurniture, LargeFurniture, ExtraLargeFurniture])
+
+
+
 
 
     return <>
@@ -117,7 +143,7 @@ function HandymanFurniture() {
                                 <h2 className='e-heading'>{e.heading}</h2>
                                 <div>
                                     <form action="" onSubmit={(e) => { e.preventDefault(); navigate(`#${hashValue + 1}`) }}>
-                                        <TextAreaComponent value={Desc} min={10} onChange={(e) => setDesc(e.target.value)} required={true} placeholder='This helps ensure the technician will have the proper tools for your requested service. e.g. pictures frames, large mirror in hallway, etc.' />
+                                        <TextAreaComponent value={Desc} min={10} onChange={(e) => { setDesc(e.target.value); setCart({ ...cart, Desc: e.target.value }) }} required={true} placeholder='This helps ensure the technician will have the proper tools for your requested service. e.g. pictures frames, large mirror in hallway, etc.' />
                                         <div className="button">
                                             <button className='continue_btn'>Continue</button>
                                         </div>

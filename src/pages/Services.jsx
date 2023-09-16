@@ -1,5 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 import s_image from "../assets/up_to_40.svg"
 import booking from "../assets/booking.svg"
@@ -15,17 +18,55 @@ import service6 from "../assets/Services/Smart Home.webp"
 import service7 from "../assets/Services/TV mounting.webp"
 import service8 from "../assets/Services/Wifi & Network.webp"
 import { Link } from 'react-router-dom'
+import { addInstantQuoteData } from '../firebase/apis'
+
+
 
 function Services() {
+    const notify = () => toast("Request Submitted", {
+        draggable: true,
+        theme: "light",
+        className: "react-toast-added"
+    });
+
+
+    const [your_name, setyour_name] = useState('')
+    const [your_email, setyour_email] = useState('')
+    const [your_subject, setyour_subject] = useState('')
+    const [your_message, setyour_message] = useState('')
+
+
+    const submitInstantQuoteForm = (e) => {
+        e.preventDefault()
+        const obj = {
+            your_name,
+            your_email,
+            your_subject,
+            your_message,
+        }
+
+        addInstantQuoteData(obj);
+
+        notify();
+        setyour_name('')
+        setyour_email('')
+        setyour_subject('')
+        setyour_message('')
+
+        console.log(obj);
+
+
+    }
 
     useEffect(() => {
         localStorage.clear();
-        sessionStorage.clear();
+        localStorage.clear();
     })
 
     return (
         <>
             <Navbar />
+            <ToastContainer />
 
             <section className='services-hero-section'>
                 <div className="container">
@@ -212,27 +253,29 @@ function Services() {
                             <h2>Get An Instant Quote</h2>
                             <p>It's free & easy-- no obligations</p>
                         </div>
-                        <div className="form">
-                            <div className='mb-3'>
-                                <label className="form-label">YOUR NAME</label>
-                                <input type="text" className="form-control" placeholder="Enter your name" />
+                        <form action="" onSubmit={(e) => submitInstantQuoteForm(e)}>
+                            <div className="form">
+                                <div className='mb-3'>
+                                    <label className="form-label">YOUR NAME</label>
+                                    <input type="text" className="form-control" value={your_name} onChange={(e) => setyour_name(e.target.value)} placeholder="Enter your name" required />
+                                </div>
+                                <div className='mb-3'>
+                                    <label className="form-label">YOUR EMAIL</label>
+                                    <input type="email" className="form-control" value={your_email} onChange={(e) => setyour_email(e.target.value)} placeholder="Enter your email" required />
+                                </div>
+                                <div className='mb-3'>
+                                    <label className="form-label">SUBJECT</label>
+                                    <input type="text" className="form-control" value={your_subject} onChange={(e) => setyour_subject(e.target.value)} placeholder="Enter your subject" required />
+                                </div>
+                                <div className='mb-3'>
+                                    <label className="form-label">MESSAGE</label>
+                                    <textarea className="form-control" value={your_message} onChange={(e) => setyour_message(e.target.value)} placeholder='Type your message here...' rows="4" required></textarea>
+                                </div>
+                                <div className="button">
+                                    <button className='btn'>SEND MESSAGE</button>
+                                </div>
                             </div>
-                            <div className='mb-3'>
-                                <label className="form-label">YOUR EMAIL</label>
-                                <input type="email" className="form-control" placeholder="Enter your email" />
-                            </div>
-                            <div className='mb-3'>
-                                <label className="form-label">SUBJECT</label>
-                                <input type="text" className="form-control" placeholder="Enter your subject" />
-                            </div>
-                            <div className='mb-3'>
-                                <label className="form-label">MESSAGE</label>
-                                <textarea className="form-control" placeholder='Type your message here...' rows="4"></textarea>
-                            </div>
-                            <div className="button">
-                                <button className='btn'>SEND MESSAGE</button>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div >
             </section >

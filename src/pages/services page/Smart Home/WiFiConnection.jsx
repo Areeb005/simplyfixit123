@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../../../components/Navbar'
 import TextComponent from '../../../components/services components/TextComponent'
 
 function WiFiConnection() {
+    useEffect(() => {
+        localStorage.clear()
+    }, [])
+
+
     return (
         <>
             <Navbar />

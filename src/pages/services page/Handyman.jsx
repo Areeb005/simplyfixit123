@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from '../../components/Navbar'
 import { Link } from 'react-router-dom'
 import TextComponent from '../../components/services components/TextComponent'
 
 function Handyman() {
+    useEffect(() => {
+        localStorage.clear()
+    }, [])
+
+
     return (
         <>
 
