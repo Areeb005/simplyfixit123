@@ -59,15 +59,15 @@
 .navbar .navbar-brand {
   font-size: 30px;
   font-weight: bold;
-  color: var(--theme-yellow-color);
+  color: var(--theme-blue-color);
 }
 
 .navbar .navbar-brand:hover {
-  color: var(--theme-yellow-color);
+  color: var(--theme-blue-color);
 }
 
 .navbar .navbar-brand:focus {
-  color: var(--theme-yellow-color);
+  color: var(--theme-blue-color);
 }
 
 .navbar .nav-item {
@@ -109,8 +109,9 @@
 }
 
 .book_service_btn:hover {
-  background-color: var(--theme-blue-color);
-  color: var(--theme-yellow-color);
+  background-color: var(--theme-yellow-color);
+  color: var(--theme-blue-color);
+  transition: .9s;
 }
 
 .simpleSlider {
@@ -118,7 +119,7 @@
 }
 
 .simpleSlider .slide1 {
-  background-image: url(../src/assets/Homepage_Slider/Banner.png);
+  background-image: linear-gradient(to right, rgba(245, 246, 252, 0.3), #9B9B9B), url(../src/assets/Homepage_Slider/img\ 1.webp);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -127,7 +128,7 @@
 }
 
 .simpleSlider .slide2 {
-  background-image: url(../src/assets/Homepage_Slider/Banner.png);
+  background-image: linear-gradient(to right, rgba(245, 246, 252, 0.3), #9B9B9B), url(../src/assets/Homepage_Slider/img\ 2.webp);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -136,7 +137,7 @@
 }
 
 .simpleSlider .slide3 {
-  background-image: url(../src/assets/Homepage_Slider/Banner.png);
+  background-image: linear-gradient(to right, rgba(245, 246, 252, 0.3), #9B9B9B), url(../src/assets/Homepage_Slider/img\ 3.webp);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -145,7 +146,7 @@
 }
 
 .simpleSlider .slide4 {
-  background-image: url(../src/assets/Homepage_Slider/Banner.png);
+  background-image: linear-gradient(to right, rgba(245, 246, 252, 0.3), #9B9B9B), url(../src/assets/Homepage_Slider/img\ 4.webp);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -167,7 +168,7 @@
 }
 
 .hero-section .content .h1 h1 {
-  color: var(--theme-yellow-color);
+  color: var(--theme-blue-color);
   font-size: 38px;
   font-weight: 700;
   line-height: 50px;
@@ -188,7 +189,13 @@
   margin-top: 10px;
   font-size: 26px;
   border-radius: 20px;
-  box-shadow: 0px 6px 22px -2px #9B9B9B;
+  box-shadow: 0px 6px 6px -2px #9B9B9B;
+}
+
+.hero-section .book_btn:hover {
+  background-color: var(--theme-yellow-color);
+  color: var(--theme-blue-color);
+  transition: .9s;
 }
 
 /* ================================  S e c t i o n - 2 ================================== */
@@ -211,7 +218,7 @@
 }
 
 .section2 .s_tab {
-  padding: 20px;
+  padding: 40px 20px;
   margin-bottom: 2px;
   cursor: pointer;
   /* border: 1px solid #9B9B9B; */
@@ -238,56 +245,56 @@
   background-image: url(../src/assets/Services/Audio\ &\ Video.webp);
   background-size: cover;
   background-position: center;
-  height: 508px;
+  height: 415px;
 }
 
 .section2 .s_desc .s2 {
   background-image: url(../src/assets/Services/Computers\ &\ Printers.webp);
   background-size: cover;
   background-position: center;
-  height: 508px;
+  height: 415px;
 }
 
 .section2 .s_desc .s3 {
   background-image: url(../src/assets/Services/Fan\ &\ Light.webp);
   background-size: cover;
   background-position: center;
-  height: 508px;
+  height: 415px;
 }
 
 .section2 .s_desc .s4 {
   background-image: url(../src/assets/Services/Furniture.webp);
   background-size: cover;
   background-position: center;
-  height: 508px;
+  height: 415px;
 }
 
 .section2 .s_desc .s5 {
   background-image: url(../src/assets/Services/Home\ Security.webp);
   background-size: cover;
   background-position: center;
-  height: 508px;
+  height: 415px;
 }
 
 .section2 .s_desc .s6 {
   background-image: url(../src/assets/Services/Smart\ Home.webp);
   background-size: cover;
   background-position: center;
-  height: 508px;
+  height: 415px;
 }
 
 .section2 .s_desc .s7 {
   background-image: url(../src/assets/Services/TV\ mounting.webp);
   background-size: cover;
   background-position: center;
-  height: 508px;
+  height: 415px;
 }
 
 .section2 .s_desc .s8 {
   background-image: url(../src/assets/Services/Wifi\ &\ Network.webp);
   background-size: cover;
   background-position: center;
-  height: 508px;
+  height: 415px;
 }
 
 .section2 .s_desc .content {
@@ -386,7 +393,7 @@
   line-height: 2rem;
   text-align: justify;
   margin: 0;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .section3 .dotted-line {
@@ -433,7 +440,7 @@
 
 .section3 .dotted-line3 {
   position: absolute;
-  top: 81%;
+  top: 74%;
   right: 40%;
 }
 
@@ -444,7 +451,7 @@
 
 .section3 .dotted-line4 {
   position: absolute;
-  top: -18%;
+  top: -20%;
   left: 41%;
 }
 
@@ -573,6 +580,71 @@
   background-color: var(--theme-blue-color);
   color: var(--theme-yellow-color);
 }
+
+.section7 {
+  background-image: url(../src/assets/Testimonials/project\ main.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 100px 0px;
+  /* margin-top: 90px; */
+  /* margin-bottom: 90px; */
+  height: auto;
+}
+
+.section7 .test_form .form_head {
+  background-color: var(--theme-blue-color);
+  padding: 30px;
+}
+
+.section7 .test_form .form_head h1 {
+  color: var(--theme-yellow-color);
+  font-size: 26px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.section7 .test_form .form_head p {
+  color: var(--theme-yellow-color);
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.section7 .test_form {
+  background-color: white;
+  /* max-width: 600px; */
+  /* margin: auto; */
+}
+
+.section7 .test_form .form_body {
+  padding: 30px;
+}
+
+.section7 .test_form .form-label {
+  color: var(--theme-blue-color);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.section7 .test_form .form-control {
+  color: var(--theme-blue-color);
+  font-size: 14px;
+}
+
+.section7 .test_form .button {
+  text-align: center;
+}
+
+.section7 .test_form .btn {
+  background-color: var(--theme-blue-color);
+  color: var(--theme-yellow-color);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 35px;
+  border-radius: 30px;
+}
+
 
 /* ============================================================================================= */
 
@@ -821,6 +893,7 @@
 }
 
 .service_section2 {
+  margin-top: 90px;
   margin-bottom: 90px;
 }
 
@@ -835,19 +908,29 @@
 }
 
 .service_section2 .content p {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .service_section3 {
   margin-bottom: 90px;
 }
 
-.service_section3 .services_link {
+.service_section3 .container {
+  max-width: 75%;
+  min-width: 75%;
+}
+
+.services_link {
+  text-decoration: none;
+}
+
+.services_link:hover {
   text-decoration: none;
 }
 
 .service_section3 .card {
   border: none;
+  border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(180, 185, 209, 0.385216);
 }
 
@@ -862,6 +945,22 @@
 
 .service_section3 .card .card-body .card-text {
   color: var(--theme-blue-color);
+}
+
+.service_section3 .card .book_btn {
+  background-color: var(--theme-blue-color);
+  color: var(--theme-yellow-color);
+  padding: 12px 20px;
+  margin-top: 10px;
+  font-size: 18px;
+  border-radius: 16px;
+  box-shadow: 0px 6px 22px -2px #9B9B9B;
+}
+
+.service_section3 .card .book_btn:hover {
+  background-color: var(--theme-yellow-color);
+  color: var(--theme-blue-color);
+  transition: .9s;
 }
 
 .service_section3 .content h2 {
@@ -1182,7 +1281,8 @@
 .select_btn h6 {
   font-size: 18px;
   color: var(--theme-blue-color);
-  margin-right: 0.3rem;
+  text-align: left;
+  /* margin-right: 0.3rem; */
 }
 
 .select_btn small {
@@ -1440,9 +1540,20 @@
 
 /* CALENDAR */
 
-.calendar .heading{
+/* .calendar .container{
+  max-width: 85%;
+  min-width: 85%;
+} */
+
+.calendar .heading {
   color: var(--theme-blue-color);
   font-size: 26px;
+}
+
+.calendar .days {
+  max-width: 75%;
+  min-width: 75%;
+  margin: auto;
 }
 
 .calendar .days .date_btn {
@@ -1472,6 +1583,12 @@
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 0;
+}
+
+.calendar .time {
+  max-width: 50%;
+  min-width: 50%;
+  margin: auto;
 }
 
 .calendar .time .time_btn {
@@ -1517,22 +1634,61 @@
   margin: auto;
 }
 
+.hieght{
+  min-height: 50vh;
+  max-height: max-content;
+}
+
 
 .footer {
-  background-color: rgb(247, 247, 247);
+  background-color: var(--theme-blue-color);
+  color: var(--theme-yellow-color);
+  /* background-color: rgb(247, 247, 247); */
   margin-top: 100px;
-  /* position: absolute;
+  position: relative;
   bottom: 0;
-  width: 100%; */
+  width: 100%;
 }
 
 .footer p {
   text-align: center;
 }
 
+@media screen and (max-width: 1250px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0rem;
+    padding-left: 0rem;
+  }
+
+  .navbar .nav-item a {
+    font-size: 18px;
+  }
+
+  .calendar .days {
+    max-width: 85%;
+    min-width: 85%;
+    margin: auto;
+  }
+
+  .calendar .time {
+    max-width: 60%;
+    min-width: 63%;
+    margin: auto;
+  }
+}
+
 @media screen and (max-width: 1200px) {
+  .navbar .navbar-brand {
+    font-size: 26px;
+    font-weight: bold;
+  }
+
   .navbar .nav-item a {
     font-size: 16px;
+  }
+
+  .book_service_btn {
+    padding: 10px 14px;
   }
 
   .section2 .container {
@@ -1557,6 +1713,32 @@
     width: 300px;
     margin: auto;
     margin-bottom: 1.5rem;
+  }
+
+  .calendar .days {
+    max-width: 100%;
+    min-width: 100%;
+    margin: auto;
+  }
+
+  .calendar .time {
+    max-width: 75%;
+    min-width: 75%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .navbar .navbar-brand {
+    font-size: 26px;
+  }
+
+  .navbar .nav-item {
+    padding: 0px 4px;
+  }
+
+  .navbar .nav-item a {
+    font-size: 15px;
   }
 }
 
@@ -1633,6 +1815,16 @@
     max-width: 85%;
     min-width: 85%;
   }
+
+  .calendar .days_col {
+    margin-bottom: 1.5rem;
+  }
+
+  .calendar .time {
+    max-width: 95%;
+    min-width: 95%;
+    margin: auto;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1687,6 +1879,11 @@
     min-width: 95%;
   }
 
+  .service_section3 .container {
+    max-width: 95%;
+    min-width: 95%;
+  }
+
   .service_section4 .content h1 {
     font-size: 50px;
     margin-bottom: 2rem;
@@ -1720,6 +1917,22 @@
   .test_section3 .container {
     max-width: 95%;
     min-width: 95%;
+  }
+
+  .calendar .days .date_btn {
+    height: 60px;
+    width: 60px;
+    font-size: 12px;
+  }
+
+  .calendar .time {
+    max-width: 100%;
+    min-width: 100%;
+    margin: auto;
+  }
+
+  .calendar .time .time_col {
+    margin: auto 1rem 1rem 1rem !important;
   }
 }
 
@@ -1801,6 +2014,22 @@
   .test_section3 .card .content {
     padding: 52px;
   }
+
+  .calendar .time .time_btn {
+    height: 45px;
+    width: 100px;
+    font-size: 13px;
+  }
+
+  .calendar .time .active {
+    height: 45px;
+    width: 100px;
+    font-size: 13px;
+  }
+
+  .calendar .time .time_col {
+    margin: auto 1rem 1rem 1rem !important;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -1841,9 +2070,30 @@
     margin: auto;
     margin-bottom: 1.5rem;
   }
+
+  .calendar .days_col {
+    margin-bottom: 1.5rem;
+  }
+
+  .calendar .time .time_col {
+    margin: auto 0rem 1rem 0rem !important;
+  }
 }
 
 @media screen and (max-width: 450px) {
+  .e-heading {
+    font-size: 24px;
+    max-width: 500px;
+    margin: auto;
+  }
+
+  .select_btn {
+    max-width: 300px;
+    min-width: 300px;
+    margin: auto;
+    padding: 10px 20px;
+  }
+
   .cart-section .card-body h5 {
     font-size: 16px;
   }
@@ -1905,6 +2155,71 @@
   .cart-section .card-body .mobile-card p {
     font-size: 12px;
   }
+
+  .e-heading {
+    font-size: 22px;
+    max-width: 500px;
+    margin: auto;
+  }
+
+  .select_btn {
+    max-width: 290px;
+    min-width: 290px;
+    margin: auto;
+    padding: 10px 20px;
+  }
+
+  .calendar .days .days_row {
+    justify-content: space-around;
+  }
+
+  .calendar .time .time_row {
+    justify-content: space-around;
+  }
+
+  .calendar .days .days_col {
+    height: 50px;
+    width: 70px;
+    font-size: 12px;
+  }
+
+  .calendar .time .time_col {
+    height: 50px;
+    width: 115px;
+    font-size: 12px;
+  }
+
+  .calendar .days .date_btn {
+    height: 50px;
+    width: 50px;
+    font-size: 12px;
+  }
+
+  .calendar .days .active {
+    height: 50px;
+    width: 50px;
+    font-size: 12px;
+  }
+
+  .calendar .time .time_btn {
+    height: 50px;
+    width: 100px;
+    font-size: 12px;
+  }
+
+  .calendar .time .active {
+    height: 50px;
+    width: 100px;
+    font-size: 12px;
+  }
+
+  .calendar .date_btn p {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+
+
 }
 
 @media screen and (max-width: 350px) {
@@ -1932,6 +2247,56 @@
 
   .test_section2 .test_form .form_body {
     padding: 20px;
+  }
+
+  .calendar .days .days_row {
+    justify-content: space-around;
+  }
+
+  .calendar .time .time_row {
+    justify-content: space-around;
+  }
+
+  .calendar .days .days_col {
+    height: 40px;
+    width: 50px;
+    font-size: 12px;
+  }
+
+  .calendar .time .time_col {
+    height: 50px;
+    width: 120px;
+    font-size: 12px;
+  }
+
+  .calendar .days .date_btn {
+    height: 50px;
+    width: 50px;
+    font-size: 12px;
+  }
+
+  .calendar .days .active {
+    height: 50px;
+    width: 50px;
+    font-size: 12px;
+  }
+
+  .calendar .time .time_btn {
+    height: 50px;
+    width: 100px;
+    font-size: 12px;
+  }
+
+  .calendar .time .active {
+    height: 50px;
+    width: 100px;
+    font-size: 12px;
+  }
+
+  .calendar .date_btn p {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 0;
   }
 }
 
@@ -1961,6 +2326,10 @@
   .test_section3 .card .content {
     padding: 35px;
   }
+
+  .e-heading {
+    font-size: 20px;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -1986,5 +2355,12 @@
   .test_section3 .card .content h2 {
     font-size: 22px;
     margin-bottom: 2rem;
+  }
+
+  .select_btn {
+    max-width: 270px;
+    min-width: 270px;
+    margin: auto;
+    padding: 7px 15px;
   }
 }

@@ -3,7 +3,7 @@ import React from 'react'
 
 // import tv_size from "../../assets/Services/bracket_fixed.svg"
 
-function TextComponent({onClick, text, size, image, desc}) {
+function TextComponent({onClick, text, size, image, desc, price}) {
     return (
         <>
             {/* <Navbar /> */}
@@ -14,7 +14,10 @@ function TextComponent({onClick, text, size, image, desc}) {
                         <div className='d-flex'>
                             <h6 className='mb-0'>{text}</h6>
                             <small>{size}</small>
-                            {/* <p className='mb-0'>+($279)</p> */}
+                            {
+                                <p className={`mb-0 ${!price && 'd-none'}`}>+(${price})</p>
+
+                            }
                         </div>
                         <div>{
                                 image && alert('abc')

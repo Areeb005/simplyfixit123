@@ -242,7 +242,7 @@ const TvMounting = () => {
 
         <Navbar />
 
-        <section className='my-5'>
+        <section className='hieght my-5'>
             <div className='container'>
                 <div className="row">
                     <div className="col-md-8">

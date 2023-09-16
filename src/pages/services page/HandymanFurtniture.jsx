@@ -108,7 +108,7 @@ function HandymanFurniture() {
 
         <Navbar />
 
-        <section className='my-5'>
+        <section className='hieght my-5'>
             <div className='container'>
                 {
                     Furniture.map((e, i) => {

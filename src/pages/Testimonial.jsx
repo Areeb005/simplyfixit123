@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 
 import testimonial_1 from "../assets/Testimonials/img 1.webp"
@@ -10,6 +11,7 @@ import appliances from "../assets/appliances.jpg"
 function Testimonial() {
 
     useEffect(() => {
+        sessionStorage.clear();
         localStorage.clear();
     })
 
@@ -130,7 +132,9 @@ function Testimonial() {
                             <div className="col-md-4">
                                 <div className="content">
                                     <h2>Ready to book your service?</h2>
-                                    <button className='btn'>Get Started</button>
+                                    <Link to="/services">
+                                        <button className='btn'>Get Started</button>
+                                    </Link>
                                 </div>
                             </div>
                             <div className="col-md-8 image_col">

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { TypeAnimation } from 'react-type-animation'
+import { BsArrowRight } from 'react-icons/bs'
+
 import Navbar from '../components/Navbar'
 
-import image from "../assets/cnbc.svg"
-import homeImage from "../assets/home.svg"
-import s_image from "../assets/plans.png"
-import Services from '../components/Slider/Services'
 import Reviews from '../components/Slider/Reviews'
 import BookAserviceBtn from '../components/BookAserviceBtn'
 
@@ -18,9 +18,6 @@ import img_5 from "../assets/Clients/img 5.webp"
 import SimpleSlider from '../components/Slider/Slider'
 
 import TV from "../assets/Services/TV mounting.webp"
-import { Link } from 'react-router-dom'
-import { TypeAnimation } from 'react-type-animation'
-import { BsArrowRight } from 'react-icons/bs'
 
 function Homepage() {
 
@@ -28,6 +25,8 @@ function Homepage() {
 
     useEffect(() => {
         localStorage.clear();
+        sessionStorage.clear();
+
     })
 
     return (
@@ -47,22 +46,14 @@ function Homepage() {
                                     <TypeAnimation
                                         sequence={[
                                             // Same substring at the start will only be typed out once, initially
-                                            'Elevate Your Home with Our Expertise in Audio & Video',
+                                            'Elevate Your Home with Our Expertise in TV Mounting',
                                             1000, // wait 1s before replacing "Mice" with "Hamsters"
-                                            'Elevate Your Home with Our Expertise in Computers & Printers',
+                                            'Elevate Your Home with Our Expertise in Handyman Services',
                                             1000,
-                                            'Elevate Your Home with Our Expertise in Fan & Light',
+                                            'Elevate Your Home with Our Expertise in Fan and light installation',
                                             1000,
-                                            'Elevate Your Home with Our Expertise in Furniture',
+                                            'Elevate Your Home with Our Expertise in Smart Home installation',
                                             1000,
-                                            'Elevate Your Home with Our Expertise in Home Security',
-                                            1000,
-                                            'Elevate Your Home with Our Expertise in Smart home installation',
-                                            1000,
-                                            'Elevate Your Home with Our Expertise in TV mounting',
-                                            1000,
-                                            'Elevate Your Home with Our Expertise in Wifi & Network',
-                                            1000
                                         ]}
                                         wrapper="h1"
                                         speed={30}
@@ -93,28 +84,16 @@ function Homepage() {
                             <div className="services">
                                 <div className="s_card">
                                     <div className="s_tab" onClick={() => setServices(1)}>
-                                        <h4>Audio & Video</h4>
+                                        <h4>TV mounting</h4>
                                     </div>
                                     <div className="s_tab" onClick={() => setServices(2)}>
-                                        <h4>Computers & Printers</h4>
+                                        <h4>Handyman Services</h4>
                                     </div>
                                     <div className="s_tab" onClick={() => setServices(3)}>
                                         <h4>Fan & Light</h4>
                                     </div>
                                     <div className="s_tab" onClick={() => setServices(4)}>
-                                        <h4>Furniture</h4>
-                                    </div>
-                                    <div className="s_tab" onClick={() => setServices(5)}>
-                                        <h4>Home Security</h4>
-                                    </div>
-                                    <div className="s_tab" onClick={() => setServices(6)}>
                                         <h4>Smart home installation</h4>
-                                    </div>
-                                    <div className="s_tab" onClick={() => setServices(7)}>
-                                        <h4>TV mounting</h4>
-                                    </div>
-                                    <div className="s_tab" onClick={() => setServices(8)}>
-                                        <h4>Wifi & Network</h4>
                                     </div>
                                 </div>
                             </div>
@@ -123,22 +102,22 @@ function Homepage() {
                             <div className="s_desc">
                                 {
                                     services === 1 &&
-                                    <div className="s1">
+                                    <div className="s7">
                                         <div className="content">
-                                            <h4>Audio & Video</h4>
+                                            <h4>TV mounting</h4>
                                             <Link to="/services" className='read-more'>
-                                                Read More <BsArrowRight className='mb-1' />
+                                                Book a Service <BsArrowRight className='mb-1' />
                                             </Link>
                                         </div>
                                     </div>
                                 }
                                 {
                                     services === 2 &&
-                                    <div className="s2">
+                                    <div className="s4">
                                         <div className="content">
-                                            <h4>Computers & Printers</h4>
+                                            <h4>Handyman Services</h4>
                                             <Link to="/services" className='read-more'>
-                                                Read More <BsArrowRight className='mb-1' />
+                                                Book a Service <BsArrowRight className='mb-1' />
                                             </Link>
                                         </div>
                                     </div>
@@ -149,66 +128,23 @@ function Homepage() {
                                         <div className="content">
                                             <h4>Fan & Light</h4>
                                             <Link to="/services" className='read-more'>
-                                                Read More <BsArrowRight className='mb-1' />
+                                                Book a Service <BsArrowRight className='mb-1' />
                                             </Link>
                                         </div>
                                     </div>
                                 }
                                 {
                                     services === 4 &&
-                                    <div className="s4">
-                                        <div className="content">
-                                            <h4>Furniture</h4>
-                                            <Link to="/services" className='read-more'>
-                                                Read More <BsArrowRight className='mb-1' />
-                                            </Link>
-                                        </div>
-                                    </div>
-                                }
-                                {
-                                    services === 5 &&
-                                    <div className="s5">
-                                        <div className="content">
-                                            <h4>Home Security</h4>
-                                            <Link to="/services" className='read-more'>
-                                                Read More <BsArrowRight className='mb-1' />
-                                            </Link>
-                                        </div>
-                                    </div>
-                                }
-                                {
-                                    services === 6 &&
                                     <div className="s6">
                                         <div className="content">
-                                            <h4>Smart Home</h4>
+                                            <h4>Smart Home Installation</h4>
                                             <Link to="/services" className='read-more'>
-                                                Read More <BsArrowRight className='mb-1' />
+                                                Book a Service <BsArrowRight className='mb-1' />
                                             </Link>
                                         </div>
                                     </div>
                                 }
-                                {
-                                    services === 7 &&
-                                    <div className="s7">
-                                        <div className="content">
-                                            <h4>TV mounting</h4>
-                                            <Link to="/services" className='read-more'>
-                                                Read More <BsArrowRight className='mb-1' />
-                                            </Link>
-                                        </div>
-                                    </div>
-                                }
-                                {
-                                    services === 8 &&
-                                    <div className="s8">
-                                        <div className="content">
-                                            <h4>Wifi & Network</h4>
-                                            <Link to="/services" className='read-more'>
-                                                Read More <BsArrowRight className='mb-1' />
-                                            </Link>
-                                        </div>
-                                    </div>
-                                }
+
                             </div>
                         </div>
                     </div>
@@ -227,30 +163,30 @@ function Homepage() {
                         <div className="col-lg-4 col-md-12 col-sm-12 col-12 col-row-1 mb-5">
                             <div className="card">
                                 <div className='d-flex justify-content-between'>
-                                    <h4 className="text-light">Initial Consultation</h4>
+                                    <h4 className="text-light">Service Selection</h4>
                                     <span className='s-num'>1</span>
                                 </div>
-                                <p className="paar">We start by understanding the requirements and goals of your business. This helps us in developing a customized plan for your project.</p>
+                                <p className="paar">Begin by selecting the service you require from our range of offerings</p>
                             </div>
                         </div>
 
                         <div className="col-lg-4 col-md-12 col-sm-12 col-12 col-row-1 mb-5">
                             <div className="card">
                                 <div className='d-flex justify-content-between'>
-                                    <h4 className="text-light">Project Planning</h4>
+                                    <h4 className="text-light">Appointment Scheduling</h4>
                                     <span className='s-num'>2</span>
                                 </div>
-                                <p className="paar">A comprehensive project strategy containing important milestones and deliverables will be developed by our team. We'll collaborate with you to make sure the strategy satisfies your needs.</p>
+                                <p className="paar">Choose a date and time that aligns with your schedule for the service to take place.</p>
                             </div>
                         </div>
 
                         <div className="col-lg-4 col-md-12 col-sm-12 col-12 col-row-1 mb-5">
                             <div className="card">
                                 <div className='d-flex justify-content-between'>
-                                    <h4 className="text-light">Design and Development</h4>
+                                    <h4 className="text-light">Online Payment</h4>
                                     <span className='s-num'>3</span>
                                 </div>
-                                <p className="paar">Our experienced team will work on the design and development of your project. Throughout the entire process, we will keep you updated and ask for feedback on various stages.</p>
+                                <p className="paar">Make a secure online payment using your preferred payment method. We offer a hassle-free payment process.</p>
                             </div>
 
                             <div className="dotted-line3">
@@ -268,10 +204,10 @@ function Homepage() {
                         <div className="col-lg-4 col-md-12 col-sm-12 col-12 col-row-2 mt-5">
                             <div className="card">
                                 <div className='d-flex justify-content-between'>
-                                    <h4 className="text-light">Deployment</h4>
+                                    <h4 className="text-light">Technician Assignment</h4>
                                     <span className='s-num'>4</span>
                                 </div>
-                                <p className="paar">To ensure that your project satisfies the highest levels of quality, we conduct thorough testing. In order to make sure the project complies with your criteria, we also conduct user acceptance testing.</p>
+                                <p className="paar">Once your appointment is confirmed, we'll promptly assign a qualified technician to your service request.</p>
                             </div>
 
                             <div className="dotted-line4">
@@ -285,20 +221,21 @@ function Homepage() {
                         <div className="col-lg-4 col-md-12 col-sm-12 col-12 mt-5">
                             <div className="card">
                                 <div className='d-flex justify-content-between'>
-                                    <h4 className="text-light">Quality Assurance</h4>
+                                    <h4 className="text-light">Expert Service at Your Doorstep</h4>
                                     <span className='s-num'>5</span>
                                 </div>
-                                <p className="paar">We will deploy the project to your server after it has been tested and approved. To make sure the deployment process is smooth and easy, we will collaborate with you.</p>
+                                <p className="paar">On the appointed day and time, our skilled technician will arrive at your location. They will arrive equipped with all necessary tools and materials to efficiently perform the service.</p>
                             </div>
                         </div>
 
                         <div className="col-lg-4 col-md-12 col-sm-12 col-12 mt-5">
                             <div className="card">
                                 <div className='d-flex justify-content-between'>
-                                    <h4 className="text-light">Maintenance and Support</h4>
+                                    <h4 className="text-light">Satisfaction Guaranteed</h4>
                                     <span className='s-num'>6</span>
                                 </div>
-                                <p className="paar">We provide continuous support and maintenance services to make sure your project is successful. Any questions or complaints can be addressed at any time by our team.</p>
+                                <p className="paar">Rest assured that our technicians are highly trained and background-checked professionals.</p>
+                                <p className="paar mt-0">We take pride in delivering high-quality service and ensuring your complete satisfaction.</p>
                             </div>
                         </div>
                     </div>
@@ -353,6 +290,136 @@ function Homepage() {
                         <div className="col-md-2 col-sm-6">
                             <img src={img_5} alt="image" className='img-fluid' />
                         </div>
+                    </div>
+                </div>
+            </section >
+
+            {/* =========================== T E C H - S E C T I O N =========================== */}
+
+            <section className='section7' id='tech'>
+                <div className="container">
+                    <div className="row">
+
+                        <div className="col-lg-6 col-md-8 col-12">
+                            <div className="test_form">
+                                <div className="form_head">
+                                    <h1>Become A Tech</h1>
+                                    <p>How Did We Do?</p>
+                                </div>
+                                <div className="form_body">
+                                    <div className="row">
+                                        <div className='col-md-6 col-12 mb-3'>
+                                            <div>
+                                                <label className="form-label">First Name</label>
+                                                <input type="text" className="form-control" placeholder="Enter your first name" />
+                                            </div>
+                                        </div>
+                                        <div className='col-md-6 col-12 mb-3'>
+                                            <div>
+                                                <label className="form-label">Last Name</label>
+                                                <input type="email" className="form-control" placeholder="Enter your last name" />
+                                            </div>
+                                        </div>
+                                        <div className='col-md-6 col-12 mb-3'>
+                                            <div>
+                                                <label className="form-label">Email</label>
+                                                <input type="email" className="form-control" placeholder="Enter your email" />
+                                            </div>
+                                        </div>
+                                        <div className='col-md-6 col-12 mb-3'>
+                                            <div>
+                                                <label className="form-label">Phone</label>
+                                                <input type="text" className="form-control" placeholder="Enter your phone" />
+                                            </div>
+                                        </div>
+                                        <div className='col-md-12 col-12 mb-3'>
+                                            <div>
+                                                <label className="form-label">Address</label>
+                                                <input type="text" className="form-control" placeholder="Enter your phone" />
+                                            </div>
+                                        </div>
+                                        <div className='col-md-12 col-12 mb-3'>
+                                            <div>
+                                                <label className="form-label">What city do you wish to work in</label>
+                                                <input type="text" className="form-control" placeholder="Enter your phone" />
+                                            </div>
+                                        </div>
+
+                                        <label className="form-label">Do you have your own mode of transportation?</label>
+                                        <div className="col-md-6 col-sm-6 col-6 mb-3">
+                                            <div className="form-check">
+                                                <input className="form-check-input" type="radio" name="flexRadioDefault" checked />
+                                                <label className="form-check-label">
+                                                    Yes
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div className="col-md-6 col-sm-6 col-6 mb-3">
+                                            <div className="form-check">
+                                                <input className="form-check-input" type="radio" name="flexRadioDefault" />
+                                                <label className="form-check-label" >
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <label className="form-label">Do you have liability insurance coverage as a service provider?</label>
+                                        <div className="col-md-6 col-sm-6 col-6 mb-3">
+                                            <div className="form-check">
+                                                <input className="form-check-input" type="radio" name="flexRadioDefault1" checked />
+                                                <label className="form-check-label">
+                                                    Yes
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div className="col-md-6 col-sm-6 col-6 mb-3">
+                                            <div className="form-check">
+                                                <input className="form-check-input" type="radio" name="flexRadioDefault1" />
+                                                <label className="form-check-label" >
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <label className="form-label">Do you own a company with more than 2 technicians?</label>
+                                        <div className="col-md-6 col-sm-6 col-6 mb-3">
+                                            <div className="form-check">
+                                                <input className="form-check-input" type="radio" name="flexRadioDefault2" checked />
+                                                <label className="form-check-label">
+                                                    Yes
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div className="col-md-6 col-sm-6 col-6 mb-3">
+                                            <div className="form-check">
+                                                <input className="form-check-input" type="radio" name="flexRadioDefault2" />
+                                                <label className="form-check-label" >
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div className="col-md-12 mb-5">
+                                            <label className="form-label">Select your amount of experience</label>
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected disabled value="Select...">Select...</option>
+                                                <option value="1">No Experience</option>
+                                                <option value="2">6 Months</option>
+                                                <option value="3">1 - 2 Years</option>
+                                            </select>
+                                        </div>
+
+
+                                        <div className="button">
+                                            <button className='btn submit_btn'>Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-lg-6 col-md-4"></div>
+
                     </div>
                 </div>
             </section >

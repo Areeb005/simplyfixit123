@@ -3,13 +3,13 @@ import usePersistedState from 'use-persisted-state-hook'
 
 
 function ImageUploadComponent({ onChange, img }) {
-    const [FanInstallationPics, setFanInstallationPics] = usePersistedState('FanInstallationPics', '')
+    // const [FanInstallationPics, setFanInstallationPics] = usePersistedState('FanInstallationPics', '')
     const [abc, setabc] = useState(null)
 
-    useEffect(() => {
-        setabc('image Uploaded')
-    }, [FanInstallationPics])
-
+    // useEffect(() => {
+    // setabc('image Uploaded')
+    // }, [FanInstallationPics])
+     
     return (
         <>
             <section className='imgUploadComp my-5'>

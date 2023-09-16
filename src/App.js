@@ -1,14 +1,21 @@
-import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Homepage from './pages/Homepage';
 import Services from './pages/Services';
 import Testimonial from './pages/Testimonial';
 import Cart from './pages/Cart';
+
 import TvMounting from './pages/services page/TvMounting';
+
+import FanLight from './pages/services page/FanLight';
 import FanInstallation from './pages/services page/FanInstallation';
 import LightFixtureInstalltion from './pages/services page/LightFixtureInstalltion';
+
+import Handyman from './pages/services page/Handyman';
 import HandymanFurniture from './pages/services page/HandymanFurtniture';
 import HandymanWallhanging from './pages/services page/HandymanWallhanging';
 import ApplianceInstallation from './pages/services page/ApplianceInstallation';
@@ -17,10 +24,17 @@ import HandymanStoveInstallation from './pages/services page/HandymanStoveInstal
 import HandymanOvenInstallation from './pages/services page/HandyManOvenInstallation';
 import HandyManRefrigiratorInstallation from './pages/services page/HandyManRefrigiratorInstallation';
 
+import SmartHome from './pages/services page/Smart Home/SmartHome';
+import SmartHomeSecurityCamera from './pages/services page/Smart Home/SmartHomeSecurityCamera';
+import SmartHomeVideoDoorbell from './pages/services page/Smart Home/SmartHomeVideoDoorbell';
+import SmartHomeThermostat from './pages/services page/Smart Home/SmartHomeThermostat';
+import SmartHomeHubOrSpeaker from './pages/services page/Smart Home/SmartHomeHubOrSpeaker';
+import SmartHomeSmartDoorLock from './pages/services page/Smart Home/SmartHomeSmartDoorLock';
+import SmartHomeSmartGarage from './pages/services page/Smart Home/SmartHomeSmartGarage';
+import WiFiConnection from './pages/services page/Smart Home/WiFiConnection';
+import SmartHomeWifiConnectionSetup from './pages/services page/Smart Home/SmartHomeWifiConnectionSetup';
+import SmartHomeSingleExtensionSetup from './pages/services page/Smart Home/SmartHomeSingleExtensionSetup';
 
-
-
-import { useEffect, useState } from 'react';
 import StripeCheckoutForm from "./components/payment/StripeCheckoutForm"
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
@@ -67,22 +81,35 @@ function App() {
       {console.log("secret")}
       {console.log(secret)}
 
-
-
       <Routes>
         <Route exact path="/" element={<Homepage />} />
         <Route exact path="/services" element={<Services />} />
 
         <Route exact path="/services/tv-mounting" element={<TvMounting />} />
-        <Route exact path={`/services/fan-installation`} element={<FanInstallation />} />
+
+        <Route exact path="/services/handyman" element={<Handyman />} />
+        <Route exact path={`/services/handyman/furniture`} element={<HandymanFurniture />} />
+        <Route exact path={`/services/handyman/wallhanging`} element={<HandymanWallhanging />} />
+        <Route exact path={`/services/handyman/appliance-installation`} element={<ApplianceInstallation />} />
+        <Route exact path={`/services/handyman/washer-dryer-installation`} element={<HandymanWasherDryer />} />
+        <Route exact path={`/services/handyman/stove-installation`} element={<HandymanStoveInstallation />} />
+        <Route exact path={`/services/handyman/oven-installation`} element={<HandymanOvenInstallation />} />
+        <Route exact path={`/services/handyman/refrigirator-installation`} element={<HandyManRefrigiratorInstallation />} />
+
+        <Route exact path={`/services/fan-light`} element={<FanLight />} />
+        <Route exact path={`/services/fan-fixture-installation`} element={<FanInstallation />} />
         <Route exact path={`/services/light-fixture-installtion`} element={<LightFixtureInstalltion />} />
-        <Route exact path={`/services/handyman-furniture`} element={<HandymanFurniture />} />
-        <Route exact path={`/services/handyman-wallhanging`} element={<HandymanWallhanging />} />
-        <Route exact path={`/services/handyman-appliance-installation`} element={<ApplianceInstallation />} />
-        <Route exact path={`/services/handyman-washer-dryer`} element={<HandymanWasherDryer />} />
-        <Route exact path={`/services/handyman-stove-installation`} element={<HandymanStoveInstallation />} />
-        <Route exact path={`/services/handyman-oven-installation`} element={<HandymanOvenInstallation />} />
-        <Route exact path={`/services/handyman-refrigirator-installation`} element={<HandyManRefrigiratorInstallation />} />
+
+        <Route exact path={`/services/smart-home`} element={<SmartHome />} />
+        <Route exact path={`/services/smart-home-installation-security-camera`} element={<SmartHomeSecurityCamera />} />
+        <Route exact path={`/services/smart-home-installation-video-doorbell`} element={<SmartHomeVideoDoorbell />} />
+        <Route exact path={`/services/smart-home-installation-thermostat`} element={<SmartHomeThermostat />} />
+        <Route exact path={`/services/smart-home-installation-smart-hub-or-speaker`} element={<SmartHomeHubOrSpeaker />} />
+        <Route exact path={`/services/smart-home-installation-smart-door-lock`} element={<SmartHomeSmartDoorLock />} />
+        <Route exact path={`/services/smart-home-installation-smart-garage`} element={<SmartHomeSmartGarage />} />
+        <Route exact path={`/services/smart-home-installation/wifi-connection`} element={<WiFiConnection />} />
+        <Route exact path={`/services/smart-home-installation-wifi-connection-setup`} element={<SmartHomeWifiConnectionSetup />} />
+        <Route exact path={`/services/smart-home-installation-single-extension-setup`} element={<SmartHomeSingleExtensionSetup />} />
 
         <Route exact path="/testimonial" element={<Testimonial />} />
         <Route exact path="/cart" element={<Cart />} />

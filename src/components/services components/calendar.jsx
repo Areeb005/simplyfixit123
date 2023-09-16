@@ -1,5 +1,6 @@
 import React from 'react'
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import usePersistedState from 'use-persisted-state-hook'
 
 
@@ -66,7 +67,7 @@ const Calendar = () => {
     const nextTenDays = () => {
         const _date = new Date();
         let calendar = []
-        for (let index = 0; index <= 10; index++) {
+        for (let index = 0; index <= 9; index++) {
             let day = _date.getDate()
             let month = _date.getMonth() + 1
             let year = _date.getFullYear()
@@ -177,10 +178,10 @@ const Calendar = () => {
                 <div className="container">
                     <h4 className='heading text-center mb-5'>Select an arrival time and date that suits you</h4>
                     <div className="days">
-                        <div className="row d-flex jc-center mb-5">
+                        <div className="row d-flex jc-center text-center mb-5 days_row">
                             {
                                 (data).map((thisDate) => {
-                                    return <div key={thisDate.date} className="col-1">
+                                    return <div key={thisDate.date} className="col-lg-1 col-md-2 col-sm-2 col-2 days_col">
                                         <button type='button' className={`btn ${SelectedDate == thisDate ? 'active' : 'date_btn'}`} onClick={() => { setSelectedDate(thisDate) }}>
                                             {/* <small>Thu</small> */}
                                             <p className='mb-0'>{thisDate.date == undefined ? '' : showDate(thisDate.date)}</p>
@@ -193,11 +194,11 @@ const Calendar = () => {
                     </div>
 
                     <div className="time">
-                        <div className="row d-flex jc-center mb-4">
+                        <div className="row d-flex jc-center text-center mb-4 time_row">
                             {
                                 SelectedDate &&
                                 (SelectedDate.slots).map((e, i) => {
-                                    return <div key={e.time} className="col-1 me-5">
+                                    return <div key={e.time} className="col-lg-2 col-md-2 col-sm-2 col-4 me-4 mb-4 time_col">
                                         <button type='button' disabled={e.bookes} onClick={() => setSelectedTimeSlot(e)} className={`btn ${SelectedTimeSlot == e ? 'active' : 'time_btn'}`}>{e.time}</button>
                                     </div>
                                 })
@@ -206,7 +207,9 @@ const Calendar = () => {
                     </div>
 
                     <div className="button d-flex jc-center">
-                        <button className='btn continue_btn'>Schedule It</button>
+                        <Link to="/cart" style={{textDecoration: "none"}}>
+                            <button className='btn continue_btn'>Schedule It</button>
+                        </Link>
                     </div>
                 </div>
             </section>

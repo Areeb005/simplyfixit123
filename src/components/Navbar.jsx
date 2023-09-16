@@ -40,18 +40,21 @@ function Navbar() {
                                 <Link className="nav-link" to="/testimonial">Testimonials</Link>
                             </li>
                             <li className="nav-item active">
-                                <a className="nav-link" href="#contact">Contact Us</a>
+                                <a className="nav-link" href="/#tech">Become a Tech</a>
                             </li>
-                            <li className="nav-item active mob-cart">
+                            <li className="nav-item active">
+                                <a className="nav-link" href="/#contact">Contact Us</a>
+                            </li>
+                            {/* <li className="nav-item active mob-cart">
                                 <Link className="nav-link" to="/cart"><BsCart3 className='cart-icon' /></Link>
-                            </li>
+                            </li> */}
 
                         </ul>
                     </div>
 
-                    <div className="nav-item desk-cart">
+                    {/* <div className="nav-item desk-cart">
                         <Link className="nav-link" to="/cart"><BsCart3 className='cart-icon' /></Link>
-                    </div>
+                    </div> */}
 
                     <div className='button'>
                         <Link to="/services">

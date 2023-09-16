@@ -20,6 +20,7 @@ function Services() {
 
     useEffect(() => {
         localStorage.clear();
+        sessionStorage.clear();
     })
 
     return (
@@ -36,7 +37,7 @@ function Services() {
                 </div>
             </section>
 
-            <section className='service_section1'>
+            {/* <section className='service_section1'>
                 <div className="container">
                     <div className="row d-flex ai-center">
                         <div className="col-lg-6 col-md-4 col-sm-12 marginBottom">
@@ -75,7 +76,7 @@ function Services() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             <section className='service_section2'>
                 <div className="container">
@@ -83,29 +84,29 @@ function Services() {
                         <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
                             <div className="content">
                                 <img src={booking} alt="image" className='img-fluid' />
-                                <h3>Simple booking</h3>
-                                <p>Request an appointment in minutes</p>
+                                <h3>Quality Service</h3>
+                                <p>Expert repairs and installations for TV mounting, Smart Home, Fan and Light repair, and Handyman services.</p>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
                             <div className="content">
                                 <img src={booking} alt="image" className='img-fluid' />
-                                <h3>Simple booking</h3>
-                                <p>Request an appointment in minutes</p>
+                                <h3>Easy Scheduling</h3>
+                                <p>Seamlessly book appointments online at your convenience.</p>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
                             <div className="content">
                                 <img src={booking} alt="image" className='img-fluid' />
-                                <h3>Simple booking</h3>
-                                <p>Request an appointment in minutes</p>
+                                <h3>Professional Team</h3>
+                                <p>Highly skilled technicians dedicated to providing top-tier service.</p>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
                             <div className="content">
                                 <img src={booking} alt="image" className='img-fluid' />
-                                <h3>Simple booking</h3>
-                                <p>Request an appointment in minutes</p>
+                                <h3>24-Hour Support</h3>
+                                <p>Round-the-clock assistance to address all your service needs.</p>
                             </div>
                         </div>
                     </div>
@@ -115,170 +116,61 @@ function Services() {
             <section className='service_section3'>
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
-                            <Link to="/services/1" className='services_link'>
-                                <div className="card h-100">
-                                    <img className="img-fluid" src={service1} alt="image" />
-                                    <div className="card-body">
-                                        <h5 className="card-title">Audio & Video</h5>
-                                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
-                            <Link to="/services/2" className='services_link'>
-                                <div className="card h-100">
-                                    <img className="img-fluid" src={service2} alt="image" />
-                                    <div className="card-body">
-                                        <h5 className="card-title">Computers & Printers</h5>
-                                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
-                            <Link to={`/services/fan-installation`} className='services_link'>
-                                <div className="card h-100">
-                                    <img className="img-fluid" src={service3} alt="image" />
-                                    <div className="card-body">
-                                        <h5 className="card-title">Fan & Light</h5>
-                                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
-                            <Link to={`/services/light-fixture-installtion`} className='services_link'>
-                                <div className="card h-100">
-                                    <img className="img-fluid" src={service3} alt="image" />
-                                    <div className="card-body">
-                                        <h5 className="card-title">Light Fixture</h5>
-                                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
-                            <Link to="/services/handyman-furniture" className='services_link'>
-                                <div className="card h-100">
-                                    <img className="img-fluid" src={service4} alt="image" />
-                                    <div className="card-body">
-                                        <h5 className="card-title">Furniture</h5>
-                                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
-                            <Link to="/services/handyman-wallhanging" className='services_link'>
-                                <div className="card h-100">
-                                    <img className="img-fluid" src={service4} alt="image" />
-                                    <div className="card-body">
-                                        <h5 className="card-title">Wall hanging</h5>
-                                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
-                            <Link to="/services/handyman-appliance-installation" className='services_link'>
-                                <div className="card h-100">
-                                    <img className="img-fluid" src={service4} alt="image" />
-                                    <div className="card-body">
-                                        <h5 className="card-title">Appliance Installation</h5>
-                                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
-                            <Link to="/services/handyman-washer-dryer" className='services_link'>
-                                <div className="card h-100">
-                                    <img className="img-fluid" src={service4} alt="image" />
-                                    <div className="card-body">
-                                        <h5 className="card-title">Washer and dryer installation/ replacement</h5>
-                                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
-                            <Link to="/services/handyman-stove-installation" className='services_link'>
-                                <div className="card h-100">
-                                    <img className="img-fluid" src={service4} alt="image" />
-                                    <div className="card-body">
-                                        <h5 className="card-title">Stove Installation</h5>
-                                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
-                            <Link to="/services/handyman-oven-installation" className='services_link'>
-                                <div className="card h-100">
-                                    <img className="img-fluid" src={service4} alt="image" />
-                                    <div className="card-body">
-                                        <h5 className="card-title">Oven</h5>
-                                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
-                            <Link to="/services/handyman-refrigirator-installation" className='services_link'>
-                                <div className="card h-100">
-                                    <img className="img-fluid" src={service4} alt="image" />
-                                    <div className="card-body">
-                                        <h5 className="card-title">Refrigerator installation</h5>
-                                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
-                            <Link className='services_link'>
-                                <div className="card h-100">
-                                    <img className="img-fluid" src={service5} alt="image" />
-                                    <div className="card-body">
-                                        <h5 className="card-title">Home Security</h5>
-                                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
-                            <Link className='services_link'>
-                                <div className="card h-100">
-                                    <img className="img-fluid" src={service6} alt="image" />
-                                    <div className="card-body">
-                                        <h5 className="card-title">Smart Home</h5>
-                                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
+                        <div className="col-lg-6 col-md-6 col-sm-6 mb-5">
                             <Link to="/services/tv-mounting" className='services_link'>
                                 <div className="card h-100">
                                     <img className="img-fluid" src={service7} alt="image" />
                                     <div className="card-body">
-                                        <h5 className="card-title">TV mounting</h5>
+                                        <h5 className="card-title">TV Mounting</h5>
                                         <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <button className='btn book_btn'>
+                                            Book A Service
+                                        </button>
                                     </div>
                                 </div>
                             </Link>
                         </div>
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
-                            <Link className='services_link'>
+
+                        <div className="col-lg-6 col-md-6 col-sm-6 mb-5">
+                            <Link to="/services/handyman" className='services_link'>
                                 <div className="card h-100">
-                                    <img className="img-fluid" src={service8} alt="image" />
+                                    <img className="img-fluid" src={service4} alt="image" />
                                     <div className="card-body">
-                                        <h5 className="card-title">Wifi & Network</h5>
+                                        <h5 className="card-title">Handyman Services</h5>
                                         <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <button className='btn book_btn'>
+                                            Book A Service
+                                        </button>
+                                    </div>
+                                </div>
+                            </Link>
+                        </div>
+
+                        <div className="col-lg-6 col-md-6 col-sm-6 mb-5">
+                            <Link to={`/services/fan-light`} className='services_link'>
+                                <div className="card h-100">
+                                    <img className="img-fluid" src={service3} alt="image" />
+                                    <div className="card-body">
+                                        <h5 className="card-title">Fan & Light Installation</h5>
+                                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <button className='btn book_btn'>
+                                            Book A Service
+                                        </button>
+                                    </div>
+                                </div>
+                            </Link>
+                        </div>
+
+                        <div className="col-lg-6 col-md-6 col-sm-6 mb-5">
+                            <Link to={`/services/smart-home`} className='services_link'>
+                                <div className="card h-100">
+                                    <img className="img-fluid" src={service6} alt="image" />
+                                    <div className="card-body">
+                                        <h5 className="card-title">Smart Home Installation</h5>
+                                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <button className='btn book_btn'>
+                                            Book A Service
+                                        </button>
                                     </div>
                                 </div>
                             </Link>
