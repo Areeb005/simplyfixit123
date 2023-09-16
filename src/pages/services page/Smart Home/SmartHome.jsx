@@ -33,9 +33,9 @@ function SmartHome() {
                     <Link to="/services/smart-home-installation-smart-garage" className='services_link'>
                         <TextComponent text="Smart Garage" />
                     </Link>
-                    {/* <Link to="#" className='services_link'>
+                    <Link to="/services/smart-home-installation-home-theater" className='services_link'>
                         <TextComponent text="Home Theater" />
-                    </Link> */}
+                    </Link>
                     <Link to="/services/smart-home-installation/wifi-connection" className='services_link'>
                         <TextComponent text="WiFi connection" />
                     </Link>

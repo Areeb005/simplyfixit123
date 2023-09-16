@@ -39,10 +39,20 @@ import ContactUsPage from './pages/dashboard pages/ContactUsPage';
 import Orders from './pages/dashboard pages/Orders';
 import RateUsPage from './pages/dashboard pages/RateUsPage';
 import DashboardLogin from './pages/dashboard pages/DashboardLogin';
+import SmartHomeTheaterSoundbar from './pages/services page/Smart Home/Home Theater Pages/SmartHomeTheaterSoundbar';
+import SmartHomeTheaterSpeakerSubwoofer from './pages/services page/Smart Home/Home Theater Pages/SmartHomeTheaterSpeakerSubwoofer';
+
+
 
 import StripeCheckoutForm from "./components/payment/StripeCheckoutForm"
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
+import SmartHomeTheaterVideoStreamingDevice from './pages/services page/Smart Home/Home Theater Pages/SmartHomeTheaterVideoStreamingDevice';
+import SmartHomeTheaterBlurayDvdPlayer from './pages/services page/Smart Home/Home Theater Pages/SmartHomeTheaterBlurayDvdPlayer';
+import SmartHomeTheaterGamingSystem from './pages/services page/Smart Home/Home Theater Pages/SmartHomeTheaterGamingSystem';
+import SmartHomeTheaterUniversalRemote from './pages/services page/Smart Home/Home Theater Pages/SmartHomeTheaterUniversalRemote';
+import SmartHomeTheaterOtherDevices from './pages/services page/Smart Home/Home Theater Pages/SmartHomeTheaterOtherDevices';
+import SmartHomeHomeTheater from './pages/services page/Smart Home/Home Theater Pages/SmartHomeHomeTheater';
 
 const stripePromise = loadStripe('pk_test_51NoyKlAursW1G9pEJluCqSVwhowVRuKfab5ZBOQKwYBgmLO634GwNeES5AoPhjYXpgTwvMOWb3XWOKtWUHMNjgA3002j7Z0B5V');
 
@@ -117,6 +127,15 @@ function App() {
         <Route exact path={`/services/smart-home-installation/wifi-connection`} element={<WiFiConnection />} />
         <Route exact path={`/services/smart-home-installation-wifi-connection-setup`} element={<SmartHomeWifiConnectionSetup />} />
         <Route exact path={`/services/smart-home-installation-single-extension-setup`} element={<SmartHomeSingleExtensionSetup />} />
+
+        <Route exact path={`/services/smart-home-installation-home-theater`} element={<SmartHomeHomeTheater />} />
+        <Route exact path={`/services/smart-home-installation-home-theater-soundbar`} element={<SmartHomeTheaterSoundbar />} />
+        <Route exact path={`/services/smart-home-installation-home-theater-speaker-subwoofer`} element={<SmartHomeTheaterSpeakerSubwoofer />} />
+        <Route exact path={`/services/smart-home-installation-home-theater-video-streaming-device`} element={<SmartHomeTheaterVideoStreamingDevice />} />
+        <Route exact path={`/services/smart-home-installation-home-theater-bluray-dvd-player`} element={<SmartHomeTheaterBlurayDvdPlayer />} />
+        <Route exact path={`/services/smart-home-installation-home-theater-gaming-system`} element={<SmartHomeTheaterGamingSystem />} />
+        <Route exact path={`/services/smart-home-installation-home-theater-universal-remote`} element={<SmartHomeTheaterUniversalRemote />} />
+        <Route exact path={`/services/smart-home-installation-home-theater-other-smart-devices`} element={<SmartHomeTheaterOtherDevices />} />
 
         <Route exact path="/testimonial" element={<Testimonial />} />
         <Route exact path="/cart" element={<Cart />} />
