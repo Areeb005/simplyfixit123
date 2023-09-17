@@ -1,3 +1,4 @@
+import usePersistedState from 'use-persisted-state-hook'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { React, useEffect, useState } from 'react'
 import TextComponent from '../../components/services components/TextComponent';
@@ -10,6 +11,8 @@ const TvMounting = () => {
 
     const navigate = useNavigate();
     const { hash } = useLocation();
+    const [cart, setCart] = usePersistedState('thisCart', {})
+    const [quiz, setQuiz] = usePersistedState('thisQuiz', "")
 
     let [faltu, getHashValue] = hash.split('#')
     const url = useLocation().pathname;
@@ -319,7 +322,13 @@ const TvMounting = () => {
                                     <button className='continue_btn' onClick={() => { navigate(`#1`) }}>Add Another Tv</button>
                                 </div>
                                 <div className="button">
-                                    <button className='continue_btn' onClick={() => setcalendar(true)}>Schedule Your Service</button>
+                                    <button className='continue_btn' onClick={() => {
+                                        setcalendar(true);
+                                        setCart(selected);
+                                        setQuiz("TvMounting")
+                                        }}>
+                                        Schedule Your Service
+                                    </button>
                                 </div>
                             </div>
                         }

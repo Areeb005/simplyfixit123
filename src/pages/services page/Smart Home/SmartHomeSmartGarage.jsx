@@ -15,6 +15,8 @@ function SmartHomeSmartGarage() {
 
     const navigate = useNavigate();
     const { hash } = useLocation();
+    const [cart, setCart] = usePersistedState('thisCart', {})
+    const [quiz, setQuiz] = usePersistedState('thisQuiz', "SmartHomeSmartGarage")
 
     let [faltu, getHashValue] = hash.split('#')
     const url = useLocation().pathname;
@@ -213,7 +215,7 @@ function SmartHomeSmartGarage() {
                 {(hashValue == 8) &&
                     <div>
                         <div className="button">
-                            <button className='continue_btn' onClick={() => { navigate(`/services`) }}>Add Another Service</button>
+                            <button className='continue_btn' disabled onClick={() => { navigate(`/services`) }}>Add Another Service</button>
                         </div>
                         <div className="button">
                             <button className='continue_btn' onClick={() => navigate(`#${hashValue + 1}`)}>Continue</button>
@@ -225,7 +227,21 @@ function SmartHomeSmartGarage() {
                     <div>
                         <ImageUploadComponent onChange={(e) => onChange(e)} img={SmartHomeSmartGaragePics} />
                         <div className="button">
-                            <button className='continue_btn' onClick={() => setcalendar(true)}>Schedule Your Service</button>
+                            <button className='continue_btn' onClick={() => {
+                                setcalendar(true);
+                                setCart({
+                                    SmartHomeSmartGarage,
+                                    SmartHomeSmartGarageWifi,
+                                    SmartHomeSmartGarageDoorOpener,
+                                    SmartHomeSmartGarageAppReq,
+                                    SmartHomeSmartGarageLocation,
+                                    SmartHomeSmartGarageDeviceModel,
+                                    SmartHomeSmartGarageDesc,
+                                    SmartHomeSmartGaragePics,
+                                })
+                            }}>
+                                Schedule Your Service
+                            </button>
                         </div>
                     </div>
                 }

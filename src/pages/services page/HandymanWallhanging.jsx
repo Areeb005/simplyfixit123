@@ -14,6 +14,7 @@ function HandymanWallhanging() {
 
     const navigate = useNavigate();
     const { hash } = useLocation();
+    const [quiz, setQuiz] = usePersistedState('thisQuiz', "")
     const [cart, setCart] = usePersistedState('thisCart', {})
 
     let [faltu, getHashValue] = hash.split('#')
@@ -229,6 +230,7 @@ function HandymanWallhanging() {
                             <button className='continue_btn'
                                 onClick={() => {
                                     setcalendar(true);
+                                    setQuiz("HandymanWallhanging")
                                     setCart({
                                         "wall_types": selected[0].map((e) => e.q),
                                         SmallItems,

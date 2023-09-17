@@ -15,6 +15,8 @@ function SmartHomeSmartDoorLock() {
 
     const navigate = useNavigate();
     const { hash } = useLocation();
+    const [cart, setCart] = usePersistedState('thisCart', {})
+    const [quiz, setQuiz] = usePersistedState('thisQuiz', "SmartHomeSmartDoorLock")
 
     let [faltu, getHashValue] = hash.split('#')
     const url = useLocation().pathname;
@@ -167,7 +169,7 @@ function SmartHomeSmartDoorLock() {
                 {(hashValue == 6) &&
                     <div>
                         <div className="button">
-                            <button className='continue_btn' onClick={() => { navigate(`/services`) }}>Add Another Service</button>
+                            <button className='continue_btn' disabled onClick={() => { navigate(`/services`) }}>Add Another Service</button>
                         </div>
                         <div className="button">
                             <button className='continue_btn' onClick={() => navigate(`#${hashValue + 1}`)}>Continue</button>
@@ -179,7 +181,19 @@ function SmartHomeSmartDoorLock() {
                     <div>
                         <ImageUploadComponent onChange={(e) => onChange(e)} img={SmartHomeSmartDoorLockPics} />
                         <div className="button">
-                            <button className='continue_btn' onClick={() => setcalendar(true)}>Schedule Your Service</button>
+                            <button className='continue_btn' onClick={() => {
+                                setcalendar(true);
+                                setCart({
+                                    SmartHomeSmartDoorLock,
+                                    SmartHomeSmartDoorLockWifi,
+                                    SmartHomeSmartDoorLockAppReq,
+                                    SmartHomeSmartDoorLockDeviceModel,
+                                    SmartHomeSmartDoorLockDesc,
+                                    SmartHomeSmartDoorLockPics,
+                                })
+                            }}>
+                                Schedule Your Service
+                            </button>
                         </div>
                     </div>
                 }

@@ -15,6 +15,8 @@ function SmartHomeVideoDoorbell() {
 
     const navigate = useNavigate();
     const { hash } = useLocation();
+    const [cart, setCart] = usePersistedState('thisCart', {})
+    const [quiz, setQuiz] = usePersistedState('thisQuiz', "SmartHomeVideoDoorbell")
 
     let [faltu, getHashValue] = hash.split('#')
     const url = useLocation().pathname;
@@ -256,7 +258,7 @@ function SmartHomeVideoDoorbell() {
                 {(hashValue == 8) &&
                     <div>
                         <div className="button">
-                            <button className='continue_btn' onClick={() => { navigate(`/services`) }}>Add Another Service</button>
+                            <button className='continue_btn' disabled onClick={() => { navigate(`/services`) }}>Add Another Service</button>
                         </div>
                         <div className="button">
                             <button className='continue_btn' onClick={() => navigate(`#${hashValue + 1}`)}>Continue</button>
@@ -268,7 +270,21 @@ function SmartHomeVideoDoorbell() {
                     <div>
                         <ImageUploadComponent onChange={(e) => onChange(e)} img={SmartHomeVideoDoorbellPics} />
                         <div className="button">
-                            <button className='continue_btn' onClick={() => setcalendar(true)}>Schedule Your Service</button>
+                            <button className='continue_btn' onClick={() => {
+                                setcalendar(true);
+                                setCart({
+                                    SmartHomeVideoDoorbell,
+                                    SmartHomeVideoDoorbellExist,
+                                    SmartHomeVideoDoorbellBattery,
+                                    SmartHomeVideoDoorbellWifi,
+                                    SmartHomeVideoDoorbellAppReq,
+                                    SmartHomeVideoDoorbellDeviceModel,
+                                    SmartHomeVideoDoorbellDesc,
+                                    SmartHomeVideoDoorbellPics,
+                                })
+                            }}>
+                                Schedule Your Service
+                            </button>
                         </div>
                     </div>
                 }

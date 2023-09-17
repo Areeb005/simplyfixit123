@@ -15,6 +15,8 @@ function SmartHomeSecurityCamera() {
 
     const navigate = useNavigate();
     const { hash } = useLocation();
+    const [cart, setCart] = usePersistedState('thisCart', {})
+    const [quiz, setQuiz] = usePersistedState('thisQuiz', "SmartHomeSecurityCamera")
 
     let [faltu, getHashValue] = hash.split('#')
     const url = useLocation().pathname;
@@ -261,7 +263,7 @@ function SmartHomeSecurityCamera() {
                 {(hashValue == 8) &&
                     <div>
                         <div className="button">
-                            <button className='continue_btn' onClick={() => { navigate(`/services`) }}>Add Another Service</button>
+                            <button className='continue_btn' disabled onClick={() => { navigate(`/services`) }}>Add Another Service</button>
                         </div>
                         <div className="button">
                             <button className='continue_btn' onClick={() => navigate(`#${hashValue + 1}`)}>Continue</button>
@@ -273,7 +275,21 @@ function SmartHomeSecurityCamera() {
                     <div>
                         <ImageUploadComponent onChange={(e) => onChange(e)} img={SmartHomeCameraPics} />
                         <div className="button">
-                            <button className='continue_btn' onClick={() => setcalendar(true)}>Schedule Your Service</button>
+                            <button className='continue_btn' onClick={() => {
+                                setcalendar(true);
+                                setCart({
+                                    smartHomeCameraData: selected[0].map((e) => e.q),
+                                    SmartHomeCameraDesc,
+                                    SmartHomeCameraPowerSource,
+                                    SmartHomeCameraDeviceModel,
+                                    SmartHomeCameraPics,
+                                    SmartHomeCameraWifi,
+                                    SmartHomeCameraAppReq,
+                                    SmartHomeCamera,
+                                })
+                            }}>
+                                Schedule Your Service
+                            </button>
                         </div>
                     </div>
                 }

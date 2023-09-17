@@ -14,6 +14,8 @@ function LightFixtureInstalltion() {
 
     const navigate = useNavigate();
     const { hash } = useLocation();
+    const [cart, setCart] = usePersistedState('thisCart', {})
+    const [quiz, setQuiz] = usePersistedState('thisQuiz', "LightFixtureInstalltion")
 
     let [faltu, getHashValue] = hash.split('#')
     const url = useLocation().pathname;
@@ -136,7 +138,20 @@ function LightFixtureInstalltion() {
                     <div>
                         <ImageUploadComponent onChange={(e) => onChange(e)} img={LightFixtureInstallationPics} />
                         <div className="button">
-                            <button className='continue_btn' onClick={() => setcalendar(true)}>Schedule Your Service</button>
+                            <button className='continue_btn' onClick={() => {
+                                setcalendar(true);
+                                setCart({
+                                    LightFixtureReplacement,
+                                    ExteriorLightFixtureReplacement,
+                                    ChandelierReplacement,
+                                    TotalILightFixtureQuantity,
+                                    LightFixtureInstallationHeight,
+                                    LightFixtureInstallationDesc,
+                                    LightFixtureInstallationPics,
+                                })
+                            }}>
+                                Schedule Your Service
+                            </button>
                         </div>
                     </div>
                 }
