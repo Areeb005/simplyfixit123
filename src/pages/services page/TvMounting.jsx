@@ -159,30 +159,22 @@ const TvMounting = () => {
 
         if (no === 1) {
             dataTvMounting.push([item])
-        } 
+        }
         else if (dataTvMounting) {
-            let itemData = (dataTvMounting[dataTvMounting.length - 1])
-
-            let foundItem = itemData.find(e => e.no == no)
-            console.log(foundItem);
-            let index = (dataTvMounting[dataTvMounting.length - 1]).indexOf(foundItem)
-            console.log(index, '=================================');
+            let itemData = (dataTvMounting[dataTvMounting.length - 1]);
+            let foundItem = itemData.find(e => e.no == no);
+            let index = (dataTvMounting[dataTvMounting.length - 1]).indexOf(foundItem);
 
             if (foundItem) {
-                if (foundItem.no == no) {
-                    itemData[index] = item
-                    console.log('changed Item');
-                }
+                if (foundItem.no == no) itemData[index] = item;
+
             } else {
-                dataTvMounting[dataTvMounting.length - 1].push(item)
+                dataTvMounting[dataTvMounting.length - 1].push(item);
             }
-
         }
-        console.log(dataTvMounting, 'after');
 
-
-        window.localStorage.setItem('dataTvMounting', JSON.stringify(dataTvMounting))
-        setselected(dataTvMounting)
+        window.localStorage.setItem('dataTvMounting', JSON.stringify(dataTvMounting));
+        setselected(dataTvMounting);
     }
 
     const checkboxData = (item, id, no) => {
@@ -326,7 +318,7 @@ const TvMounting = () => {
                                         setcalendar(true);
                                         setCart(selected);
                                         setQuiz("TvMounting")
-                                        }}>
+                                    }}>
                                         Schedule Your Service
                                     </button>
                                 </div>
