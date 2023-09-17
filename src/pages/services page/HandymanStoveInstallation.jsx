@@ -13,6 +13,8 @@ function HandymanStoveInstallation() {
 
     const navigate = useNavigate();
     const { hash } = useLocation();
+    const [cart, setCart] = usePersistedState('thisCart', {})
+    const [quiz, setQuiz] = usePersistedState('thisQuiz', "HandymanStoveInstallation")
 
     let [faltu, getHashValue] = hash.split('#')
     const url = useLocation().pathname;
@@ -163,7 +165,18 @@ function HandymanStoveInstallation() {
                     <div>
                         <ImageUploadComponent onChange={(e) => onChange(e)} img={StoveInstallationPics} />
                         <div className="button">
-                            <button className='continue_btn' onClick={() => setcalendar(true)}>Schedule Your Service</button>
+                            <button className='continue_btn' onClick={() => {
+                                setcalendar(true);
+                                setCart({
+                                    StoveFuelSource,
+                                    StoveWiringGasAvail,
+                                    StoveInstallationPics,
+                                    StoveInstallationDesc,
+                                    StoveInstallationTime,
+                                })
+                            }}>
+                                Schedule Your Service
+                            </button>
                         </div>
                     </div>
                 }

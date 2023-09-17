@@ -13,6 +13,8 @@ function HandyManRefrigiratorInstallation() {
 
     const navigate = useNavigate();
     const { hash } = useLocation();
+    const [cart, setCart] = usePersistedState('thisCart', {})
+    const [quiz, setQuiz] = usePersistedState('thisQuiz', "HandyManRefrigiratorInstallation")
 
     let [faltu, getHashValue] = hash.split('#')
     const url = useLocation().pathname;
@@ -21,7 +23,6 @@ function HandyManRefrigiratorInstallation() {
     const [RefrigiratorInstallationTime, setRefrigiratorInstallationTime] = usePersistedState('RefrigiratorInstallationTime', '')
     const [RefrigiratorInstallationDesc, setRefrigiratorInstallationDesc] = usePersistedState('RefrigiratorInstallationDesc', '')
     const [RefrigiratorInstallationPics, setRefrigiratorInstallationPics] = usePersistedState('RefrigiratorInstallationPics', '')
-
 
     console.log(`${RefrigiratorInstallationTime} + ${RefrigiratorInstallationDesc}`);
 
@@ -106,7 +107,16 @@ function HandyManRefrigiratorInstallation() {
                     <div>
                         <ImageUploadComponent onChange={(e) => onChange(e)} img={RefrigiratorInstallationPics} />
                         <div className="button">
-                            <button className='continue_btn' onClick={() => setcalendar(true)}>Schedule Your Service</button>
+                            <button className='continue_btn' onClick={() => {
+                                setcalendar(true);
+                                setCart({
+                                    RefrigiratorInstallationTime,
+                                    RefrigiratorInstallationDesc,
+                                    RefrigiratorInstallationPics,
+                                })                            
+                            }}>
+                                Schedule Your Service
+                            </button>
                         </div>
                     </div>
                 }

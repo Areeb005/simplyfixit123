@@ -43,16 +43,19 @@ import SmartHomeTheaterSoundbar from './pages/services page/Smart Home/Home Thea
 import SmartHomeTheaterSpeakerSubwoofer from './pages/services page/Smart Home/Home Theater Pages/SmartHomeTheaterSpeakerSubwoofer';
 
 
-
-import StripeCheckoutForm from "./components/payment/StripeCheckoutForm"
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
 import SmartHomeTheaterVideoStreamingDevice from './pages/services page/Smart Home/Home Theater Pages/SmartHomeTheaterVideoStreamingDevice';
 import SmartHomeTheaterBlurayDvdPlayer from './pages/services page/Smart Home/Home Theater Pages/SmartHomeTheaterBlurayDvdPlayer';
 import SmartHomeTheaterGamingSystem from './pages/services page/Smart Home/Home Theater Pages/SmartHomeTheaterGamingSystem';
 import SmartHomeTheaterUniversalRemote from './pages/services page/Smart Home/Home Theater Pages/SmartHomeTheaterUniversalRemote';
 import SmartHomeTheaterOtherDevices from './pages/services page/Smart Home/Home Theater Pages/SmartHomeTheaterOtherDevices';
 import SmartHomeHomeTheater from './pages/services page/Smart Home/Home Theater Pages/SmartHomeHomeTheater';
+
+
+import StripeCheckoutForm from "./components/payment/StripeCheckoutForm"
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
+
 
 const stripePromise = loadStripe('pk_test_51NoyKlAursW1G9pEJluCqSVwhowVRuKfab5ZBOQKwYBgmLO634GwNeES5AoPhjYXpgTwvMOWb3XWOKtWUHMNjgA3002j7Z0B5V');
 

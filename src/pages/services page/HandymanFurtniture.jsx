@@ -13,6 +13,7 @@ function HandymanFurniture() {
 
     const navigate = useNavigate();
     const { hash } = useLocation();
+    const [quiz, setQuiz] = usePersistedState('thisQuiz', "")
 
     let [faltu, getHashValue] = hash.split('#')
     const url = useLocation().pathname;
@@ -172,7 +173,8 @@ function HandymanFurniture() {
                     <div>
                         <ImageUploadComponent onChange={(e) => onChange(e)} img={Pics} />
                         <div className="button">
-                            <button className='continue_btn' onClick={() => setcalendar(true)}>Schedule Your Service</button>
+                            <button className='continue_btn' onClick={() => {setcalendar(true); setQuiz("HandymanFurtniture");}
+}>Schedule Your Service</button>
                         </div>
                     </div>
                 }

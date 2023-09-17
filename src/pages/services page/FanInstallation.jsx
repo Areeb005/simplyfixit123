@@ -12,6 +12,8 @@ function FanInstallation() {
 
     const navigate = useNavigate();
     const { hash } = useLocation();
+    const [cart, setCart] = usePersistedState('thisCart', {})
+    const [quiz, setQuiz] = usePersistedState('thisQuiz', "FanInstallation")
 
     let [faltu, getHashValue] = hash.split('#')
     const url = useLocation().pathname;
@@ -169,7 +171,20 @@ function FanInstallation() {
                         {/* <img src={FanInstallationPics} alt="" height={'200px'} width={'200px'} /> */}
                         <ImageUploadComponent onChange={(e) => onChange(e)} img={FanInstallationPics} />
                         <div className="button">
-                            <button className='continue_btn' onClick={() => setcalendar(true)}>Schedule Your Service</button>
+                            <button className='continue_btn' onClick={() => {
+                                setcalendar(true);
+                                setCart({
+                                    FanCeilingFans,	
+                                    FanBathroomFans,	
+                                    TotalIFanAreasQuantity,	
+                                    FanInstallationHeight,	
+                                    FanInstallationLadder,	
+                                    FanInstallationDesc,	
+                                    FanInstallationPics,
+                                })
+                            }}>
+                                Schedule Your Service
+                            </button>
                         </div>
                     </div>
                 }

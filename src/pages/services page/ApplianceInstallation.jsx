@@ -14,6 +14,7 @@ function ApplianceInstallation() {
     const navigate = useNavigate();
     const { hash } = useLocation();
     const [cart, setCart] = usePersistedState('thisCart', {})
+    const [quiz, setQuiz] = usePersistedState('thisQuiz', "")
 
     let [faltu, getHashValue] = hash.split('#')
     const url = useLocation().pathname;
@@ -186,6 +187,7 @@ function ApplianceInstallation() {
                         <div className="button">
                             <button className='continue_btn' onClick={() => {
                                 setcalendar(true);
+                                setQuiz("ApplianceInstallation")
                                 setCart({
                                     InstallationType,
                                     InstallationTime,
