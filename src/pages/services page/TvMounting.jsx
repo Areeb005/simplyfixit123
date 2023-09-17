@@ -152,13 +152,29 @@ const TvMounting = () => {
 
         console.log(dataTvMounting, 'before');
 
+        item.no = no
 
         if (no === 1) {
             dataTvMounting.push([item])
-        } else {
-            dataTvMounting[dataTvMounting.length - 1].push(item)
-        }
+        } 
+        else if (dataTvMounting) {
+            let itemData = (dataTvMounting[dataTvMounting.length - 1])
 
+            let foundItem = itemData.find(e => e.no == no)
+            console.log(foundItem);
+            let index = (dataTvMounting[dataTvMounting.length - 1]).indexOf(foundItem)
+            console.log(index, '=================================');
+
+            if (foundItem) {
+                if (foundItem.no == no) {
+                    itemData[index] = item
+                    console.log('changed Item');
+                }
+            } else {
+                dataTvMounting[dataTvMounting.length - 1].push(item)
+            }
+
+        }
         console.log(dataTvMounting, 'after');
 
 
@@ -339,7 +355,7 @@ const TvMounting = () => {
                                         </div>
                                     })
                                 }
-                                
+
                                 <tr className='tfoot'>
                                     <td>Estimated</td>
                                     <td>${price}</td>
