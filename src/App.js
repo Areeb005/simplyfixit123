@@ -1,5 +1,4 @@
 import './App.css';
-import { useEffect, useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
@@ -49,126 +48,75 @@ import SmartHomeTheaterGamingSystem from './pages/services page/Smart Home/Home 
 import SmartHomeTheaterUniversalRemote from './pages/services page/Smart Home/Home Theater Pages/SmartHomeTheaterUniversalRemote';
 import SmartHomeTheaterOtherDevices from './pages/services page/Smart Home/Home Theater Pages/SmartHomeTheaterOtherDevices';
 import SmartHomeHomeTheater from './pages/services page/Smart Home/Home Theater Pages/SmartHomeHomeTheater';
+import { Success } from './components/payment/paymentSuccess';
+import { Fail } from './components/payment/paymentFail';
 
-
-import StripeCheckoutForm from "./components/payment/StripeCheckoutForm"
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
-
-
-
-const stripePromise = loadStripe('pk_test_51NoyKlAursW1G9pEJluCqSVwhowVRuKfab5ZBOQKwYBgmLO634GwNeES5AoPhjYXpgTwvMOWb3XWOKtWUHMNjgA3002j7Z0B5V');
-
-const apiKey = 'sk_test_51NoyKlAursW1G9pEU7e8oGoTXgvzmPc9VzhL4HJP8b9ZFXFBSZgzf6kjcUz7vSUFSj8oWoYwg2GoyFfWIPBfqy4H00hT5ti1Hy';
-const url = 'https://api.stripe.com/v1/payment_intents';
-const data = {
-  amount: 1099,
-  currency: 'aud',
-  'automatic_payment_methods[enabled]': true,
-};
 
 
 function App() {
   const isAuth = sessionStorage.getItem("id") ? true : false;
-  const [secret, setSecret] = useState(null)
 
-  useEffect(() => {
-    fetch(url, {
-      method: 'POST',
-      body: new URLSearchParams(data),
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Payment intent created successfully!');
-        console.log(data);
-        setSecret(data)
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+  return <>
+    <Routes>
+      <Route exact path="/" element={<Homepage />} />
+      <Route exact path="/services" element={<Services />} />
 
-  }, [])
+      <Route exact path="/services/tv-mounting" element={<TvMounting />} />
 
-  if (secret != null) {
-    return <>
-      {console.log("secret")}
-      {console.log("secret")}
-      {console.log("secret")}
-      {console.log("secret")}
-      {console.log("secret")}
-      {console.log(secret)}
+      <Route exact path="/services/handyman" element={<Handyman />} />
+      <Route exact path={`/services/handyman/furniture`} element={<HandymanFurniture />} />
+      <Route exact path={`/services/handyman/wallhanging`} element={<HandymanWallhanging />} />
+      <Route exact path={`/services/handyman/appliance-installation`} element={<ApplianceInstallation />} />
+      <Route exact path={`/services/handyman/washer-dryer-installation`} element={<HandymanWasherDryer />} />
+      <Route exact path={`/services/handyman/stove-installation`} element={<HandymanStoveInstallation />} />
+      <Route exact path={`/services/handyman/oven-installation`} element={<HandymanOvenInstallation />} />
+      <Route exact path={`/services/handyman/refrigirator-installation`} element={<HandyManRefrigiratorInstallation />} />
 
-      <Routes>
-        <Route exact path="/" element={<Homepage />} />
-        <Route exact path="/services" element={<Services />} />
+      <Route exact path={`/services/fan-light`} element={<FanLight />} />
+      <Route exact path={`/services/fan-fixture-installation`} element={<FanInstallation />} />
+      <Route exact path={`/services/light-fixture-installtion`} element={<LightFixtureInstalltion />} />
 
-        <Route exact path="/services/tv-mounting" element={<TvMounting />} />
+      <Route exact path={`/services/smart-home`} element={<SmartHome />} />
+      <Route exact path={`/services/smart-home-installation-security-camera`} element={<SmartHomeSecurityCamera />} />
+      <Route exact path={`/services/smart-home-installation-video-doorbell`} element={<SmartHomeVideoDoorbell />} />
+      <Route exact path={`/services/smart-home-installation-thermostat`} element={<SmartHomeThermostat />} />
+      <Route exact path={`/services/smart-home-installation-smart-hub-or-speaker`} element={<SmartHomeHubOrSpeaker />} />
+      <Route exact path={`/services/smart-home-installation-smart-door-lock`} element={<SmartHomeSmartDoorLock />} />
+      <Route exact path={`/services/smart-home-installation-smart-garage`} element={<SmartHomeSmartGarage />} />
+      <Route exact path={`/services/smart-home-installation/wifi-connection`} element={<WiFiConnection />} />
+      <Route exact path={`/services/smart-home-installation-wifi-connection-setup`} element={<SmartHomeWifiConnectionSetup />} />
+      <Route exact path={`/services/smart-home-installation-single-extension-setup`} element={<SmartHomeSingleExtensionSetup />} />
 
-        <Route exact path="/services/handyman" element={<Handyman />} />
-        <Route exact path={`/services/handyman/furniture`} element={<HandymanFurniture />} />
-        <Route exact path={`/services/handyman/wallhanging`} element={<HandymanWallhanging />} />
-        <Route exact path={`/services/handyman/appliance-installation`} element={<ApplianceInstallation />} />
-        <Route exact path={`/services/handyman/washer-dryer-installation`} element={<HandymanWasherDryer />} />
-        <Route exact path={`/services/handyman/stove-installation`} element={<HandymanStoveInstallation />} />
-        <Route exact path={`/services/handyman/oven-installation`} element={<HandymanOvenInstallation />} />
-        <Route exact path={`/services/handyman/refrigirator-installation`} element={<HandyManRefrigiratorInstallation />} />
+      <Route exact path={`/services/smart-home-installation-home-theater`} element={<SmartHomeHomeTheater />} />
+      <Route exact path={`/services/smart-home-installation-home-theater-soundbar`} element={<SmartHomeTheaterSoundbar />} />
+      <Route exact path={`/services/smart-home-installation-home-theater-speaker-subwoofer`} element={<SmartHomeTheaterSpeakerSubwoofer />} />
+      <Route exact path={`/services/smart-home-installation-home-theater-video-streaming-device`} element={<SmartHomeTheaterVideoStreamingDevice />} />
+      <Route exact path={`/services/smart-home-installation-home-theater-bluray-dvd-player`} element={<SmartHomeTheaterBlurayDvdPlayer />} />
+      <Route exact path={`/services/smart-home-installation-home-theater-gaming-system`} element={<SmartHomeTheaterGamingSystem />} />
+      <Route exact path={`/services/smart-home-installation-home-theater-universal-remote`} element={<SmartHomeTheaterUniversalRemote />} />
+      <Route exact path={`/services/smart-home-installation-home-theater-other-smart-devices`} element={<SmartHomeTheaterOtherDevices />} />
 
-        <Route exact path={`/services/fan-light`} element={<FanLight />} />
-        <Route exact path={`/services/fan-fixture-installation`} element={<FanInstallation />} />
-        <Route exact path={`/services/light-fixture-installtion`} element={<LightFixtureInstalltion />} />
+      <Route exact path="/testimonial" element={<Testimonial />} />
+      <Route exact path="/cart" element={<Cart />} />
+      <Route exact path="/success" element={<Success />} />
+      <Route exact path="/fail" element={<Fail />} />
 
-        <Route exact path={`/services/smart-home`} element={<SmartHome />} />
-        <Route exact path={`/services/smart-home-installation-security-camera`} element={<SmartHomeSecurityCamera />} />
-        <Route exact path={`/services/smart-home-installation-video-doorbell`} element={<SmartHomeVideoDoorbell />} />
-        <Route exact path={`/services/smart-home-installation-thermostat`} element={<SmartHomeThermostat />} />
-        <Route exact path={`/services/smart-home-installation-smart-hub-or-speaker`} element={<SmartHomeHubOrSpeaker />} />
-        <Route exact path={`/services/smart-home-installation-smart-door-lock`} element={<SmartHomeSmartDoorLock />} />
-        <Route exact path={`/services/smart-home-installation-smart-garage`} element={<SmartHomeSmartGarage />} />
-        <Route exact path={`/services/smart-home-installation/wifi-connection`} element={<WiFiConnection />} />
-        <Route exact path={`/services/smart-home-installation-wifi-connection-setup`} element={<SmartHomeWifiConnectionSetup />} />
-        <Route exact path={`/services/smart-home-installation-single-extension-setup`} element={<SmartHomeSingleExtensionSetup />} />
+      <Route exact path={`/admin/login`} element={<DashboardLogin />} />
+      {
+        isAuth ? <>
+          <Route exact path={`/admin/dashboard/instant-quotes-data`} element={<InstantQuotePage />} />
+          <Route exact path={`/admin/dashboard/contact-data`} element={<ContactUsPage />} />
+          <Route exact path={`/admin/dashboard/Orders`} element={<Orders />} />
+          <Route exact path={`/admin/dashboard/rate-us-data`} element={<RateUsPage />} />
+        </>
+          :
+          <Route path='*' element={<Navigate to="/" replace={true} />} />
+      }
+    </Routes>
 
-        <Route exact path={`/services/smart-home-installation-home-theater`} element={<SmartHomeHomeTheater />} />
-        <Route exact path={`/services/smart-home-installation-home-theater-soundbar`} element={<SmartHomeTheaterSoundbar />} />
-        <Route exact path={`/services/smart-home-installation-home-theater-speaker-subwoofer`} element={<SmartHomeTheaterSpeakerSubwoofer />} />
-        <Route exact path={`/services/smart-home-installation-home-theater-video-streaming-device`} element={<SmartHomeTheaterVideoStreamingDevice />} />
-        <Route exact path={`/services/smart-home-installation-home-theater-bluray-dvd-player`} element={<SmartHomeTheaterBlurayDvdPlayer />} />
-        <Route exact path={`/services/smart-home-installation-home-theater-gaming-system`} element={<SmartHomeTheaterGamingSystem />} />
-        <Route exact path={`/services/smart-home-installation-home-theater-universal-remote`} element={<SmartHomeTheaterUniversalRemote />} />
-        <Route exact path={`/services/smart-home-installation-home-theater-other-smart-devices`} element={<SmartHomeTheaterOtherDevices />} />
-
-        <Route exact path="/testimonial" element={<Testimonial />} />
-        <Route exact path="/cart" element={<Cart />} />
-
-        <Route exact path="/cart-stripe" element={
-          <Elements stripe={stripePromise} options={{ clientSecret: secret.client_secret }}>
-            <StripeCheckoutForm />
-          </Elements>
-        } />
-
-        <Route exact path={`/admin/login`} element={<DashboardLogin />} />
-        {
-          isAuth ? <>
-            <Route exact path={`/admin/dashboard/instant-quotes-data`} element={<InstantQuotePage />} />
-            <Route exact path={`/admin/dashboard/contact-data`} element={<ContactUsPage />} />
-            <Route exact path={`/admin/dashboard/Orders`} element={<Orders />} />
-            <Route exact path={`/admin/dashboard/rate-us-data`} element={<RateUsPage />} />
-
-          </>
-            :
-            <Route path='*' element={<Navigate to="/" replace={true} />} />
-        }
-
-
-        {/* <Route exact path="/checkout" element={<Car />} /> */}
-      </Routes>
-
-      <Footer />
-    </>
-  };
+    <Footer />
+  </>
 }
+
 
 export default App;

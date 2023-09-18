@@ -30,14 +30,14 @@ const ContactUsPage = () => {
             <div className="row mx-0">
                 <div className="col-9"></div>
                 <div className="col-3">
-                    <button class="btn btn-primary my-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Menu</button>
+                    <button className="btn btn-primary my-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Menu</button>
 
-                    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-                        <div class="offcanvas-header">
-                            <h5 class="offcanvas-title" id="offcanvasTopLabel">Menu Links</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <div className="offcanvas offcanvas-start" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                        <div className="offcanvas-header">
+                            <h5 className="offcanvas-title" id="offcanvasTopLabel">Menu Links</h5>
+                            <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
-                        <div class="offcanvas-body">
+                        <div className="offcanvas-body">
                             <ul>
                                 <li><Link to={'/admin/dashboard/instant-quotes-data'}> Instant Quote Data </Link></li>
                                 <li><Link to={'/admin/dashboard/contact-data'}> Contact Data </Link></li>
@@ -53,7 +53,7 @@ const ContactUsPage = () => {
             <div className="row mx-0">
 
                 <div className="col-12">
-                    <table class="table table-dark table-striped">
+                    <table className="table table-dark table-striped">
                         <thead>
                             <tr>
                                 <th scope="col">Name</th>

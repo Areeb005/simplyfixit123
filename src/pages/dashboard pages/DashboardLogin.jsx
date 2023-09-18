@@ -64,12 +64,12 @@ const DashboardLogin = () => {
                     <div>
                         <h2 className='mb-12 text-4xl text-start text-color3 max-md:text-center'>Sign Into Yout Account</h2>
                         <form action="" onSubmit={(e) => getMyUser(e)}>
-                            <div class="mb-3">
+                            <div className="mb-3">
                                 <label className='form-label'>Email</label>
                                 <input className='form-control' type="email" id="email" onChange={(e) => setemail(e.target.value)} value={email} placeholder='example@gmail.com' required />
                             </div>
 
-                            <div class="mb-3">
+                            <div className="mb-3">
                                 <label className='form-label'>Password</label>
                                 <input className='form-control' type="password" id="password" onChange={(e) => setpassword(e.target.value)} value={password} placeholder='••••••' required />
                             </div>

@@ -3,9 +3,9 @@ import React from 'react'
 function Footer() {
     return (
         <>
-            <footer class="footer ">
+            <footer className="footer ">
                 <div className="container">
-                    <div class="d-flex justify-content-center py-5">
+                    <div className="d-flex justify-content-center py-5">
                         <p className='mb-0'>© 2021 Company, Inc. All rights reserved.</p>
                     </div>
                 </div>

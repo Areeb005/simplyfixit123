@@ -448,7 +448,7 @@ function Homepage() {
 
                                         <div className="col-md-12 mb-5">
                                             <label className="form-label">Select your amount of experience</label>
-                                            <select class="form-select" aria-label="Default select example">
+                                            <select className="form-select" aria-label="Default select example">
                                                 <option selected disabled value="Select...">Select...</option>
                                                 <option value="1">No Experience</option>
                                                 <option value="2">6 Months</option>
@@ -615,7 +615,7 @@ function Homepage() {
                                 <div className="content">
                                     <h2>Book a Home Service</h2>
                                     <h3>Local and Trusted Pros for <br /> all your home projects</h3>
-                                    <input type="search" class="form-control" placeholder="Type to search..." />
+                                    <input type="search" className="form-control" placeholder="Type to search..." />
                                 </div>
                             </div>
                             <div className="col-md-6">
