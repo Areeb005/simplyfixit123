@@ -129,7 +129,7 @@ function Homepage() {
                     <div className="row">
                         <div className="col-md-4">
                             <div className="services">
-                                <div className="s_card">
+                                <div className="s_card desktop_service_card">
                                     <div className="s_tab" onClick={() => setServices(1)}>
                                         <h4>TV mounting</h4>
                                     </div>
@@ -143,6 +143,32 @@ function Homepage() {
                                         <h4>Smart home installation</h4>
                                     </div>
                                 </div>
+
+                                <div className="s_card mobile_service_card">
+                                    <div className="row">
+                                        <div className="col-sm-3 col-6">
+                                            <div className="s_tab" onClick={() => setServices(1)}>
+                                                <h4>TV mounting</h4>
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-3 col-6">
+                                            <div className="s_tab" onClick={() => setServices(2)}>
+                                                <h4>Handyman Services</h4>
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-3 col-6">
+                                            <div className="s_tab" onClick={() => setServices(3)}>
+                                                <h4>Fan & Light</h4>
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-3 col-6">
+                                            <div className="s_tab" onClick={() => setServices(4)}>
+                                                <h4>Smart home installation</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                         <div className="col-md-8">
@@ -322,20 +348,20 @@ function Homepage() {
                         </h1>
                     </div>
                     <div className="row d-flex jc-center text-center ai-center">
-                        <div className="col-md-2 col-sm-6">
-                            <img src={img_1} alt="image" className='img-fluid' />
+                        <div className="col-md-2 col-sm-6 col-6">
+                            <img src={img_1} alt="image" className='img-fluid amazon' />
                         </div>
-                        <div className="col-md-2 col-sm-6">
-                            <img src={img_2} alt="image" className='img-fluid' />
+                        <div className="col-md-2 col-sm-6 col-6">
+                            <img src={img_2} alt="image" className='img-fluid helloTech' />
                         </div>
-                        <div className="col-md-2 col-sm-6">
-                            <img src={img_3} alt="image" className='img-fluid' />
+                        <div className="col-md-2 col-sm-6 col-6">
+                            <img src={img_3} alt="image" className='img-fluid google' />
                         </div>
-                        <div className="col-md-2 col-sm-6">
-                            <img src={img_4} alt="image" className='img-fluid' />
+                        <div className="col-md-2 col-sm-6 col-6">
+                            <img src={img_4} alt="image" className='img-fluid xfininty' />
                         </div>
-                        <div className="col-md-2 col-sm-6">
-                            <img src={img_5} alt="image" className='img-fluid' />
+                        <div className="col-md-2 col-sm-6 col-6">
+                            <img src={img_5} alt="image" className='img-fluid thumbtack' />
                         </div>
                     </div>
                 </div>

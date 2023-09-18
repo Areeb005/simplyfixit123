@@ -148,6 +148,33 @@ const TvMounting = () => {
 
 
     const collect = (item, no) => {
+
+        let dataTvMounting = JSON.parse(window.localStorage.getItem('dataTvMounting'))
+        if (!dataTvMounting) dataTvMounting = []
+
+
+        console.log(dataTvMounting, 'before');
+
+        item.no = no
+
+        if (no === 1) {
+            dataTvMounting.push([item])
+        }
+        else if (dataTvMounting) {
+            let itemData = (dataTvMounting[dataTvMounting.length - 1]);
+            let foundItem = itemData.find(e => e.no == no);
+            let index = (dataTvMounting[dataTvMounting.length - 1]).indexOf(foundItem);
+
+            if (foundItem) {
+                if (foundItem.no == no) itemData[index] = item;
+
+            } else {
+                dataTvMounting[dataTvMounting.length - 1].push(item);
+            }
+        }
+
+        window.localStorage.setItem('dataTvMounting', JSON.stringify(dataTvMounting));
+        setselected(dataTvMounting);
     }
 
     const checkboxData = (item, id, no) => {
@@ -164,7 +191,7 @@ const TvMounting = () => {
 
         if (checkbox.checked) {
             dataTvMounting[dataTvMounting.length - 1].push(item)
-            window.localStorage.setItem('dataTvMounting', JSON.stringify(dataTvMounting))
+            localStorage.setItem('dataTvMounting', JSON.stringify(dataTvMounting))
             setselected(dataTvMounting)
 
         } else if (!checkbox.checked) {
@@ -175,7 +202,7 @@ const TvMounting = () => {
                 if (e.id == id && e.no == no) {
                     found = i
                     dataTvMounting[dataTvMounting.length - 1].splice(i, 1)
-                    window.localStorage.setItem('dataTvMounting', JSON.stringify(dataTvMounting))
+                    localStorage.setItem('dataTvMounting', JSON.stringify(dataTvMounting))
                     setselected(dataTvMounting)
                     return e
                 }
@@ -300,42 +327,41 @@ const TvMounting = () => {
 
                         {
                             calendar &&
-                            <Calendar />
+                            <Calendar daysCol="col-lg-2 mb-4 days_col" timeCol="col-lg-3 time_col" />
                         }
+
                     </div>
                     <div className="col-md-4">
 
                         <div className='tv-mountaing-table'>
-                            <table>
-                                <h2>Tv Mounting</h2>
-                                <thead>
-                                    <th></th>
-                                    <th></th>
-                                </thead>
+                            <div className="table-responsive">
+                                <table className='w-100'>
+                                    <h2>Tv Mounting</h2>
 
-                                {
-                                    selected.map(ele => {
-                                        return <div style={{ marginTop: '40px' }}>
-                                            <tbody>
-                                                {
-                                                    ele.map(element => {
-                                                        return <tr>
-                                                            <td>{element.q}</td>
-                                                            <td>${element.price}</td>
-                                                        </tr>
-                                                    })
-                                                }
-                                            </tbody>
-                                        </div>
-                                    })
-                                }
+                                    {
+                                        selected.map(ele => {
+                                            return <>
+                                                <tbody>
+                                                    {
+                                                        ele.map(element => {
+                                                            return <tr className='tbody'>
+                                                                <td>{element.q}</td>
+                                                                <td className='text-end'>${element.price}</td>
+                                                            </tr>
+                                                        })
+                                                    }
+                                                </tbody>
+                                            </>
+                                        })
+                                    }
 
-                                <tr className='tfoot'>
-                                    <td>Estimated</td>
-                                    <td>${price}</td>
-                                </tr>
+                                    <tr className='tfoot'>
+                                        <td>Estimated</td>
+                                        <td>${price}</td>
+                                    </tr>
 
-                            </table>
+                                </table>
+                            </div>
                         </div>
 
                     </div>

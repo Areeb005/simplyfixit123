@@ -13,7 +13,7 @@ function WallHangSelect({ text, checkvalue, checked, id, onchange }) {
                                     <div className='d-flex ai-center'>
                                         <div className="select-indicator">
                                             <button className='btn p-0'>
-                                                <input type="checkbox" className='selected' name="" checked={checked} id={id} value={text} onChange={onchange} />
+                                                <input type="checkbox" className='selected' checked={checked} id={id} value={text} onChange={onchange} />
                                             </button>
                                         </div>
                                         <div className='d-flex'>

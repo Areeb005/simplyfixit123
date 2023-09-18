@@ -217,6 +217,10 @@
   margin-bottom: 40px !important;
 }
 
+.section2 .mobile_service_card {
+  display: none;
+}
+
 .section2 .s_tab {
   padding: 40px 20px;
   margin-bottom: 2px;
@@ -543,7 +547,8 @@
 /* ================================  S e c t i o n - 6 ================================== */
 
 .section6 {
-  margin-top: 100px;
+  /* margin-top: 100px; */
+  margin-bottom: 90px;
 }
 
 .section6 .container {
@@ -588,8 +593,8 @@
   background-position: center;
   background-attachment: fixed;
   padding: 100px 0px;
+  margin-bottom: 90px;
   /* margin-top: 90px; */
-  /* margin-bottom: 90px; */
   height: auto;
 }
 
@@ -971,7 +976,7 @@
 .service_section4 {
   background-color: var(--theme-yellow-color);
   padding: 100px 0px;
-  margin-bottom: 90px;
+  /* margin-bottom: 90px; */
 }
 
 .service_section4 .container {
@@ -999,6 +1004,7 @@
   background-position: center;
   height: auto;
   padding: 100px 0px;
+  margin-bottom: 90px;
 }
 
 .service_section5 .form_head {
@@ -1191,6 +1197,10 @@
   border-radius: 30px;
 }
 
+.test_section3 {
+  margin-bottom: 90px;
+}
+
 .test_section3 .container {
   max-width: 75%;
   min-width: 75%;
@@ -1231,6 +1241,7 @@
 
 .cart-section {
   margin-top: 50px;
+  margin-bottom: 90px;
 }
 
 .cart-section .card {
@@ -1259,6 +1270,148 @@
 .cart-section .mobile-card {
   display: none;
 }
+
+/* ===============================  C O N F I R M  P A G E  C S S =============================== */
+
+.confirm-section {
+  margin-top: 50px;
+  margin-bottom: 90px;
+}
+
+.confirm-section .card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(180, 185, 209, 0.385216);
+}
+
+.confirm-section .card a {
+  text-decoration: none;
+}
+
+.confirm-section .cart-detail {
+  background-color: var(--theme-blue-color);
+}
+
+.confirm-section .cart-detail .form-control {
+  font-size: 14px;
+}
+
+.confirm-section .cart-detail .checkout-btn {
+  background-color: white;
+  font-size: 18px;
+}
+
+.confirm-section .confirm h5 {
+  margin: 2rem 0;
+  font-size: 1.25rem;
+  color: var(--theme-blue-color);
+  text-align: center;
+}
+
+.confirm-section .confirm .estimated_work {
+  text-align: center;
+  padding: 20px 40px;
+  border-radius: 8px;
+  color: var(--theme-blue-color);
+  background-color: var(--theme-yellow-color);
+}
+
+.confirm-section .confirm .estimated_work span {
+  font-weight: 700;
+}
+
+.confirm-section .confirm .estimated_work p {
+  margin-bottom: 0;
+}
+
+.confirm-section .summary {
+  /* padding: 0 4rem; */
+  color: var(--theme-blue-color);
+  max-width: 450px;
+  margin: auto;
+}
+
+.confirm-section .summary h5 {
+  text-align: left;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.confirm-section .summary .service_detail {
+  border-bottom: 1px solid var(--theme-blue-color);
+  padding: 0.5rem 0;
+}
+
+.confirm-section .summary .service_detail h6 {
+  margin-bottom: 0rem;
+}
+
+.confirm-section .summary .service_detail p {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 0rem;
+  text-align: right;
+}
+
+.confirm-section .summary .estimated_time {
+  border-bottom: 1px solid var(--theme-blue-color);
+  padding: 0.5rem 0;
+}
+
+.confirm-section .summary .summary_detail h6 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 0rem;
+}
+
+.confirm-section .summary .summary_detail p {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 0rem;
+  text-align: right;
+}
+
+.confirm-section .summary .confirm_btn {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.confirm-section .summary .confirm_btn .btn {
+  background-color: var(--theme-blue-color);
+  color: var(--theme-yellow-color);
+  border-radius: 8px;
+  padding: 10px 30px;
+}
+
+/* tv-mountaing */
+
+.tv-mountaing-table {
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(180, 185, 209, 0.385216);
+}
+
+.tv-mountaing-table h2 {
+  margin-bottom: 1rem;
+  font-size: 26px;
+  color: var(--theme-blue-color);
+}
+
+.tv-mountaing-table .tfoot {
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--theme-blue-color);
+}
+
+.tv-mountaing-table tbody {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--theme-blue-color);
+  border-bottom: 1px solid var(--theme-blue-color);
+}
+
 
 /* TEXT COMPONENT */
 
@@ -1311,11 +1464,6 @@
 
 /* MULTI-SELECT COMPONENT */
 
-.multi-select-card .container {
-  /* max-width: 60%;
-  min-width: 60%; */
-}
-
 .accordion {
   box-shadow: 0px 4px 10px rgba(180, 185, 209, 0.385216);
   border-radius: 8px !important;
@@ -1346,11 +1494,20 @@
   border-radius: 8px;
   max-height: 180px;
   min-height: 180px;
+  position: relative;
 }
 
 .accordion .accordion-body .multi-select .select-indicator {
-  display: flex;
-  justify-content: end;
+  position: absolute;
+  right: 5%;
+  /* display: flex;
+  justify-content: end; */
+}
+
+.form-check-input[type=checkbox] {
+  border-radius: 1.25em;
+  height: 20px;
+  width: 20px;
 }
 
 .accordion .accordion-body .multi-select .select-indicator .selected {
@@ -1362,7 +1519,12 @@
 }
 
 .accordion .accordion-body .multi-select .desc {
+  margin-top: 2rem;
   text-align: center;
+}
+
+.accordion .accordion-body .multi-select .desc .btn {
+  padding: 0.5rem !important;
 }
 
 .accordion .accordion-body .multi-select .desc .text {
@@ -1466,7 +1628,7 @@
   margin-left: 1rem;
 }
 
-.select-indicator {
+.wall_hang_select .select-indicator {
   display: flex;
   justify-content: start;
 }
@@ -1539,11 +1701,6 @@
 }
 
 /* CALENDAR */
-
-/* .calendar .container{
-  max-width: 85%;
-  min-width: 85%;
-} */
 
 .calendar .heading {
   color: var(--theme-blue-color);
@@ -1624,7 +1781,6 @@
   box-shadow: 0px 4px 10px rgba(180, 185, 209, 0.385216);
 }
 
-
 .e-heading {
   margin-bottom: 3rem;
   font-size: 26px;
@@ -1634,17 +1790,16 @@
   margin: auto;
 }
 
-.hieght{
-  min-height: 50vh;
+.hieght {
+  min-height: 56vh;
   max-height: max-content;
 }
-
 
 .footer {
   background-color: var(--theme-blue-color);
   color: var(--theme-yellow-color);
   /* background-color: rgb(247, 247, 247); */
-  margin-top: 100px;
+  /* margin-top: 100px; */
   position: relative;
   bottom: 0;
   width: 100%;
@@ -1674,6 +1829,11 @@
     max-width: 60%;
     min-width: 63%;
     margin: auto;
+  }
+
+  .accordion .accordion-body .multi-select {
+    max-height: 160px;
+    min-height: 160px;
   }
 }
 
@@ -1726,6 +1886,11 @@
     min-width: 75%;
     margin: auto;
   }
+
+  .tv-mounting-container {
+    max-width: 95%;
+    min-width: 95%;
+  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -1739,6 +1904,15 @@
 
   .navbar .nav-item a {
     font-size: 15px;
+  }
+
+  .accordion .accordion-body .multi-select {
+    max-height: 140px;
+    min-height: 140px;
+  }
+
+  .accordion .accordion-body .multi-select .desc .text {
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -1825,6 +1999,14 @@
     min-width: 95%;
     margin: auto;
   }
+
+  .accordion .accordion-body .multi-select .desc .text {
+    font-size: 13px;
+  }
+
+  .confirm-section .summary .confirm_btn {
+    margin-bottom: 2rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1858,7 +2040,7 @@
   .s6,
   .s7,
   .s8 {
-    height: 490px !important;
+    height: 405px !important;
   }
 
   .section2 .s_desc .content {
@@ -1867,6 +2049,24 @@
 
   .section2 .s_desc .content h4 {
     font-size: 18px;
+  }
+
+  .section2 .desktop_service_card {
+    display: none;
+  }
+
+  .section2 .mobile_service_card {
+    display: block;
+    /* display: flex; */
+    margin-bottom: 2rem;
+  }
+
+  .section2 .mobile_service_card .s_tab {
+    padding: 15px 20px;
+    margin-bottom: 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0px 2px 2px 0px #9B9B9B;
   }
 
   .section3 .card {
@@ -1934,6 +2134,10 @@
   .calendar .time .time_col {
     margin: auto 1rem 1rem 1rem !important;
   }
+
+  .tv-mountaing-table {
+    margin-top: 2rem;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -1970,6 +2174,10 @@
     height: 360px !important;
   }
 
+  .section2 .mobile_service_card .s_tab {
+    padding: 10px 15px;
+  }
+
   .section3 .card {
     height: 100%;
     padding: 2rem;
@@ -1986,6 +2194,10 @@
 
   .section5 img {
     margin-bottom: 2rem;
+  }
+
+  .services-hero-section .hero_head {
+    padding: 100px 0px;
   }
 
   .service_section1 .marginBottom {
@@ -2045,6 +2257,11 @@
     height: 300px !important;
   }
 
+  .section2 .mobile_service_card .s_tab {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
   .section3 .container {
     min-width: 100%;
     max-width: 100%;
@@ -2072,7 +2289,7 @@
   }
 
   .calendar .days_col {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem !important;
   }
 
   .calendar .time .time_col {
@@ -2081,6 +2298,27 @@
 }
 
 @media screen and (max-width: 450px) {
+
+  .section5 .amazon {
+    height: 80px;
+  }
+
+  .section5 .helloTech {
+    height: 150px;
+  }
+
+  .section5 .google {
+    height: 50px;
+  }
+
+  .section5 .xfininty {
+    height: 40px;
+  }
+
+  .section5 .thumbtack {
+    height: 100px;
+  }
+
   .e-heading {
     font-size: 24px;
     max-width: 500px;
@@ -2129,6 +2367,26 @@
   .cart-section .card-body .cart-item {
     width: 100px !important;
   }
+
+  .confirm-section .summary .summary_detail h6 {
+    font-size: 16px;
+  }
+
+  .confirm-section .summary .summary_detail p {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .inc_dec .select_btn {
+    max-width: 370px;
+    min-width: 370px;
+  }
+
+  .textAraeComponent .textArea {
+    max-width: 340px;
+    min-width: 340px;
+  }
 }
 
 @media screen and (max-width: 380px) {
@@ -2167,6 +2425,17 @@
     min-width: 290px;
     margin: auto;
     padding: 10px 20px;
+  }
+
+  .inc_dec .select_btn {
+    max-width: 340px;
+    min-width: 340px;
+    padding: 5px 10px;
+  }
+
+  .textAraeComponent .textArea {
+    max-width: 320px;
+    min-width: 320px;
   }
 
   .calendar .days .days_row {
@@ -2223,6 +2492,10 @@
 }
 
 @media screen and (max-width: 350px) {
+  .services-hero-section .hero_head h1 {
+    font-size: 40px;
+  }
+
   .test_section1 .test_card .review1 {
     width: auto;
     margin: auto;
@@ -2247,6 +2520,17 @@
 
   .test_section2 .test_form .form_body {
     padding: 20px;
+  }
+
+  .inc_dec .select_btn {
+    max-width: 320px;
+    min-width: 320px;
+    padding: 5px 10px;
+  }
+
+  .textAraeComponent .textArea {
+    max-width: 290px;
+    min-width: 290px;
   }
 
   .calendar .days .days_row {
@@ -2327,8 +2611,18 @@
     padding: 35px;
   }
 
+  .inc_dec .select_btn {
+    max-width: 300px;
+    min-width: 300px;
+    padding: 5px 10px;
+  }
+
   .e-heading {
     font-size: 20px;
+  }
+
+  .confirm-section .confirm .estimated_work {
+    padding: 20px 15px;
   }
 }
 
@@ -2342,8 +2636,24 @@
     margin-bottom: 2rem;
   }
 
+  .service_section4 .content h1 {
+    font-size: 38px;
+    margin-bottom: 1rem;
+  }
+
   .test_section3 .card .content {
     padding: 30px;
+  }
+
+  .inc_dec .select_btn {
+    max-width: 280px;
+    min-width: 280px;
+    padding: 5px 10px;
+  }
+
+  .textAraeComponent .textArea {
+    max-width: 270px;
+    min-width: 270px;
   }
 }
 
@@ -2362,5 +2672,10 @@
     min-width: 270px;
     margin: auto;
     padding: 7px 15px;
+  }
+
+  .textAraeComponent .textArea {
+    max-width: 250px;
+    min-width: 250px;
   }
 }

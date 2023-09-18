@@ -6,7 +6,7 @@ import usePersistedState from 'use-persisted-state-hook'
 
 
 
-const Calendar = () => {
+const Calendar = ({ daysCol, timeCol }) => {
     let navigate = useNavigate()
     const [num, setNum] = usePersistedState('num', 0)
     const timeSlots = ['11am - 1pm', '12pm - 2pm', '1pm - 3pm', '2pm - 4pm', '3pm - 5pm', '4pm - 6pm', '5pm - 7pm', '6pm - 8pm']
@@ -17,7 +17,6 @@ const Calendar = () => {
 
     const [cart, setCart] = usePersistedState('thisCart', {})
     console.log("cart", cart);
-
 
     let ___date = new Date()
     let day = ___date.getDate()
@@ -133,8 +132,6 @@ const Calendar = () => {
         return d.getDate()
     }
 
-
-
     const submitData = (e) => {
 
         e.preventDefault()
@@ -166,10 +163,7 @@ const Calendar = () => {
 
         localStorage.setItem('Calendar', JSON.stringify(data))
 
-
         navigate('/cart')
-
-
 
     }
 
@@ -196,8 +190,8 @@ const Calendar = () => {
                         <div className="row d-flex jc-center text-center mb-5 days_row">
                             {
                                 (data).map((thisDate) => {
-                                    return <div key={thisDate.date} className="col-lg-1 col-md-2 col-sm-2 col-2 days_col">
-                                        <button type='button' className={`btn ${SelectedDate == thisDate ? 'active' : 'date_btn'}`} onClick={() => { setSelectedDate(thisDate); setCart({...cart, date: thisDate.date}) }}>
+                                    return <div key={thisDate.date} className={`col-lg-1 col-md-2 col-sm-2 col-3 days_col ${daysCol}`}>
+                                        <button type='button' className={`btn ${SelectedDate == thisDate ? 'active' : 'date_btn'}`} onClick={() => { setSelectedDate(thisDate); setCart({ ...cart, date: thisDate.date }) }}>
                                             {/* <small>Thu</small> */}
                                             <p className='mb-0'>{thisDate.date == undefined ? '' : showDate(thisDate.date)}</p>
                                         </button>
@@ -213,8 +207,8 @@ const Calendar = () => {
                             {
                                 SelectedDate &&
                                 (SelectedDate.slots).map((e, i) => {
-                                    return <div key={e.time} className="col-lg-2 col-md-2 col-sm-2 col-4 me-4 mb-4 time_col">
-                                        <button type='button' disabled={e.bookes} onClick={() => {setSelectedTimeSlot(e); setCart({...cart, Time_Slot: e.time})}} className={`btn ${SelectedTimeSlot == e ? 'active' : 'time_btn'}`}>{e.time}</button>
+                                    return <div key={e.time} className={`col-lg-2 col-md-2 col-sm-2 col-4 me-4 mb-4 time_col ${timeCol}`}>
+                                        <button type='button' disabled={e.bookes} onClick={() => { setSelectedTimeSlot(e); setCart({ ...cart, Time_Slot: e.time }) }} className={`btn ${SelectedTimeSlot == e ? 'active' : 'time_btn'}`}>{e.time}</button>
                                     </div>
                                 })
                             }

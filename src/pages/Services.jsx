@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import Navbar from '../components/Navbar'
+import { Link } from 'react-router-dom'
+import { addInstantQuoteData } from '../firebase/apis'
 import { ToastContainer, toast } from 'react-toastify';
-
 import 'react-toastify/dist/ReactToastify.css';
 
+
+import Navbar from '../components/Navbar'
 import s_image from "../assets/up_to_40.svg"
 import booking from "../assets/booking.svg"
 import Technician from '../components/Slider/Technician'
 import appliances from "../assets/appliances.jpg"
+
+import quality from "../assets/Services/Icons/quality.png"
+import scheduling from "../assets/Services/Icons/calendar.png"
+import team from "../assets/Services/Icons/developers.png"
+import support from "../assets/Services/Icons/24-hours-support.png"
+
 
 import service1 from "../assets/Services/Audio & Video.webp"
 import service2 from "../assets/Services/Computers & Printers.webp"
@@ -17,8 +25,6 @@ import service5 from "../assets/Services/Home Security.webp"
 import service6 from "../assets/Services/Smart Home.webp"
 import service7 from "../assets/Services/TV mounting.webp"
 import service8 from "../assets/Services/Wifi & Network.webp"
-import { Link } from 'react-router-dom'
-import { addInstantQuoteData } from '../firebase/apis'
 
 
 
@@ -54,7 +60,6 @@ function Services() {
         setyour_message('')
 
         console.log(obj);
-
 
     }
 
@@ -124,28 +129,28 @@ function Services() {
                     <div className="row jc-center text-center">
                         <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
                             <div className="content">
-                                <img src={booking} alt="image" className='img-fluid' />
+                                <img src={quality} alt="image" className='img-fluid' />
                                 <h3>Quality Service</h3>
                                 <p>Expert repairs and installations for TV mounting, Smart Home, Fan and Light repair, and Handyman services.</p>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
                             <div className="content">
-                                <img src={booking} alt="image" className='img-fluid' />
+                                <img src={scheduling} alt="image" className='img-fluid' />
                                 <h3>Easy Scheduling</h3>
                                 <p>Seamlessly book appointments online at your convenience.</p>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
                             <div className="content">
-                                <img src={booking} alt="image" className='img-fluid' />
+                                <img src={team} alt="image" className='img-fluid' />
                                 <h3>Professional Team</h3>
                                 <p>Highly skilled technicians dedicated to providing top-tier service.</p>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
                             <div className="content">
-                                <img src={booking} alt="image" className='img-fluid' />
+                                <img src={support} alt="image" className='img-fluid' />
                                 <h3>24-Hour Support</h3>
                                 <p>Round-the-clock assistance to address all your service needs.</p>
                             </div>
@@ -224,19 +229,19 @@ function Services() {
             <section className='service_section4'>
                 <div className="container">
                     <div className="row d-flex jc-center text-center">
-                        <div className="col-md-4 col-sm-4">
+                        <div className="col-md-4 col-sm-4 col-6">
                             <div className="content">
                                 <h1>2020</h1>
                                 <h5>Year Established</h5>
                             </div>
                         </div>
-                        <div className="col-md-4 col-sm-4">
+                        <div className="col-md-4 col-sm-4 col-6">
                             <div className="content">
                                 <h1>1000+</h1>
                                 <h5>Projects Completed</h5>
                             </div>
                         </div>
-                        <div className="col-md-4 col-sm-4">
+                        <div className="col-md-4 col-sm-4 col-6">
                             <div className="content">
                                 <h1>47</h1>
                                 <h5>Contractors Appointed</h5>
