@@ -148,25 +148,6 @@ const TvMounting = () => {
 
 
     const collect = (item, no) => {
-
-        let dataTvMounting = JSON.parse(window.localStorage.getItem('dataTvMounting'))
-        if (!dataTvMounting) dataTvMounting = []
-
-
-        console.log(dataTvMounting, 'before');
-
-
-        if (no === 1) {
-            dataTvMounting.push([item])
-        } else {
-            dataTvMounting[dataTvMounting.length - 1].push(item)
-        }
-
-        console.log(dataTvMounting, 'after');
-
-
-        window.localStorage.setItem('dataTvMounting', JSON.stringify(dataTvMounting))
-        setselected(dataTvMounting)
     }
 
     const checkboxData = (item, id, no) => {
@@ -310,7 +291,7 @@ const TvMounting = () => {
                                         setcalendar(true);
                                         setCart(selected);
                                         setQuiz("TvMounting")
-                                        }}>
+                                    }}>
                                         Schedule Your Service
                                     </button>
                                 </div>
@@ -348,7 +329,7 @@ const TvMounting = () => {
                                         </div>
                                     })
                                 }
-                                
+
                                 <tr className='tfoot'>
                                     <td>Estimated</td>
                                     <td>${price}</td>
