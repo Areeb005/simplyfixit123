@@ -30,22 +30,22 @@ const TvMounting = () => {
             opt: [{
                 id: 1,
                 q: `Up to 31"`,
-                price: 76
+                price: 59
             },
             {
                 id: 2,
                 q: `32" - 60"`,
-                price: 109
+                price: 69
             },
             {
                 id: 3,
                 q: `61" - 80"`,
-                price: 164
+                price: 89
             },
             {
                 id: 4,
                 q: `Over 81"`,
-                price: 197
+                price: 109
             },
             ]
         },
@@ -120,12 +120,12 @@ const TvMounting = () => {
             opt: [{
                 id: 1,
                 q: `In-wall cord concealment with power`,
-                price: 120
+                price: 99
             },
             {
                 id: 2,
                 q: `In-wall cord concealment without power`,
-                price: 79
+                price: 69
             },
             {
                 id: 3,
@@ -301,7 +301,7 @@ const TvMounting = () => {
                                     return <div key={e.no}>
                                         <h2 className='e-heading'>{e.heading}</h2>
                                         {e.opt.map(item => {
-                                            return <TextComponent onClick={() => { collect(item, e.no); navigate(`#${hashValue + 1}`) }} text={item.q} />
+                                            return <TextComponent onClick={() => { collect(item, e.no); navigate(`#${hashValue + 1}`) }} text={item.q} price={item.price} />
                                         })}
                                     </div>
                                 }
@@ -357,7 +357,7 @@ const TvMounting = () => {
 
                                     <tr className='tfoot'>
                                         <td>Estimated</td>
-                                        <td>${price}</td>
+                                        <td className='text-end'>${price}</td>
                                     </tr>
 
                                 </table>

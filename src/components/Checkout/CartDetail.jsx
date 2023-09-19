@@ -53,13 +53,13 @@ function Cart() {
 
                                             <div className="d-flex jc-between ai-center mb-4">
                                                 <div>
-                                                    <p className="mb-1">Shopping cart</p>
+                                                    <p className="mb-1">Shopping Cart</p>
                                                     <p className="mb-0">You have 4 items in your cart</p>
                                                 </div>
                                                 <div>
                                                     <p className="mb-0">
                                                         <span className="text-muted">Sort by:</span>
-                                                        <a href="#!" className="text-body">price
+                                                        <a className="text-body">price
                                                             <i className="fas fa-angle-down mt-1"></i>
                                                         </a>
                                                     </p>
@@ -265,11 +265,11 @@ function Cart() {
                                                     </div>
 
                                                     <p className="small mb-2">Payment Method</p>
-                                                    <a href="#!" onClick={() => setPaymentType("stripe")} type="submit" className="text-white">
-                                                        <i className="fab fa-cc-stripe fa-2x me-2"></i>
+                                                    <a href="#!" onClick={() => setPaymentType("stripe")} type="submit" className={`${setPaymentType == "stripe" ? 'payment_method': "me-2"} text-white`}>
+                                                        <i className="fab fa-cc-stripe fa-2x"></i>
                                                     </a>
-                                                    <a href="#!" onClick={() => setPaymentType("paypal")} type="submit" className="text-white">
-                                                        <i className="fab fa-cc-paypal fa-2x me-2"></i>
+                                                    <a href="#!" onClick={() => setPaymentType("paypal")} type="submit" className={`${setPaymentType == "paypal" ? 'payment_method': ""} text-white`}>
+                                                        <i className="fab fa-cc-paypal fa-2x"></i>
                                                     </a>
 
                                                     {

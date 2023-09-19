@@ -126,41 +126,6 @@ function Services() {
 
             <section className='service_section2'>
                 <div className="container">
-                    <div className="row jc-center text-center">
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
-                            <div className="content">
-                                <img src={quality} alt="image" className='img-fluid' />
-                                <h3>Quality Service</h3>
-                                <p>Expert repairs and installations for TV mounting, Smart Home, Fan and Light repair, and Handyman services.</p>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
-                            <div className="content">
-                                <img src={scheduling} alt="image" className='img-fluid' />
-                                <h3>Easy Scheduling</h3>
-                                <p>Seamlessly book appointments online at your convenience.</p>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
-                            <div className="content">
-                                <img src={team} alt="image" className='img-fluid' />
-                                <h3>Professional Team</h3>
-                                <p>Highly skilled technicians dedicated to providing top-tier service.</p>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
-                            <div className="content">
-                                <img src={support} alt="image" className='img-fluid' />
-                                <h3>24-Hour Support</h3>
-                                <p>Round-the-clock assistance to address all your service needs.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section className='service_section3'>
-                <div className="container">
                     <div className="row">
                         <div className="col-lg-6 col-md-6 col-sm-6 mb-5">
                             <Link to="/services/tv-mounting" className='services_link'>
@@ -222,6 +187,41 @@ function Services() {
                             </Link>
                         </div>
 
+                    </div>
+                </div>
+            </section>
+
+            <section className='service_section3'>
+                <div className="container">
+                    <div className="row jc-center text-center">
+                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
+                            <div className="content">
+                                <img src={quality} alt="image" className='img-fluid' />
+                                <h3>Quality Service</h3>
+                                <p>Expert repairs and installations for TV mounting, Smart Home, Fan and Light repair, and Handyman services.</p>
+                            </div>
+                        </div>
+                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
+                            <div className="content">
+                                <img src={scheduling} alt="image" className='img-fluid' />
+                                <h3>Easy Scheduling</h3>
+                                <p>Seamlessly book appointments online at your convenience.</p>
+                            </div>
+                        </div>
+                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
+                            <div className="content">
+                                <img src={team} alt="image" className='img-fluid' />
+                                <h3>Professional Team</h3>
+                                <p>Highly skilled technicians dedicated to providing top-tier service.</p>
+                            </div>
+                        </div>
+                        <div className="col-lg-3 col-md-6 col-sm-6 mb-5">
+                            <div className="content">
+                                <img src={support} alt="image" className='img-fluid' />
+                                <h3>24-Hour Support</h3>
+                                <p>Round-the-clock assistance to address all your service needs.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

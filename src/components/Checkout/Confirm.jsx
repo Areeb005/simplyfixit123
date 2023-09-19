@@ -1,8 +1,12 @@
 import React from 'react'
+import Navbar from '../Navbar'
 
 function Confirm() {
     return (
         <>
+
+            <Navbar />
+            
             <section className="confirm-section">
                 <div className="container">
                     <div className="row d-flex jc-center ai-center">
@@ -19,8 +23,6 @@ function Confirm() {
                                             </h5> */}
 
                                             <div className='confirm'>
-                                                {/* <h5>Confirm and Book</h5> */}
-
                                                 <div className='estimated_work'>
                                                     <h3>Estimated scope of work: <span> 2-3 hours </span></h3>
                                                     <h6>Hourly rate $91/hr</h6>
@@ -61,24 +63,12 @@ function Confirm() {
                                                                 <p>Sep 18 2023, 12pm - 1pm</p>
                                                             </div>
 
-                                                            <div className="estimated_time d-flex jc-between ai-center">
-                                                                <h6>Location</h6>
-                                                                <p>1535 Broadway, New York, NY 10036, USA</p>
-                                                            </div>
-
-                                                            <div className="my-2">
-                                                                <h6 className='mb-2'>Contact Details</h6>
-                                                                <p className='text-left'>First name</p>
-                                                                <p className='text-left'>Last name</p>
-                                                                <p className='text-left'>Email</p>
-                                                                <p className='text-left'>Phone</p>
-                                                            </div>
                                                         </div>
 
                                                     </div>
 
                                                     <div className="confirm_btn">
-                                                        <button className='btn'>Confirm and book</button>
+                                                        <button className='btn'>Confirm and Book</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -96,7 +86,7 @@ function Confirm() {
 
                                                     <form className="mt-4">
                                                         <div className="form-outline form-white mb-4">
-                                                            <input type="text" className="form-control form-control-lg" placeholder="Enter Username" required />
+                                                            <input type="text" className="form-control form-control-lg" placeholder="Enter Full Name" required />
                                                         </div>
 
                                                         <div className="form-outline form-white mb-4">

@@ -17,7 +17,7 @@ function MultipleSelectComponet({ text, checked, id, onClick, price }) {
                             <div className='btn'>
                                 {/* <img src={power} alt="image" className='img-fluid' /> */}
                                 <p className='text'>{text}</p>
-                                <small className='price'>+(${price})</small>
+                                <small className={`price ${!price && 'd-none'}`}>+(${price})</small>
                             </div>
                         </div>
                     </label>

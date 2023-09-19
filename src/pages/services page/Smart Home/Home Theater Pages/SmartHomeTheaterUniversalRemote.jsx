@@ -16,6 +16,9 @@ function SmartHomeTheaterUniversalRemote() {
     const navigate = useNavigate();
     const { hash } = useLocation();
 
+    const [cart, setCart] = usePersistedState('thisCart', {})
+    const [quiz, setQuiz] = usePersistedState('thisQuiz', "SmartHomeTheaterUniversalRemote")
+
     let [faltu, getHashValue] = hash.split('#')
     const url = useLocation().pathname;
     const hashValue = parseInt(getHashValue) || 1;

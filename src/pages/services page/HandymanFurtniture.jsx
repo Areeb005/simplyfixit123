@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { React, useEffect, useState } from 'react'
 import usePersistedState from 'use-persisted-state-hook'
 import IncDecComponent from '../../components/services components/IncDecComponent';
@@ -6,6 +6,8 @@ import TextAreaComponent from '../../components/services components/TextAreaComp
 import ImageUploadComponent from '../../components/services components/ImageUploadComponent';
 import Navbar from '../../components/Navbar';
 import Calendar from '../../components/services components/calendar';
+
+import { BiSolidPhone } from "react-icons/bi"
 
 
 
@@ -164,6 +166,13 @@ function HandymanFurniture() {
                                 <div className="button">
                                     <button className='continue_btn' disabled={TotalFurnitureQuantity == 0} onClick={() => { TotalFurnitureQuantity > 0 ? navigate(`#${hashValue + 1}`) : alert('Add furniture') }}>Continue</button>
                                 </div>
+
+                                <div className='text-center mt-5'>
+                                    <Link className='d-flex jc-center ai-center handyman_contact text-decoration-none mb-0'>
+                                        <BiSolidPhone className='me-2 phone_icon' />
+                                        <h6>Contact Us</h6>
+                                    </Link>
+                                </div>
                             </div>
                         }
 
@@ -173,8 +182,8 @@ function HandymanFurniture() {
                     <div>
                         <ImageUploadComponent onChange={(e) => onChange(e)} img={Pics} />
                         <div className="button">
-                            <button className='continue_btn' onClick={() => {setcalendar(true); setQuiz("HandymanFurtniture");}
-}>Schedule Your Service</button>
+                            <button className='continue_btn' onClick={() => { setcalendar(true); setQuiz("HandymanFurtniture"); }
+                            }>Schedule Your Service</button>
                         </div>
                     </div>
                 }

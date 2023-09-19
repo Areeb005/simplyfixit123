@@ -16,6 +16,9 @@ function SmartHomeTheaterSpeakerSubwoofer() {
     const navigate = useNavigate();
     const { hash } = useLocation();
 
+    const [cart, setCart] = usePersistedState('thisCart', {})
+    const [quiz, setQuiz] = usePersistedState('thisQuiz', "SmartHomeTheaterSpeakerSubwoofer")
+
     let [faltu, getHashValue] = hash.split('#')
     const url = useLocation().pathname;
     const hashValue = parseInt(getHashValue) || 1;

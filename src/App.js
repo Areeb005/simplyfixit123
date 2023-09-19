@@ -83,9 +83,6 @@ function App() {
       <Route exact path={`/services/smart-home-installation-smart-hub-or-speaker`} element={<SmartHomeHubOrSpeaker />} />
       <Route exact path={`/services/smart-home-installation-smart-door-lock`} element={<SmartHomeSmartDoorLock />} />
       <Route exact path={`/services/smart-home-installation-smart-garage`} element={<SmartHomeSmartGarage />} />
-      <Route exact path={`/services/smart-home-installation/wifi-connection`} element={<WiFiConnection />} />
-      <Route exact path={`/services/smart-home-installation-wifi-connection-setup`} element={<SmartHomeWifiConnectionSetup />} />
-      <Route exact path={`/services/smart-home-installation-single-extension-setup`} element={<SmartHomeSingleExtensionSetup />} />
 
       <Route exact path={`/services/smart-home-installation-home-theater`} element={<SmartHomeHomeTheater />} />
       <Route exact path={`/services/smart-home-installation-home-theater-soundbar`} element={<SmartHomeTheaterSoundbar />} />
@@ -95,6 +92,11 @@ function App() {
       <Route exact path={`/services/smart-home-installation-home-theater-gaming-system`} element={<SmartHomeTheaterGamingSystem />} />
       <Route exact path={`/services/smart-home-installation-home-theater-universal-remote`} element={<SmartHomeTheaterUniversalRemote />} />
       <Route exact path={`/services/smart-home-installation-home-theater-other-smart-devices`} element={<SmartHomeTheaterOtherDevices />} />
+      
+      <Route exact path={`/services/smart-home-installation/wifi-connection`} element={<WiFiConnection />} />
+      <Route exact path={`/services/smart-home-installation-wifi-connection-setup`} element={<SmartHomeWifiConnectionSetup />} />
+      <Route exact path={`/services/smart-home-installation-single-extension-setup`} element={<SmartHomeSingleExtensionSetup />} />
+
 
       <Route exact path="/testimonial" element={<Testimonial />} />
       <Route exact path="/cart" element={<Cart />} />

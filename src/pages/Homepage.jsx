@@ -22,13 +22,9 @@ import SimpleSlider from '../components/Slider/Slider'
 
 import TV from "../assets/Services/TV mounting.webp"
 
-
-
-
 function Homepage() {
 
     const [services, setServices] = useState(1);
-
 
     const notify = () => toast("Submitted", {
         draggable: true,
@@ -130,18 +126,26 @@ function Homepage() {
                         <div className="col-md-4">
                             <div className="services">
                                 <div className="s_card desktop_service_card">
-                                    <div className="s_tab" onClick={() => setServices(1)}>
-                                        <h4>TV mounting</h4>
-                                    </div>
-                                    <div className="s_tab" onClick={() => setServices(2)}>
-                                        <h4>Handyman Services</h4>
-                                    </div>
-                                    <div className="s_tab" onClick={() => setServices(3)}>
-                                        <h4>Fan & Light</h4>
-                                    </div>
-                                    <div className="s_tab" onClick={() => setServices(4)}>
-                                        <h4>Smart home installation</h4>
-                                    </div>
+                                    <Link to="/services/tv-mounting" onClick={() => setServices(1)} style={{ textDecoration: "none" }}>
+                                        <div className="s_tab">
+                                            <h4>TV mounting</h4>
+                                        </div>
+                                    </Link>
+                                    <Link to="/services/handyman" onClick={() => setServices(2)} style={{ textDecoration: "none" }}>
+                                        <div className="s_tab">
+                                            <h4>Handyman Services</h4>
+                                        </div>
+                                    </Link>
+                                    <Link to="/services/fan-light" onClick={() => setServices(3)} style={{ textDecoration: "none" }}>
+                                        <div className="s_tab">
+                                            <h4>Fan & Light</h4>
+                                        </div>
+                                    </Link>
+                                    <Link to="/services/smart-home" onClick={() => setServices(4)} style={{ textDecoration: "none" }}>
+                                        <div className="s_tab">
+                                            <h4>Smart home installation</h4>
+                                        </div>
+                                    </Link>
                                 </div>
 
                                 <div className="s_card mobile_service_card">

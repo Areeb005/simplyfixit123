@@ -8,15 +8,17 @@ import usePersistedState from 'use-persisted-state-hook'
 
 const Calendar = ({ daysCol, timeCol }) => {
     let navigate = useNavigate()
-    const [num, setNum] = usePersistedState('num', 0)
-    const timeSlots = ['11am - 1pm', '12pm - 2pm', '1pm - 3pm', '2pm - 4pm', '3pm - 5pm', '4pm - 6pm', '5pm - 7pm', '6pm - 8pm']
-    const daysName = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    const monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-    const [SelectedTimeSlot, setSelectedTimeSlot] = useState('11am - 1pm')
-
-    const [cart, setCart] = usePersistedState('thisCart', {})
-    console.log("cart", cart);
+    // const [num, setNum] = usePersistedState('num', 0)
+    // const timeSlots = ['11am - 1pm', '12pm - 2pm', '1pm - 3pm', '2pm - 4pm', '3pm - 5pm', '4pm - 6pm', '5pm - 7pm', '6pm - 8pm']
+    // const daysName = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    // const monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const [ActiveDate, setActiveDate] = useState(null)
+    const [data, setData] = useState([])
+    // const [customerData2, setcustomerData2] = useState([])
+    const [SelectedTimeSlot, setSelectedTimeSlot] = useState({
+        time: "8am - 10am",
+        bookes: false
+    })
 
     let ___date = new Date()
     let day = ___date.getDate()
@@ -24,9 +26,18 @@ const Calendar = ({ daysCol, timeCol }) => {
     let year = ___date.getFullYear()
     let formatedDate = `${year}-${month}-${day}`
 
+
     const obj123 = {
         date: formatedDate,
         slots: [
+            {
+                time: "8am - 10am",
+                bookes: false
+            },
+            {
+                time: "9am - 11am",
+                bookes: false
+            },
             {
                 time: "11am - 1pm",
                 bookes: false
@@ -61,15 +72,20 @@ const Calendar = ({ daysCol, timeCol }) => {
             },
         ]
     }
+    const [SelectedDate, setSelectedDate] = useState(obj123)
+
+    // console.log(SelectedDate,"==Date");
+    // console.log(SelectedTimeSlot,"===TimeSlot");
+
+    const [cart, setCart] = usePersistedState('thisCart', {})
+    // console.log("cart", cart);
+
+    // console.log(SelectedDate);
 
     const getCustomerData = () => {
         return JSON.parse(localStorage.getItem('Calendar'));
     }
 
-    const [SelectedDate, setSelectedDate] = useState(obj123)
-    // const [SelectedDate, setSelectedDate] = useState(null)
-    const [data, setData] = useState([])
-    const [customerData2, setcustomerData2] = useState([])
 
     // const [Dates, setDates] = useState([])
 
@@ -84,6 +100,14 @@ const Calendar = ({ daysCol, timeCol }) => {
             calendar.push({
                 date: formatedDate,
                 slots: [
+                    {
+                        time: "8am - 10am",
+                        bookes: false
+                    },
+                    {
+                        time: "9am - 11am",
+                        bookes: false
+                    },
                     {
                         time: "11am - 1pm",
                         bookes: false
@@ -181,6 +205,8 @@ const Calendar = ({ daysCol, timeCol }) => {
 
     }, [])
 
+    // console.log(data);   
+
     return <>
         <form onSubmit={(e) => submitData(e)}>
             <section className='calendar my-5'>
@@ -191,7 +217,7 @@ const Calendar = ({ daysCol, timeCol }) => {
                             {
                                 (data).map((thisDate) => {
                                     return <div key={thisDate.date} className={`col-lg-1 col-md-2 col-sm-2 col-3 days_col ${daysCol}`}>
-                                        <button type='button' className={`btn ${SelectedDate == thisDate ? 'active' : 'date_btn'}`} onClick={() => { setSelectedDate(thisDate); setCart({ ...cart, date: thisDate.date }) }}>
+                                        <button type='button' className={`btn ${SelectedDate.date == thisDate.date ? 'active' : 'date_btn'}`} onClick={() => { setSelectedDate(thisDate); setCart({ ...cart, date: thisDate.date }) }}>
                                             {/* <small>Thu</small> */}
                                             <p className='mb-0'>{thisDate.date == undefined ? '' : showDate(thisDate.date)}</p>
                                         </button>
@@ -206,9 +232,9 @@ const Calendar = ({ daysCol, timeCol }) => {
                         <div className="row d-flex jc-center text-center mb-4 time_row">
                             {
                                 SelectedDate &&
-                                (SelectedDate.slots).map((e, i) => {
+                                (SelectedDate.slots).map((e) => {
                                     return <div key={e.time} className={`col-lg-2 col-md-2 col-sm-2 col-4 me-4 mb-4 time_col ${timeCol}`}>
-                                        <button type='button' disabled={e.bookes} onClick={() => { setSelectedTimeSlot(e); setCart({ ...cart, Time_Slot: e.time }) }} className={`btn ${SelectedTimeSlot == e ? 'active' : 'time_btn'}`}>{e.time}</button>
+                                        <button type='button' disabled={e.bookes} onClick={() => { setSelectedTimeSlot(e); setCart({ ...cart, Time_Slot: e.time }) }} className={`btn ${SelectedTimeSlot.time == e.time ? 'active' : 'time_btn'}`}>{e.time}</button>
                                     </div>
                                 })
                             }

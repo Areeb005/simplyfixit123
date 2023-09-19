@@ -15,8 +15,7 @@ function TextComponent({onClick, text, size, image, desc, price}) {
                             <h6 className='mb-0'>{text}</h6>
                             <small>{size}</small>
                             {
-                                <p className={`mb-0 ${!price && 'd-none'}`}>+(${price})</p>
-
+                                <p className={`mb-0 ml-4 ${!price && 'd-none'}`}>+(${price})</p>
                             }
                         </div>
                         <div>{
