@@ -220,7 +220,50 @@ function SmartHomeTheaterSpeakerSubwoofer() {
                     <div>
                         <ImageUploadComponent onChange={(e) => onChange(e)} img={SmartHomeTheaterSpeakerSubwooferPics} />
                         <div className="button">
-                            <button className='continue_btn' onClick={() => setcalendar(true)}>Schedule Your Service</button>
+                            <button className='continue_btn' onClick={() => {
+                                setcalendar(true)
+                                setCart({
+                                    'product': [
+                                        [
+                                            {
+                                                'no': 1,
+                                                'id': 1,
+                                                'q': 'Smart Home Speaker & Subwoofer Installation',
+                                                'a': SmartHomeTheaterSpeakerSubwoofer,
+                                                'price': 129
+                                            },
+                                            {
+                                                'no': 2,
+                                                'id': 1,
+                                                'q': 'Which brand/model of devices will be setup and connected to your TV?',
+                                                'a': SmartHomeTheaterSpeakerSubwooferDeviceModel,
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 3,
+                                                'id': 1,
+                                                'q': 'Installation Or Replacement?',
+                                                'a': SmartHomeTheaterSpeakerSubwooferInstallation,
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 4,
+                                                'id': 1,
+                                                'q': 'Anythink Else?',
+                                                'a': SmartHomeTheaterSpeakerSubwooferDesc,
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 5,
+                                                'id': 1,
+                                                'q': 'Images',
+                                                'a': SmartHomeTheaterSpeakerSubwooferPics,
+                                                'price': 0
+                                            },
+                                        ],
+                                    ]
+                                });
+                            }}>Schedule Your Service</button>
                         </div>
                     </div>
                 }

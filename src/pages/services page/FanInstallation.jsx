@@ -174,12 +174,15 @@ function FanInstallation() {
                             <button className='continue_btn' onClick={() => {
                                 setcalendar(true);
                                 setCart({
-                                    FanCeilingFans,	
-                                    FanBathroomFans,	
-                                    TotalIFanAreasQuantity,	
-                                    FanInstallationHeight,	
-                                    FanInstallationLadder,	
-                                    FanInstallationDesc,	
+                                    price: 97,
+                                    estimated_time: '2-3 hours',
+                                    q: 'Fan Installation',
+                                    FanCeilingFans,
+                                    FanBathroomFans,
+                                    TotalIFanAreasQuantity,
+                                    FanInstallationHeight,
+                                    FanInstallationLadder,
+                                    FanInstallationDesc,
                                     FanInstallationPics,
                                 })
                             }}>

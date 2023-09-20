@@ -220,7 +220,50 @@ function SmartHomeTheaterOtherDevices() {
                     <div>
                         <ImageUploadComponent onChange={(e) => onChange(e)} img={SmartHomeTheaterOtherDevicesPics} />
                         <div className="button">
-                            <button className='continue_btn' onClick={() => setcalendar(true)}>Schedule Your Service</button>
+                            <button className='continue_btn' onClick={() => {
+                                setcalendar(true);
+                                setCart({
+                                    'product': [
+                                        [
+                                            {
+                                                'no': 1,
+                                                'id': 1,
+                                                'q': 'Smart Home Other Devices Installation',
+                                                'a': SmartHomeTheaterOtherDevices,
+                                                'price': 99
+                                            },
+                                            {
+                                                'no': 2,
+                                                'id': 1,
+                                                'q': 'Which brand/model of devices will be setup and connected to your TV?',
+                                                'a': SmartHomeTheaterOtherDevicesDeviceModel,
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 3,
+                                                'id': 1,
+                                                'q': 'Installation Or Replacement?',
+                                                'a': SmartHomeTheaterOtherDevicesInstallation,
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 4,
+                                                'id': 1,
+                                                'q': 'Anythink Else?',
+                                                'a': SmartHomeTheaterOtherDevicesDesc,
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 5,
+                                                'id': 1,
+                                                'q': 'Images',
+                                                'a': SmartHomeTheaterOtherDevicesPics,
+                                                'price': 0
+                                            },
+                                        ],
+                                    ]
+                                });
+                            }}>Schedule Your Service</button>
                         </div>
                     </div>
                 }

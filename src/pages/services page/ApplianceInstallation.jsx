@@ -189,6 +189,9 @@ function ApplianceInstallation() {
                                 setcalendar(true);
                                 setQuiz("ApplianceInstallation")
                                 setCart({
+                                    price: 91,
+                                    estimated_time: '2-3 hours',
+                                    q: 'Appliance Installation',
                                     InstallationType,
                                     InstallationTime,
                                     FuelSource,
@@ -196,9 +199,9 @@ function ApplianceInstallation() {
                                     ApplianceInstallationDesc,
                                     ApplianceInstallationPics,
                                 })
-                                }}>
-                                    Schedule Your Service
-                                </button>
+                            }}>
+                                Schedule Your Service
+                            </button>
                         </div>
                     </div>
                 }

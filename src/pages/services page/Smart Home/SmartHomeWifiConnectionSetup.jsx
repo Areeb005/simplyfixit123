@@ -279,13 +279,54 @@ function SmartHomeWifiConnectionSetup() {
                             <button className='continue_btn' onClick={() => {
                                 setcalendar(true);
                                 setCart({
-                                    SmartHomeWifiConnectionSetupData: selected[0].map((e) => e.q),
-                                    SmartHomeWifiConnectionSetup,
-                                    SmartHomeWifiConnectionSetupDeviceModel,
-                                    SmartHomeWifiConnectionSetupInternetProvider,
-                                    SmartHomeWifiConnectionSetupDesc,
-                                    SmartHomeWifiConnectionSetupPics,
-                                })
+                                    'product': [
+                                        [
+                                            {
+                                                'no': 1,
+                                                'id': 1,
+                                                'q': 'Smart Home Wifi Connection Setup',
+                                                'a': SmartHomeWifiConnectionSetup,
+                                                'price': 129
+                                            },
+                                            {
+                                                'no': 2,
+                                                'id': 1,
+                                                'q': 'Which devices need to be setup?',
+                                                'a': selected[0].map((e) => e.q),
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 3,
+                                                'id': 1,
+                                                'q': 'brand/model of your router?',
+                                                'a': SmartHomeWifiConnectionSetupDeviceModel,
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 4,
+                                                'id': 1,
+                                                'q': 'indicate your internet provider?',
+                                                'a': SmartHomeWifiConnectionSetupInternetProvider,
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 5,
+                                                'id': 1,
+                                                'q': 'Anythink Else?',
+                                                'a': SmartHomeWifiConnectionSetupDesc,
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 6,
+                                                'id': 1,
+                                                'q': 'Images',
+                                                'a': SmartHomeWifiConnectionSetupPics,
+                                                'price': 0
+                                            },
+                                        ],
+                                    ]
+                                });
+
                             }}>
                                 Schedule Your Service
                             </button>

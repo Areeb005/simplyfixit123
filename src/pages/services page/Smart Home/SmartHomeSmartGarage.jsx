@@ -230,15 +230,68 @@ function SmartHomeSmartGarage() {
                             <button className='continue_btn' onClick={() => {
                                 setcalendar(true);
                                 setCart({
-                                    SmartHomeSmartGarage,
-                                    SmartHomeSmartGarageWifi,
-                                    SmartHomeSmartGarageDoorOpener,
-                                    SmartHomeSmartGarageAppReq,
-                                    SmartHomeSmartGarageLocation,
-                                    SmartHomeSmartGarageDeviceModel,
-                                    SmartHomeSmartGarageDesc,
-                                    SmartHomeSmartGaragePics,
-                                })
+                                    'product': [
+                                        [
+                                            {
+                                                'no': 1,
+                                                'id': 1,
+                                                'q': 'Smart Home Garage Installation',
+                                                'a': SmartHomeSmartGarage,
+                                                'price': 99
+                                            },
+                                            {
+                                                'no': 2,
+                                                'id': 1,
+                                                'q': 'smart garage controller device will be installed?',
+                                                'a': SmartHomeSmartGarageDeviceModel,
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 3,
+                                                'id': 1,
+                                                'q': 'functioning garage door opener at the installation area?',
+                                                'a': SmartHomeSmartGarageDoorOpener,
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 4,
+                                                'id': 1,
+                                                'q': 'install location have access to a close-by outlet required to power the controller?',
+                                                'a': SmartHomeSmartGarageLocation,
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 5,
+                                                'id': 1,
+                                                'q': 'Have Stable and Reliable WiFi?',
+                                                'a': SmartHomeSmartGarageWifi,
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 6,
+                                                'id': 1,
+                                                'q': 'App already Downloaded and Setup on Phone?',
+                                                'a': SmartHomeSmartGarageAppReq,
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 7,
+                                                'id': 1,
+                                                'q': 'Anythink Else?',
+                                                'a': SmartHomeSmartGarageDesc,
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 8,
+                                                'id': 1,
+                                                'q': 'Images',
+                                                'a': SmartHomeSmartGaragePics,
+                                                'price': 0
+                                            },
+                                        ],
+                                    ]
+                                });
+
                             }}>
                                 Schedule Your Service
                             </button>

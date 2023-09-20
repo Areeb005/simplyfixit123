@@ -285,49 +285,63 @@ function SmartHomeSecurityCamera() {
                                                 'id': 1,
                                                 'q': 'Smart Home Camera Installation',
                                                 'a': SmartHomeCamera,
-                                                'price': 213
+                                                'price': 129
                                             },
                                             {
                                                 'no': 2,
                                                 'id': 1,
-                                                'q': 'Brand/Model of Smart Lock?',
+                                                'q': 'Brand/Model of Your Device?',
                                                 'a': SmartHomeCameraDeviceModel,
+                                                'price': 0
+
                                             },
                                             {
                                                 'no': 3,
                                                 'id': 1,
                                                 'q': 'Where Would You like the Device Installed?',
                                                 'a': selected[0].map((e) => e.q),
+                                                'price': 0
+
                                             },
                                             {
                                                 'no': 4,
                                                 'id': 1,
                                                 'q': 'Is There a Powersource Nearby?',
                                                 'a': SmartHomeCameraPowerSource,
+                                                'price': 0
+
                                             },
                                             {
                                                 'no': 5,
                                                 'id': 1,
                                                 'q': 'Have Stable and Reliable WiFi?',
                                                 'a': SmartHomeCameraWifi,
+                                                'price': 0
+
                                             },
                                             {
                                                 'no': 6,
                                                 'id': 1,
                                                 'q': 'App already Downloaded and Setup on Phone?',
                                                 'a': SmartHomeCameraAppReq,
+                                                'price': 0
+
                                             },
                                             {
                                                 'no': 7,
                                                 'id': 1,
                                                 'q': 'Anythink Else?',
                                                 'a': SmartHomeCameraDesc,
+                                                'price': 0
+
                                             },
                                             {
                                                 'no': 8,
                                                 'id': 1,
                                                 'q': 'Images',
                                                 'a': SmartHomeCameraPics,
+                                                'price': 0
+
                                             },
                                         ],
                                     ]

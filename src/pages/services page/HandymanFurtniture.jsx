@@ -35,15 +35,7 @@ function HandymanFurniture() {
 
     const [calendar, setcalendar] = useState(false)
 
-    const [cart, setCart] = usePersistedState('thisCart', {
-        SmallFurniture,
-        MediumFurniture,
-        LargeFurniture,
-        ExtraLargeFurniture,
-        TotalFurnitureQuantity,
-        Desc,
-        Pics,
-    })
+    const [cart, setCart] = usePersistedState('thisCart', {})
 
 
     const Furniture = [
@@ -118,15 +110,6 @@ function HandymanFurniture() {
 
     useEffect(() => {
         setTotalFurnitureQuantity(SmallFurniture + MediumFurniture + LargeFurniture + ExtraLargeFurniture)
-
-        setCart({
-            ...cart,
-            SmallFurniture,
-            MediumFurniture,
-            LargeFurniture,
-            ExtraLargeFurniture,
-            TotalFurnitureQuantity,
-        })
     }, [SmallFurniture, MediumFurniture, LargeFurniture, ExtraLargeFurniture])
 
 
@@ -182,7 +165,19 @@ function HandymanFurniture() {
                     <div>
                         <ImageUploadComponent onChange={(e) => onChange(e)} img={Pics} />
                         <div className="button">
-                            <button className='continue_btn' onClick={() => { setcalendar(true); setQuiz("HandymanFurtniture"); }
+                            <button className='continue_btn' onClick={() => {
+                                setcalendar(true); setQuiz("HandymanFurtniture"); setCart({
+                                    price: 91,
+                                    estimated_time: '2-3 hours',
+                                    q: 'Furniture Assembly',
+                                    SmallFurniture,
+                                    MediumFurniture,
+                                    LargeFurniture,
+                                    ExtraLargeFurniture,
+                                    Desc,
+                                    Pics,
+                                })
+                            }
                             }>Schedule Your Service</button>
                         </div>
                     </div>

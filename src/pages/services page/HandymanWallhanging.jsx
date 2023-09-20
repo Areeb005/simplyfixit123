@@ -232,6 +232,9 @@ function HandymanWallhanging() {
                                     setcalendar(true);
                                     setQuiz("HandymanWallhanging")
                                     setCart({
+                                        price: 91,
+                                        estimated_time: '2-3 hours',
+                                        q: 'Wall Hanging',
                                         "wall_types": selected[0].map((e) => e.q),
                                         SmallItems,
                                         LargeItems,

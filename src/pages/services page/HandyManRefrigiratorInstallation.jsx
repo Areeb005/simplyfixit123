@@ -110,10 +110,13 @@ function HandyManRefrigiratorInstallation() {
                             <button className='continue_btn' onClick={() => {
                                 setcalendar(true);
                                 setCart({
+                                    price: 91,
+                                    estimated_time: '2-3 hours',
+                                    q: 'Refrigirator Installation',
                                     RefrigiratorInstallationTime,
                                     RefrigiratorInstallationDesc,
                                     RefrigiratorInstallationPics,
-                                })                            
+                                })
                             }}>
                                 Schedule Your Service
                             </button>

@@ -165,12 +165,15 @@ function HandymanOvenInstallation() {
                             <button className='continue_btn' onClick={() => {
                                 setcalendar(true);
                                 setCart({
+                                    price: 91,
+                                    estimated_time: '2-3 hours',
+                                    q: 'Oven Installation',
                                     OvenInstallationTime,
                                     OvenFuelSource,
                                     OvenWiringGasAvail,
                                     OvenInstallationDesc,
-                                    OvenInstallationPics
-                                })
+                                    OvenInstallationPics,
+                                });
                             }}>
                                 Schedule Your Service
                             </button>

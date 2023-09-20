@@ -223,43 +223,49 @@ function SmartHomeThermostat() {
                                                 'id': 1,
                                                 'q': 'Smart Home Thermostat Installation',
                                                 'a': SmartHomeThermostat,
-                                                'price': 213
+                                                'price': 99
                                             },
                                             {
                                                 'no': 2,
                                                 'id': 1,
-                                                'q': 'Brand/Model of Smart Lock?',
+                                                'q': 'Brand/Model Of Your Smart Thermostat?',
                                                 'a': SmartHomeThermostatDeviceModel,
+                                                'price': 0
                                             },
                                             {
                                                 'no': 3,
                                                 'id': 1,
                                                 'q': 'Do you need a C-wire installed to complete your thermostat installation?',
                                                 'a': SmartHomeThermostatCWire,
+                                                'price': `${SmartHomeThermostatCWire == 'Yes'? 119 : 0}`
                                             },
                                             {
                                                 'no': 4,
                                                 'id': 1,
                                                 'q': 'Have Stable and Reliable WiFi?',
                                                 'a': SmartHomeThermostatWifi,
+                                                'price': 0
                                             },
                                             {
                                                 'no': 5,
                                                 'id': 1,
                                                 'q': 'App already Downloaded and Setup on Phone?',
                                                 'a': SmartHomeThermostatAppReq,
+                                                'price': 0
                                             },
                                             {
                                                 'no': 6,
                                                 'id': 1,
                                                 'q': 'Anythink Else?',
                                                 'a': SmartHomeThermostatDesc,
+                                                'price': 0
                                             },
                                             {
                                                 'no': 7,
                                                 'id': 1,
                                                 'q': 'Images',
                                                 'a': SmartHomeThermostatPics,
+                                                'price': 0
                                             },
                                         ],
                                     ]

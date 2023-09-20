@@ -168,6 +168,9 @@ function HandymanStoveInstallation() {
                             <button className='continue_btn' onClick={() => {
                                 setcalendar(true);
                                 setCart({
+                                    price: 91,
+                                    estimated_time: '2-3 hours',
+                                    q: 'Stove Installation',
                                     StoveFuelSource,
                                     StoveWiringGasAvail,
                                     StoveInstallationPics,

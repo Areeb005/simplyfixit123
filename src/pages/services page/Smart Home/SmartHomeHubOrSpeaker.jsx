@@ -222,43 +222,49 @@ function SmartHomeHubOrSpeaker() {
                                                 'id': 1,
                                                 'q': 'Smart Hub or Speaker Installation',
                                                 'a': SmartHomeHubOrSpeaker,
-                                                'price': 213
+                                                'price': 99
                                             },
                                             {
                                                 'no': 2,
                                                 'id': 1,
-                                                'q': 'Brand/Model of Smart Lock?',
+                                                'q': 'Brand/Model of Smart Speaker?',
                                                 'a': SmartHomeHubOrSpeakerDeviceModel,
+                                                'price': 0
                                             },
                                             {
                                                 'no': 3,
                                                 'id': 1,
                                                 'q': 'This Device to Other Devices?',
                                                 'a': SmartHomeHubOrSpeakerCWire,
+                                                'price': `${(SmartHomeHubOrSpeakerCWire == 'Yes, between 1-4 devices' && 49) || (SmartHomeHubOrSpeakerCWire == 'Yes, between 5-10 devices' && 79)}`
                                             },
                                             {
                                                 'no': 4,
                                                 'id': 1,
                                                 'q': 'Have Stable and Reliable WiFi?',
                                                 'a': SmartHomeHubOrSpeakerWifi,
+                                                'price': 0
                                             },
                                             {
                                                 'no': 5,
                                                 'id': 1,
                                                 'q': 'App already Downloaded and Setup on Phone?',
                                                 'a': SmartHomeHubOrSpeakerAppReq,
+                                                'price': 0
                                             },
                                             {
                                                 'no': 6,
                                                 'id': 1,
                                                 'q': 'Anythink Else?',
                                                 'a': SmartHomeHubOrSpeakerDesc,
+                                                'price': 0
                                             },
                                             {
                                                 'no': 7,
                                                 'id': 1,
                                                 'q': 'Images',
                                                 'a': SmartHomeHubOrSpeakerPics,
+                                                'price': 0
                                             },
                                         ],
                                     ]

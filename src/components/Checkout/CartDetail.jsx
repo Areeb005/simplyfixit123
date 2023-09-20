@@ -41,7 +41,7 @@ function Cart() {
         let total = 0;
         cart.product.forEach(e => {
             e.forEach(item => {
-                total += item.price;
+                total += parseInt(item.price);
             })
             setprice(total)
             // console.log(total);
@@ -350,7 +350,7 @@ function Cart() {
 
                                                                 <hr className="my-4" />
 
-                                                                <div className="d-flex jc-between">
+                                                                {/* <div className="d-flex jc-between">
                                                                     <p className="mb-2">Subtotal</p>
                                                                     <p className="mb-2">${price.toFixed(2)}</p>
                                                                 </div>
@@ -358,16 +358,16 @@ function Cart() {
                                                                 <div className="d-flex jc-between">
                                                                     <p className="mb-2">Shipping</p>
                                                                     <p className="mb-2">$20.00</p>
-                                                                </div>
+                                                                </div> */}
 
                                                                 <div className="d-flex jc-between mb-4">
-                                                                    <p className="mb-2">Total(Incl. taxes)</p>
-                                                                    <p className="mb-2">${(price + 20).toFixed(2)}</p>
+                                                                    <p className="mb-2">Total</p>
+                                                                    <p className="mb-2">${(price).toFixed(2)}</p>
                                                                 </div>
 
                                                                 <button type="submit" className="btn checkout-btn btn-block btn-lg">
                                                                     <div className="d-flex jc-between">
-                                                                        <span>${(price + 20).toFixed(2)}</span>
+                                                                        <span>${(price).toFixed(2)}</span>
                                                                         <span>Checkout <i className="fas fa-long-arrow-alt-right ms-2"></i></span>
                                                                     </div>
                                                                 </button>

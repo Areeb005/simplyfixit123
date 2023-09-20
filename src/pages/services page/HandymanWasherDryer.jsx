@@ -111,6 +111,9 @@ function HandymanWasherDryer() {
                                 setcalendar(true);
                                 setQuiz("HandymanWasherDryer")
                                 setCart({
+                                    price: 91,
+                                    estimated_time: '2-3 hours',
+                                    q: 'Washer And Dryer Installation',
                                     WasherDryerInstallationTime,
                                     WasherDryerInstallDesc,
                                     WasherDryerInstallPics

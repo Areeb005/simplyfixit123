@@ -280,49 +280,56 @@ function SmartHomeVideoDoorbell() {
                                                 'id': 1,
                                                 'q': 'Smart Home Camera Installation',
                                                 'a': SmartHomeVideoDoorbell,
-                                                'price': 213
+                                                'price': 99
                                             },
                                             {
                                                 'no': 2,
                                                 'id': 1,
-                                                'q': 'Brand/Model of Smart Lock?',
+                                                'q': 'Brand/Model of Smart Video Doorbell?',
                                                 'a': SmartHomeVideoDoorbellDeviceModel,
+                                                'price': 0
                                             },
                                             {
                                                 'no': 3,
                                                 'id': 1,
                                                 'q': 'Do you have an existing doorbell?',
                                                 'a': SmartHomeVideoDoorbellExist,
+                                                'price': 0
                                             },
                                             {
                                                 'no': 4,
                                                 'id': 1,
                                                 'q': 'Is Your Doorbell Battery Powered?',
                                                 'a': SmartHomeVideoDoorbellBattery,
+                                                'price': 0
                                             },
                                             {
                                                 'no': 5,
                                                 'id': 1,
                                                 'q': 'Have Stable and Reliable WiFi?',
                                                 'a': SmartHomeVideoDoorbellWifi,
+                                                'price': 0
                                             },
                                             {
                                                 'no': 6,
                                                 'id': 1,
                                                 'q': 'App already Downloaded and Setup on Phone?',
                                                 'a': SmartHomeVideoDoorbellAppReq,
+                                                'price': 0
                                             },
                                             {
                                                 'no': 7,
                                                 'id': 1,
                                                 'q': 'Anythink Else?',
                                                 'a': SmartHomeVideoDoorbellDesc,
+                                                'price': 0
                                             },
                                             {
                                                 'no': 8,
                                                 'id': 1,
                                                 'q': 'Images',
                                                 'a': SmartHomeVideoDoorbellPics,
+                                                'price': 0
                                             },
                                         ],
                                     ]

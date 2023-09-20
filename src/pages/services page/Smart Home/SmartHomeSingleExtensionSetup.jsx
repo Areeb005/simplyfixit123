@@ -133,11 +133,39 @@ function SmartHomeSingleExtensionSetup() {
                             <button className='continue_btn' onClick={() => {
                                 setcalendar(true);
                                 setCart({
-                                    SmartHomeSingleExtensionSetup,
-                                    SmartHomeSingleExtensionSetupDeviceModel,
-                                    SmartHomeSingleExtensionSetupDesc,
-                                    SmartHomeSingleExtensionSetupPics
-                                })
+                                    'product': [
+                                        [
+                                            {
+                                                'no': 1,
+                                                'id': 1,
+                                                'q': 'Smart Home Single Extension Setup',
+                                                'a': SmartHomeSingleExtensionSetup,
+                                                'price': 109
+                                            },
+                                            {
+                                                'no': 2,
+                                                'id': 1,
+                                                'q': 'brand/model of your router?',
+                                                'a': SmartHomeSingleExtensionSetupDeviceModel,
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 3,
+                                                'id': 1,
+                                                'q': 'Anythink Else?',
+                                                'a': SmartHomeSingleExtensionSetupDesc,
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 4,
+                                                'id': 1,
+                                                'q': 'Images',
+                                                'a': SmartHomeSingleExtensionSetupPics,
+                                                'price': 0
+                                            },
+                                        ],
+                                    ]
+                                });
                             }}>
                                 Schedule Your Service
                             </button>

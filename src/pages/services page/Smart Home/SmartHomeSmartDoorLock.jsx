@@ -183,7 +183,7 @@ function SmartHomeSmartDoorLock() {
                         <div className="button">
                             <button className='continue_btn' onClick={() => {
                                 setcalendar(true);
-                                setCart(...cart, {
+                                setCart({
                                     'product': [
                                         [
                                             {
@@ -191,37 +191,42 @@ function SmartHomeSmartDoorLock() {
                                                 'id': 1,
                                                 'q': 'Door Lock Installation',
                                                 'a': SmartHomeSmartDoorLock,
-                                                'price': 213
+                                                'price': 99
                                             },
                                             {
                                                 'no': 2,
                                                 'id': 1,
                                                 'q': 'Brand/Model of Smart Lock?',
                                                 'a': SmartHomeSmartDoorLockDeviceModel,
+                                                'price': 0
                                             },
                                             {
                                                 'no': 3,
                                                 'id': 1,
                                                 'q': 'Have Stable and Reliable WiFi?',
                                                 'a': SmartHomeSmartDoorLockWifi,
+                                                'price': 0
                                             },
                                             {
                                                 'no': 4,
                                                 'id': 1,
                                                 'q': 'App already Downloaded and Setup on Phone?',
                                                 'a': SmartHomeSmartDoorLockAppReq,
+                                                'price': 0
                                             },
                                             {
                                                 'no': 5,
                                                 'id': 1,
                                                 'q': 'Anythink Else?',
                                                 'a': SmartHomeSmartDoorLockDesc,
+                                                'price': 0
                                             },
                                             {
                                                 'no': 6,
                                                 'id': 1,
                                                 'q': 'Images',
                                                 'a': SmartHomeSmartDoorLockPics,
+                                                'price': 0
                                             },
                                         ],
                                     ]

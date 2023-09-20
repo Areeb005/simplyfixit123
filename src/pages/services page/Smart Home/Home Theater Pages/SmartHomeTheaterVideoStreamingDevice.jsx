@@ -25,8 +25,6 @@ function SmartHomeTheaterVideoStreamingDevice() {
 
     // const [SmartHomeTheaterVideoStreamingDevice, setSmartHomeTheaterVideoStreamingDevice] = useState(0)
     const [SmartHomeTheaterVideoStreamingDevice, setSmartHomeTheaterVideoStreamingDevice] = usePersistedState('SmartHomeTheaterVideoStreamingDevice', 0)
-
-
     // const [SmartHomeTheaterVideoStreamingDeviceWifi, setSmartHomeTheaterVideoStreamingDeviceWifi] = usePersistedState('SmartHomeTheaterVideoStreamingDeviceWifi', '')
     const [SmartHomeTheaterVideoStreamingDeviceDeviceModel, setSmartHomeTheaterVideoStreamingDeviceDeviceModel] = usePersistedState('SmartHomeTheaterVideoStreamingDeviceDeviceModel', '')
     const [SmartHomeTheaterVideoStreamingDeviceInstallation, setSmartHomeTheaterVideoStreamingDeviceInstallation] = usePersistedState('SmartHomeTheaterVideoStreamingDeviceInstallation', '')
@@ -220,7 +218,50 @@ function SmartHomeTheaterVideoStreamingDevice() {
                     <div>
                         <ImageUploadComponent onChange={(e) => onChange(e)} img={SmartHomeTheaterVideoStreamingDevicePics} />
                         <div className="button">
-                            <button className='continue_btn' onClick={() => setcalendar(true)}>Schedule Your Service</button>
+                            <button className='continue_btn' onClick={() => {
+                                setcalendar(true);
+                                setCart({
+                                    'product': [
+                                        [
+                                            {
+                                                'no': 1,
+                                                'id': 1,
+                                                'q': 'Smart Home Video Streaming Device Installation',
+                                                'a': SmartHomeTheaterVideoStreamingDevice,
+                                                'price': 79
+                                            },
+                                            {
+                                                'no': 2,
+                                                'id': 1,
+                                                'q': 'Which brand/model of devices will be setup and connected to your TV?',
+                                                'a': SmartHomeTheaterVideoStreamingDeviceDeviceModel,
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 3,
+                                                'id': 1,
+                                                'q': 'Installation Or Replacement?',
+                                                'a': SmartHomeTheaterVideoStreamingDeviceInstallation,
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 4,
+                                                'id': 1,
+                                                'q': 'Anythink Else?',
+                                                'a': SmartHomeTheaterVideoStreamingDeviceDesc,
+                                                'price': 0
+                                            },
+                                            {
+                                                'no': 5,
+                                                'id': 1,
+                                                'q': 'Images',
+                                                'a': SmartHomeTheaterVideoStreamingDevicePics,
+                                                'price': 0
+                                            },
+                                        ],
+                                    ]
+                                });
+                            }}>Schedule Your Service</button>
                         </div>
                     </div>
                 }
