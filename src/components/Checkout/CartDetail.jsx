@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Navbar from "../Navbar";
 import StripeGateway from '../payment/StripeGateway';
 import PaypalGateway from '../payment/PaypalGateway';
+import usePersistedState from 'use-persisted-state-hook'
+
 
 // import { CLIENT_ID } from './config/config'
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
@@ -9,6 +11,12 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 
 function Cart() {
+
+    // const [toMapCart, settoMapCart] = useState([])
+    const [cart] = usePersistedState('thisCart')
+    const [quiz] = usePersistedState('thisQuiz')
+
+
     const [name, setName] = useState("a")
     const [email, setEmail] = useState("a@a.com")
     const [phone, setPhone] = useState("a")
@@ -16,8 +24,8 @@ function Cart() {
     const [address, setAddress] = useState("")
     const [paymentType, setPaymentType] = useState("")
     const [paymentShow, setPaymentShow] = useState(false)
-
     const [orderID, setOrderID] = useState(false);
+    const [price, setprice] = useState(0)
 
     async function checkout(e) {
         e.preventDefault()
@@ -29,6 +37,16 @@ function Cart() {
         setPaymentShow(true)
     }
 
+    useEffect(() => {
+        let total = 0;
+        cart.product.forEach(e => {
+            e.forEach(item => {
+                total += item.price;
+            })
+            setprice(total)
+            // console.log(total);
+        })
+    }, [])
 
     return (
         <>
@@ -42,31 +60,59 @@ function Cart() {
                                 <div className="card-body p-4">
                                     <div className="row">
                                         <div className="col-lg-6">
-                                            {/* <h5 className="mb-3">
-                                                <a href="#!" className="text-body">
-                                                    <i className="fas fa-long-arrow-alt-left me-2"></i>
-                                                    Continue shopping
-                                                </a>
-                                            </h5> */}
 
-                                            {/* <hr /> */}
+                                            {/* DESKTOP CARDS */}
 
-                                            <div className="d-flex jc-between ai-center mb-4">
+
+                                            {
                                                 <div>
-                                                    <p className="mb-1">Shopping Cart</p>
-                                                    <p className="mb-0">You have 4 items in your cart</p>
+                                                    <p>Time: {cart.Time_Slot}</p>
+                                                    <p>Date: {cart.date}</p>
+                                                    {
+                                                        (cart.product).map((item, i) => {
+                                                            return <div key={i} className="card mb-3 desktop-card">
+                                                                <div className="card-body">
+                                                                    {item.map((product, i) => {
+                                                                        if (quiz != "TvMounting") {
+                                                                            if (product.no == 1) {
+                                                                                return <div key={i} className="d-flex jc-between row-flex">
+                                                                                    <div className="d-flex flex-row ai-center">
+                                                                                        <div className="ms-3">
+                                                                                            <h5>{product.q}</h5>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div className="d-flex flex-row ai-center text-center">
+                                                                                        <div style={{ width: "80px" }}>
+                                                                                            <h5 className="mb-0">${product.price}</h5>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            }
+                                                                        } else {
+                                                                            return <div key={i} className="d-flex jc-between row-flex">
+                                                                                <div className="d-flex flex-row ai-center">
+                                                                                    <div className="ms-3">
+                                                                                        <h5>{product.q}</h5>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className="d-flex flex-row ai-center text-center">
+                                                                                    <div style={{ width: "80px" }}>
+                                                                                        <h5 className="mb-0">${product.price}</h5>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        }
+                                                                    })}
+                                                                </div>
+                                                            </div>
+                                                        })
+                                                    }
                                                 </div>
-                                                <div>
-                                                    <p className="mb-0">
-                                                        <span className="text-muted">Sort by:</span>
-                                                        <a className="text-body">price
-                                                            <i className="fas fa-angle-down mt-1"></i>
-                                                        </a>
-                                                    </p>
-                                                </div>
-                                            </div>
 
-                                            <div className="card mb-3 desktop-card">
+                                            }
+
+
+                                            {/* <div className="card mb-3 desktop-card">
                                                 <div className="card-body">
                                                     <div className="d-flex jc-between row-flex">
                                                         <div className="d-flex flex-row ai-center">
@@ -166,7 +212,9 @@ function Cart() {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> */}
+
+                                            {/* MOBILE CARDS */}
 
                                             <div className="card mb-3 mobile-card">
                                                 <div className="card-body">
@@ -265,10 +313,10 @@ function Cart() {
                                                     </div>
 
                                                     <p className="small mb-2">Payment Method</p>
-                                                    <a href="#!" onClick={() => setPaymentType("stripe")} type="submit" className={`${setPaymentType == "stripe" ? 'payment_method': "me-2"} text-white`}>
+                                                    <a href="#!" onClick={() => setPaymentType("stripe")} type="submit" className={`${setPaymentType == "stripe" ? 'payment_method' : "me-2"} text-white`}>
                                                         <i className="fab fa-cc-stripe fa-2x"></i>
                                                     </a>
-                                                    <a href="#!" onClick={() => setPaymentType("paypal")} type="submit" className={`${setPaymentType == "paypal" ? 'payment_method': ""} text-white`}>
+                                                    <a href="#!" onClick={() => setPaymentType("paypal")} type="submit" className={`${setPaymentType == "paypal" ? 'payment_method' : ""} text-white`}>
                                                         <i className="fab fa-cc-paypal fa-2x"></i>
                                                     </a>
 
@@ -304,7 +352,7 @@ function Cart() {
 
                                                                 <div className="d-flex jc-between">
                                                                     <p className="mb-2">Subtotal</p>
-                                                                    <p className="mb-2">$4798.00</p>
+                                                                    <p className="mb-2">${price.toFixed(2)}</p>
                                                                 </div>
 
                                                                 <div className="d-flex jc-between">
@@ -314,12 +362,12 @@ function Cart() {
 
                                                                 <div className="d-flex jc-between mb-4">
                                                                     <p className="mb-2">Total(Incl. taxes)</p>
-                                                                    <p className="mb-2">$4818.00</p>
+                                                                    <p className="mb-2">${(price + 20).toFixed(2)}</p>
                                                                 </div>
 
                                                                 <button type="submit" className="btn checkout-btn btn-block btn-lg">
                                                                     <div className="d-flex jc-between">
-                                                                        <span>$4818.00</span>
+                                                                        <span>${(price + 20).toFixed(2)}</span>
                                                                         <span>Checkout <i className="fas fa-long-arrow-alt-right ms-2"></i></span>
                                                                     </div>
                                                                 </button>

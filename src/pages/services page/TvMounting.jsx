@@ -153,7 +153,7 @@ const TvMounting = () => {
         if (!dataTvMounting) dataTvMounting = []
 
 
-        console.log(dataTvMounting, 'before');
+        // console.log(dataTvMounting, 'before');
 
         item.no = no
 
@@ -182,12 +182,12 @@ const TvMounting = () => {
 
         let dataTvMounting = JSON.parse(window.localStorage.getItem('dataTvMounting'))
 
-        console.log(dataTvMounting, 'before');
+        // console.log(dataTvMounting, 'before');
 
         let checkbox = window.document.getElementById(`checkValue${id}`)
 
-        console.log(checkbox.checked);
-        console.log(checkbox.value);
+        // console.log(checkbox.checked);
+        // console.log(checkbox.value);
 
         if (checkbox.checked) {
             dataTvMounting[dataTvMounting.length - 1].push(item)
@@ -208,11 +208,11 @@ const TvMounting = () => {
                 }
 
             }
-            console.log("i", found);
+            // console.log("i", found);
 
         }
 
-        console.log(dataTvMounting, 'after');
+        // console.log(dataTvMounting, 'after');
 
     }
 
@@ -244,7 +244,7 @@ const TvMounting = () => {
                 total += item.price;
             })
             setprice(total)
-            console.log(total);
+            // console.log(total);
         })
 
     }, [selected])
@@ -316,7 +316,7 @@ const TvMounting = () => {
                                 <div className="button">
                                     <button className='continue_btn' onClick={() => {
                                         setcalendar(true);
-                                        setCart(selected);
+                                        setCart({'product':selected});
                                         setQuiz("TvMounting")
                                     }}>
                                         Schedule Your Service

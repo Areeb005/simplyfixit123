@@ -13,7 +13,7 @@ function Cart() {
     return (
         <>
             {
-                quiz === "TvMounting" || quiz === "SmartHomeSecurityCamera" || quiz === "SmartHomeVideoDoorbell" ||
+                    quiz === "TvMounting" || quiz === "SmartHomeSecurityCamera" || quiz === "SmartHomeVideoDoorbell" ||
                     quiz === "SmartHomeThermostat" || quiz === "SmartHomeHubOrSpeaker" || quiz === "SmartHomeSmartDoorLock" ||
                     quiz === "SmartHomeSmartGarage" || quiz === "SmartHomeWifiConnectionSetup" || quiz === "SmartHomeSingleExtensionSetup" ||
                     quiz === "SmartHomeTheaterSoundbar" || quiz === "SmartHomeTheaterSpeakerSubwoofer" || quiz === "SmartHomeTheaterVideoStreamingDevice" ||

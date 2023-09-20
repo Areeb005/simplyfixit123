@@ -216,14 +216,53 @@ function SmartHomeThermostat() {
                             <button className='continue_btn' onClick={() => {
                                 setcalendar(true);
                                 setCart({
-                                    SmartHomeThermostat,
-                                    SmartHomeThermostatCWire,
-                                    SmartHomeThermostatBattery,
-                                    SmartHomeThermostatWifi,
-                                    SmartHomeThermostatAppReq,
-                                    SmartHomeThermostatDeviceModel,
-                                    SmartHomeThermostatDesc,
-                                    SmartHomeThermostatPics,
+                                    'product': [
+                                        [
+                                            {
+                                                'no': 1,
+                                                'id': 1,
+                                                'q': 'Smart Home Thermostat Installation',
+                                                'a': SmartHomeThermostat,
+                                                'price': 213
+                                            },
+                                            {
+                                                'no': 2,
+                                                'id': 1,
+                                                'q': 'Brand/Model of Smart Lock?',
+                                                'a': SmartHomeThermostatDeviceModel,
+                                            },
+                                            {
+                                                'no': 3,
+                                                'id': 1,
+                                                'q': 'Do you need a C-wire installed to complete your thermostat installation?',
+                                                'a': SmartHomeThermostatCWire,
+                                            },
+                                            {
+                                                'no': 4,
+                                                'id': 1,
+                                                'q': 'Have Stable and Reliable WiFi?',
+                                                'a': SmartHomeThermostatWifi,
+                                            },
+                                            {
+                                                'no': 5,
+                                                'id': 1,
+                                                'q': 'App already Downloaded and Setup on Phone?',
+                                                'a': SmartHomeThermostatAppReq,
+                                            },
+                                            {
+                                                'no': 6,
+                                                'id': 1,
+                                                'q': 'Anythink Else?',
+                                                'a': SmartHomeThermostatDesc,
+                                            },
+                                            {
+                                                'no': 7,
+                                                'id': 1,
+                                                'q': 'Images',
+                                                'a': SmartHomeThermostatPics,
+                                            },
+                                        ],
+                                    ]
                                 })
                             }}>
                                 Schedule Your Service

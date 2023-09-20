@@ -183,13 +183,48 @@ function SmartHomeSmartDoorLock() {
                         <div className="button">
                             <button className='continue_btn' onClick={() => {
                                 setcalendar(true);
-                                setCart({
-                                    SmartHomeSmartDoorLock,
-                                    SmartHomeSmartDoorLockWifi,
-                                    SmartHomeSmartDoorLockAppReq,
-                                    SmartHomeSmartDoorLockDeviceModel,
-                                    SmartHomeSmartDoorLockDesc,
-                                    SmartHomeSmartDoorLockPics,
+                                setCart(...cart, {
+                                    'product': [
+                                        [
+                                            {
+                                                'no': 1,
+                                                'id': 1,
+                                                'q': 'Door Lock Installation',
+                                                'a': SmartHomeSmartDoorLock,
+                                                'price': 213
+                                            },
+                                            {
+                                                'no': 2,
+                                                'id': 1,
+                                                'q': 'Brand/Model of Smart Lock?',
+                                                'a': SmartHomeSmartDoorLockDeviceModel,
+                                            },
+                                            {
+                                                'no': 3,
+                                                'id': 1,
+                                                'q': 'Have Stable and Reliable WiFi?',
+                                                'a': SmartHomeSmartDoorLockWifi,
+                                            },
+                                            {
+                                                'no': 4,
+                                                'id': 1,
+                                                'q': 'App already Downloaded and Setup on Phone?',
+                                                'a': SmartHomeSmartDoorLockAppReq,
+                                            },
+                                            {
+                                                'no': 5,
+                                                'id': 1,
+                                                'q': 'Anythink Else?',
+                                                'a': SmartHomeSmartDoorLockDesc,
+                                            },
+                                            {
+                                                'no': 6,
+                                                'id': 1,
+                                                'q': 'Images',
+                                                'a': SmartHomeSmartDoorLockPics,
+                                            },
+                                        ],
+                                    ]
                                 })
                             }}>
                                 Schedule Your Service

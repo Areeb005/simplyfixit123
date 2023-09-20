@@ -215,13 +215,53 @@ function SmartHomeHubOrSpeaker() {
                             <button className='continue_btn' onClick={() => {
                                 setcalendar(true);
                                 setCart({
-                                    SmartHomeHubOrSpeaker,
-                                    SmartHomeHubOrSpeakerCWire,
-                                    SmartHomeHubOrSpeakerWifi,
-                                    SmartHomeHubOrSpeakerAppReq,
-                                    SmartHomeHubOrSpeakerDeviceModel,
-                                    SmartHomeHubOrSpeakerDesc,
-                                    SmartHomeHubOrSpeakerPics,
+                                    'product': [
+                                        [
+                                            {
+                                                'no': 1,
+                                                'id': 1,
+                                                'q': 'Smart Hub or Speaker Installation',
+                                                'a': SmartHomeHubOrSpeaker,
+                                                'price': 213
+                                            },
+                                            {
+                                                'no': 2,
+                                                'id': 1,
+                                                'q': 'Brand/Model of Smart Lock?',
+                                                'a': SmartHomeHubOrSpeakerDeviceModel,
+                                            },
+                                            {
+                                                'no': 3,
+                                                'id': 1,
+                                                'q': 'This Device to Other Devices?',
+                                                'a': SmartHomeHubOrSpeakerCWire,
+                                            },
+                                            {
+                                                'no': 4,
+                                                'id': 1,
+                                                'q': 'Have Stable and Reliable WiFi?',
+                                                'a': SmartHomeHubOrSpeakerWifi,
+                                            },
+                                            {
+                                                'no': 5,
+                                                'id': 1,
+                                                'q': 'App already Downloaded and Setup on Phone?',
+                                                'a': SmartHomeHubOrSpeakerAppReq,
+                                            },
+                                            {
+                                                'no': 6,
+                                                'id': 1,
+                                                'q': 'Anythink Else?',
+                                                'a': SmartHomeHubOrSpeakerDesc,
+                                            },
+                                            {
+                                                'no': 7,
+                                                'id': 1,
+                                                'q': 'Images',
+                                                'a': SmartHomeHubOrSpeakerPics,
+                                            },
+                                        ],
+                                    ]
                                 })
                             }}>
                                 Schedule Your Service

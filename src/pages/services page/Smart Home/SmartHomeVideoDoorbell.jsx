@@ -273,15 +273,60 @@ function SmartHomeVideoDoorbell() {
                             <button className='continue_btn' onClick={() => {
                                 setcalendar(true);
                                 setCart({
-                                    SmartHomeVideoDoorbell,
-                                    SmartHomeVideoDoorbellExist,
-                                    SmartHomeVideoDoorbellBattery,
-                                    SmartHomeVideoDoorbellWifi,
-                                    SmartHomeVideoDoorbellAppReq,
-                                    SmartHomeVideoDoorbellDeviceModel,
-                                    SmartHomeVideoDoorbellDesc,
-                                    SmartHomeVideoDoorbellPics,
-                                })
+                                    'product': [
+                                        [
+                                            {
+                                                'no': 1,
+                                                'id': 1,
+                                                'q': 'Smart Home Camera Installation',
+                                                'a': SmartHomeVideoDoorbell,
+                                                'price': 213
+                                            },
+                                            {
+                                                'no': 2,
+                                                'id': 1,
+                                                'q': 'Brand/Model of Smart Lock?',
+                                                'a': SmartHomeVideoDoorbellDeviceModel,
+                                            },
+                                            {
+                                                'no': 3,
+                                                'id': 1,
+                                                'q': 'Do you have an existing doorbell?',
+                                                'a': SmartHomeVideoDoorbellExist,
+                                            },
+                                            {
+                                                'no': 4,
+                                                'id': 1,
+                                                'q': 'Is Your Doorbell Battery Powered?',
+                                                'a': SmartHomeVideoDoorbellBattery,
+                                            },
+                                            {
+                                                'no': 5,
+                                                'id': 1,
+                                                'q': 'Have Stable and Reliable WiFi?',
+                                                'a': SmartHomeVideoDoorbellWifi,
+                                            },
+                                            {
+                                                'no': 6,
+                                                'id': 1,
+                                                'q': 'App already Downloaded and Setup on Phone?',
+                                                'a': SmartHomeVideoDoorbellAppReq,
+                                            },
+                                            {
+                                                'no': 7,
+                                                'id': 1,
+                                                'q': 'Anythink Else?',
+                                                'a': SmartHomeVideoDoorbellDesc,
+                                            },
+                                            {
+                                                'no': 8,
+                                                'id': 1,
+                                                'q': 'Images',
+                                                'a': SmartHomeVideoDoorbellPics,
+                                            },
+                                        ],
+                                    ]
+                                });
                             }}>
                                 Schedule Your Service
                             </button>

@@ -278,15 +278,60 @@ function SmartHomeSecurityCamera() {
                             <button className='continue_btn' onClick={() => {
                                 setcalendar(true);
                                 setCart({
-                                    smartHomeCameraData: selected[0].map((e) => e.q),
-                                    SmartHomeCameraDesc,
-                                    SmartHomeCameraPowerSource,
-                                    SmartHomeCameraDeviceModel,
-                                    SmartHomeCameraPics,
-                                    SmartHomeCameraWifi,
-                                    SmartHomeCameraAppReq,
-                                    SmartHomeCamera,
-                                })
+                                    'product': [
+                                        [
+                                            {
+                                                'no': 1,
+                                                'id': 1,
+                                                'q': 'Smart Home Camera Installation',
+                                                'a': SmartHomeCamera,
+                                                'price': 213
+                                            },
+                                            {
+                                                'no': 2,
+                                                'id': 1,
+                                                'q': 'Brand/Model of Smart Lock?',
+                                                'a': SmartHomeCameraDeviceModel,
+                                            },
+                                            {
+                                                'no': 3,
+                                                'id': 1,
+                                                'q': 'Where Would You like the Device Installed?',
+                                                'a': selected[0].map((e) => e.q),
+                                            },
+                                            {
+                                                'no': 4,
+                                                'id': 1,
+                                                'q': 'Is There a Powersource Nearby?',
+                                                'a': SmartHomeCameraPowerSource,
+                                            },
+                                            {
+                                                'no': 5,
+                                                'id': 1,
+                                                'q': 'Have Stable and Reliable WiFi?',
+                                                'a': SmartHomeCameraWifi,
+                                            },
+                                            {
+                                                'no': 6,
+                                                'id': 1,
+                                                'q': 'App already Downloaded and Setup on Phone?',
+                                                'a': SmartHomeCameraAppReq,
+                                            },
+                                            {
+                                                'no': 7,
+                                                'id': 1,
+                                                'q': 'Anythink Else?',
+                                                'a': SmartHomeCameraDesc,
+                                            },
+                                            {
+                                                'no': 8,
+                                                'id': 1,
+                                                'q': 'Images',
+                                                'a': SmartHomeCameraPics,
+                                            },
+                                        ],
+                                    ]
+                                });
                             }}>
                                 Schedule Your Service
                             </button>
