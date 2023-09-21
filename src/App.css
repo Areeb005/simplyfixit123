@@ -102,7 +102,6 @@
   background-color: var(--theme-blue-color);
   color: var(--theme-yellow-color);
   padding: 12px 20px;
-  margin-top: 10px;
   font-size: 18px;
   border-radius: 16px;
   box-shadow: 0px 6px 22px -2px #9B9B9B;
@@ -1293,7 +1292,7 @@
   display: none;
 }
 
-.cart-section .payment_method{
+.cart-section .payment_method {
   border: 2px solid white;
   text-align: center;
   margin: auto;
@@ -1445,7 +1444,7 @@
 
 /* TEXT COMPONENT */
 
-.select_btn {
+.text_component .select_btn {
   background-color: white;
   border-radius: 8px;
   max-width: 400px;
@@ -1455,35 +1454,35 @@
   box-shadow: 0px 4px 10px rgba(180, 185, 209, 0.385216);
 }
 
-.select_btn:focus {
+.text_component .select_btn:focus {
   border-color: inherit;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
-.select_btn h6 {
+.text_component .select_btn h6 {
   font-size: 18px;
   color: var(--theme-blue-color);
   text-align: left;
   /* margin-right: 0.3rem; */
 }
 
-.select_btn small {
+.text_component .select_btn small {
   font-size: 14px;
   margin-right: 0.3rem;
 }
 
-.select_btn p {
+.text_component .select_btn p {
   color: #bbb;
   font-size: 14px;
   font-weight: 600;
 }
 
-.select_btn .description {
+.text_component .select_btn .description {
   border-top: 2px solid #eceef1;
 }
 
-.select_btn .description p {
+.text_component .select_btn .description p {
   padding: 0.5rem 0;
   margin-bottom: 0;
   font-size: 14px;
@@ -1833,8 +1832,28 @@
 }
 
 .hieght {
-  min-height: 56vh;
+  min-height: 57vh;
   max-height: max-content;
+}
+
+.payment_msg_sec {
+  height: 84vh;
+  background-color: var(--theme-yellow-color);
+  text-align: center;
+}
+
+.payment_msg_sec .message {
+  padding: 11rem 0px;
+  color: var(--theme-blue-color);
+}
+
+.payment_msg_sec .message h1 {
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.payment_msg_sec .message h3 span {
+  font-weight: 700;
 }
 
 .footer {
@@ -1851,10 +1870,25 @@
   text-align: center;
 }
 
+@media screen and (max-width: 1400px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0.2rem;
+    padding-left: 0.2rem;
+  }
+
+  .calendar .days_row .days_col {
+    margin-right: 0.5rem !important;
+  }
+
+  .calendar .time_row .time_col {
+    margin-right: 2.5rem !important;
+  }
+}
+
 @media screen and (max-width: 1250px) {
   .navbar-expand-lg .navbar-nav .nav-link {
-    padding-right: 0rem;
-    padding-left: 0rem;
+    padding-right: 0.2rem;
+    padding-left: 0.2rem;
   }
 
   .navbar .nav-item a {
@@ -1883,6 +1917,11 @@
   .navbar .navbar-brand {
     font-size: 26px;
     font-weight: bold;
+  }
+
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0rem;
+    padding-left: 0rem;
   }
 
   .navbar .nav-item a {
@@ -2283,6 +2322,10 @@
 
   .calendar .time .time_col {
     margin: auto 1rem 1rem 1rem !important;
+  }
+
+  .payment_msg_sec .message{
+    padding: 9rem 0;
   }
 }
 
