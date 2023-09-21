@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import Navbar from "../Navbar";
 
 export function Fail() {
+    useEffect(() => {
+        window.localStorage.clear();
+    }, [])
+
     return <>
         <section className="payment_msg_sec hieght">
             <Navbar/>

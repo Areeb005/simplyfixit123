@@ -1,20 +1,19 @@
-import React from 'react'
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useMemo } from 'react'
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import usePersistedState from 'use-persisted-state-hook'
+import { getCalendar, getSingleCalendar } from '../../firebase/apis';
 
 
 
 
 const Calendar = ({ daysCol, timeCol }) => {
     let navigate = useNavigate()
-    const url = useLocation().pathname;
 
     // const [num, setNum] = usePersistedState('num', 0)
     // const timeSlots = ['11am - 1pm', '12pm - 2pm', '1pm - 3pm', '2pm - 4pm', '3pm - 5pm', '4pm - 6pm', '5pm - 7pm', '6pm - 8pm']
     // const daysName = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     // const monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    const [ActiveDate, setActiveDate] = useState(null)
     const [data, setData] = useState([])
     // const [customerData2, setcustomerData2] = useState([])
 
@@ -27,7 +26,7 @@ const Calendar = ({ daysCol, timeCol }) => {
 
 
 
-    const [SelectedDate, setSelectedDate] = useState({ date: '', slots: [] })
+    const [SelectedDate, setSelectedDate] = useState({})
     const [SelectedTimeSlot, setSelectedTimeSlot] = useState({
         time: "",
         bookes: ""
@@ -44,7 +43,6 @@ const Calendar = ({ daysCol, timeCol }) => {
     const getCustomerData = () => {
         return JSON.parse(localStorage.getItem('Calendar'));
     }
-
 
     // const [Dates, setDates] = useState([])
 
@@ -101,12 +99,10 @@ const Calendar = ({ daysCol, timeCol }) => {
                     },
                 ]
             })
+
             _date.setDate(day + 1);
-            let customerData = getCustomerData();
-            if (customerData == null) {
-                customerData = calendar
-                setData(calendar);
-            } else return
+            setData(calendar);
+
         }
     }
 
@@ -150,10 +146,9 @@ const Calendar = ({ daysCol, timeCol }) => {
             localStorage.setItem('Calendar', JSON.stringify(data))
 
             setCart({ ...cart, date: SelectedDate.date, Time_Slot: SelectedTimeSlot.time })
-            // setCart({ ...cart,  })
 
             setTimeout(() => {
-                alert('submitted');
+                // alert('submitted');
                 navigate('/cart')
             }, 1000);
 
@@ -161,21 +156,112 @@ const Calendar = ({ daysCol, timeCol }) => {
 
     }
 
-    useEffect(() => {
-        let customerData = getCustomerData();
-        if (customerData == null) {
-            customerData = []
-            nextTenDays();
+    const dateHandler = async (thisDate) => {
+
+        setSelectedDate(thisDate);
+        setSelectedTimeSlot({
+            time: "",
+            bookes: ""
+        })
+
+        const calendarDate = await getSingleCalendar(thisDate.date);
+
+        console.log(calendarDate);
+
+        if (calendarDate.length <= 0) {
+            return
         } else {
-            setData(customerData);
-            setSelectedDate({ date: customerData[0].date, slots: customerData[0].slots })
+
+
+            calendarDate.forEach(backendDate => {
+                console.log(backendDate);
+
+                let foundDate = data.filter((e) => e.date == backendDate.date)
+
+                let index = 0;
+
+                (foundDate[0].slots).forEach((e, i) => {
+                    if ((backendDate.Time_Slot) == (e.time)) {
+                        index = i
+                    }
+                });
+
+
+                data.forEach(e => {
+                    if (e.date == foundDate[0].date) {
+                        e.slots[index].bookes = true
+                    }
+                });
+
+
+                setData(data)
+
+                console.log(data);
+
+
+            })
+
+
+            // let foundDate = data.filter((e) => e.date == calendarDate.forEach(backend => { return backend.date }))
+
+            // console.log(foundDate);
+
+            // let index = 0;
+
+            // (foundDate.slots).forEach((e, i) => {
+            //     if ((calendarDate[0].Time_Slot) == (e.time)) {
+            //         index = i
+            //     }
+            // });
+
+            // data.forEach(e => {
+            //     if (e.date == foundDate.date) {
+            //         e.slots[index].bookes = true
+            //     }
+            // });
+            // setData(data)
+
+            // console.log(data);
         }
+    }
 
 
-        return () => {
-            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-        }
+    // const firstRender = async () => {
 
+    //     const calendarDate = await getSingleCalendar(SelectedDate.date);
+
+    //     if (calendarDate.length <= 0) {
+    //         return
+    //     } else {
+    //         let foundDate = data.find((e) => e.date == calendarDate[0].date)
+
+    //         let index = 0;
+
+    //         (foundDate.slots).forEach((e, i) => {
+    //             if ((calendarDate[0].Time_Slot) == (e.time)) {
+    //                 index = i
+    //             }
+    //         });
+
+    //         data.forEach(e => {
+    //             if (e.date == foundDate.date) {
+    //                 e.slots[index].bookes = true
+    //             }
+    //         });
+    //         setData(data)
+
+    //         console.log(data);
+    //     }
+    // }
+
+
+    useMemo(() => {
+        nextTenDays();
+    }, [SelectedDate])
+
+    useEffect(() => {
+        nextTenDays();
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }, [])
 
     // console.log(data);   
@@ -189,15 +275,8 @@ const Calendar = ({ daysCol, timeCol }) => {
                         <div className="row d-flex jc-center text-center mb-5 days_row">
                             {
                                 (data).map((thisDate) => {
-                                    return <div key={thisDate.date} className={`col-lg-1 col-md-2 col-sm-2 col-3 days_col ${daysCol}`}>
-                                        <button type='button' className={`btn ${SelectedDate.date == thisDate.date ? 'active' : 'date_btn'}`}
-                                            onClick={() => {
-                                                setSelectedDate(thisDate);
-                                                setSelectedTimeSlot({
-                                                    time: "",
-                                                    bookes: ""
-                                                })
-                                            }}>
+                                    return <div onClick={() => { dateHandler(thisDate) }} key={thisDate.date} className={`col-lg-1 col-md-2 col-sm-2 col-3 days_col ${daysCol}`}>
+                                        <button type='button' className={`btn ${SelectedDate.date == thisDate.date ? 'active' : 'date_btn'}`}>
                                             {/* <small>Thu</small> */}
                                             <p className='mb-0'>{thisDate.date == undefined ? '' : showDate(thisDate.date)}</p>
                                         </button>
@@ -212,7 +291,7 @@ const Calendar = ({ daysCol, timeCol }) => {
                         <div className="row d-flex jc-center text-center mb-4 time_row">
                             {
                                 SelectedDate &&
-                                (SelectedDate.slots).map((e) => {
+                                (SelectedDate.slots)?.map((e) => {
                                     return <div key={e.time} className={`col-lg-2 col-md-2 col-sm-2 col-4 me-4 mb-4 time_col ${timeCol}`}>
                                         <button type='button' disabled={e.bookes} onClick={() => { setSelectedTimeSlot(e) }} className={`btn ${SelectedTimeSlot.time == e.time ? 'active' : 'time_btn'}`}>{e.time}</button>
                                     </div>

@@ -54,7 +54,7 @@ const DashboardLogin = () => {
 
     return <>
 
-        <div className="container" style={{height:'70vh', paddingTop: "100px"}}>
+        <div className="container" style={{minHeight:'80vh', paddingTop: "100px"}}>
             <div className='row'>
                 <div className='col-md-6'>
                     <img src={asd} className='img-fluid' alt="" />

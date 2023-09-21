@@ -10,6 +10,7 @@ export function Success() {
 
     useEffect(() => {
         setID(searchParams.get("order"))
+        window.localStorage.clear();
 
     }, [])
 

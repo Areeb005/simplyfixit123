@@ -2324,7 +2324,7 @@
     margin: auto 1rem 1rem 1rem !important;
   }
 
-  .payment_msg_sec .message{
+  .payment_msg_sec .message {
     padding: 9rem 0;
   }
 }
@@ -2763,4 +2763,13 @@
     max-width: 250px;
     min-width: 250px;
   }
+}
+
+
+
+.for-td td,
+.for-td th {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

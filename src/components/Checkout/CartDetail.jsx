@@ -18,10 +18,10 @@ function Cart() {
     const [quiz] = usePersistedState('thisQuiz')
 
 
-    const [name, setName] = useState("a")
-    const [email, setEmail] = useState("a@a.com")
-    const [phone, setPhone] = useState("a")
-    const [city, setCity] = useState("a")
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [phone, setPhone] = useState("")
+    const [city, setCity] = useState("")
     const [address, setAddress] = useState("")
     const [paymentType, setPaymentType] = useState("")
     const [paymentShow, setPaymentShow] = useState(false)
@@ -49,18 +49,18 @@ function Cart() {
         })
     }, [])
 
-    async function bookdate() {
-        const date = cart.date;    
-        const Time_Slot = cart.Time_Slot;
+    // async function bookdate() {
+    //     const date = cart.date;
+    //     const Time_Slot = cart.Time_Slot;
 
-        const res = await editCalendar({date, Time_Slot})
-    }
+    //     await addCalendar({ date, Time_Slot })
+    // }
 
     return (
         <>
             <Navbar />
 
-            <button onClick={() => bookdate()}>Add Date</button>
+            {/* <button onClick={() => bookdate()}>Add Date</button> */}
 
             <section className="cart-section">
                 <div className="container">
@@ -334,7 +334,7 @@ function Cart() {
                                                         !paymentShow || paymentType == "" ?
                                                             <form className="mt-4" onSubmit={(e) => checkout(e)}>
                                                                 <div className="form-outline form-white mb-4">
-                                                                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="form-control form-control-lg" placeholder="Enter Username" required />
+                                                                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="form-control form-control-lg" placeholder="Enter Fullname" required />
                                                                 </div>
 
                                                                 <div className="form-outline form-white mb-4">
@@ -360,16 +360,6 @@ function Cart() {
 
                                                                 <hr className="my-4" />
 
-                                                                {/* <div className="d-flex jc-between">
-                                                                    <p className="mb-2">Subtotal</p>
-                                                                    <p className="mb-2">${price.toFixed(2)}</p>
-                                                                </div>
-
-                                                                <div className="d-flex jc-between">
-                                                                    <p className="mb-2">Shipping</p>
-                                                                    <p className="mb-2">$20.00</p>
-                                                                </div> */}
-
                                                                 <div className="d-flex jc-between mb-4">
                                                                     <p className="mb-2">Total</p>
                                                                     <p className="mb-2">${(price).toFixed(2)}</p>
@@ -388,7 +378,6 @@ function Cart() {
                                                                 {(paymentShow && paymentType == "stripe") && <StripeGateway orderID={orderID} setOrderID={setOrderID} setPaymentType={setPaymentType} setPaymentShow={setPaymentShow} name={name} email={email} phone={phone} city={city} address={address} price={price} />}
                                                             </>
                                                     }
-
                                                 </div>
                                             </div>
                                         </div>

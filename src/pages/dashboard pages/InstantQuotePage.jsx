@@ -23,7 +23,7 @@ const InstantQuotePage = () => {
         <Navbar />
 
 
-        <div className="container">
+        <div className="container" style={{ minHeight: "90vh"}}>
             <h1>Instant Quote Data</h1>
 
             <div className="row mx-0">
@@ -33,15 +33,15 @@ const InstantQuotePage = () => {
 
                     <div className="offcanvas offcanvas-start" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
                         <div className="offcanvas-header">
-                            <h5 className="offcanvas-title" id="offcanvasTopLabel">Menu Links</h5>
+                            <h5 className="offcanvas-title" id="offcanvasTopLabel">Pages</h5>
                             <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div className="offcanvas-body">
-                            <ul>
-                                <li><Link to={'/admin/dashboard/instant-quotes-data'}> Instant Quote Data </Link></li>
-                                <li><Link to={'/admin/dashboard/contact-data'}> Contact Data </Link></li>
-                                <li><Link to={'/admin/dashboard/rate-us-data'}> Rate Us Data </Link></li>
-                                <li><Link to={'/admin/dashboard/Orders'}> Orders </Link></li>
+                            <ul style={{ listStyle: "none"}}>
+                                <li><a style={{ textDecoration: "none", color: "#2c3f6a", marginBottom: "15px", fontSize: "20px"}} href={'/admin/dashboard/instant-quotes-data'}> Instant Quote Data </a></li>
+                                <li><a style={{ textDecoration: "none", color: "#2c3f6a", marginBottom: "15px", fontSize: "20px"}} href={'/admin/dashboard/contact-data'}> Contact Data </a></li>
+                                <li><a style={{ textDecoration: "none", color: "#2c3f6a", marginBottom: "15px", fontSize: "20px"}} href={'/admin/dashboard/rate-us-data'}> Rate Us Data </a></li>
+                                <li><a style={{ textDecoration: "none", color: "#2c3f6a", marginBottom: "15px", fontSize: "20px"}} href={'/admin/dashboard/Orders'}> Orders </a></li>
                             </ul>
                         </div>
                     </div>

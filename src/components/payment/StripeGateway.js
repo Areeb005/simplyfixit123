@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { addCalendar, addOrders } from "../../firebase/apis";
 import { useStripe, useElements, PaymentElement } from "@stripe/react-stripe-js";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import usePersistedState from "use-persisted-state-hook";
 
 
 const stripePromise = loadStripe("pk_test_51NoyKlAursW1G9pEJluCqSVwhowVRuKfab5ZBOQKwYBgmLO634GwNeES5AoPhjYXpgTwvMOWb3XWOKtWUHMNjgA3002j7Z0B5V");
@@ -40,7 +42,7 @@ const appearance = {
 
 
 
-function StripePayment({ setPaymentType, setPaymentShow }) {
+function StripePayment({ setPaymentType, setPaymentShow, orderID, setOrderID, name, email, phone, city, address, price }) {
   const [secret, setSecret] = useState(null);
 
   useEffect(() => {
@@ -69,17 +71,37 @@ function StripePayment({ setPaymentType, setPaymentShow }) {
         stripe={stripePromise}
         options={{ clientSecret: secret.client_secret, appearance }}
       >
-        <StripeCheckoutForm setPaymentType={setPaymentType} setPaymentShow={setPaymentShow} />
+        <StripeCheckoutForm setPaymentType={setPaymentType} setPaymentShow={setPaymentShow} orderID={orderID} setOrderID={setOrderID} name={name} email={email} phone={phone} city={city} address={address} price={price} />
       </Elements>
     );
   }
   return <h2 className="mt-3">Loading...</h2>
 }
 
-const StripeCheckoutForm = ({ setPaymentType, setPaymentShow }) => {
+const StripeCheckoutForm = ({ setPaymentType, setPaymentShow, orderID, setOrderID, name, email, phone, city, address, price }) => {
   const stripe = useStripe();
   const elements = useElements();
 
+  const [cart] = usePersistedState('thisCart')
+  const [quiz] = usePersistedState('thisQuiz')
+
+
+  const payload = {
+    paymentMethod: "stripe",
+    quiz,
+    date: cart.date,
+    time: cart.Time_Slot,
+    product: JSON.stringify(cart.product),
+    name,
+    email,
+    phone,
+    city,
+    address,
+    orderID: "",
+    price,
+    paymentType: "fixed"
+  }
+  console.log(payload);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -89,13 +111,21 @@ const StripeCheckoutForm = ({ setPaymentType, setPaymentShow }) => {
     const result = await stripe.confirmPayment({
       elements,
       confirmParams: {
+        a: await addOrders(payload),
+        b: await addCalendar({
+          date: cart.date,
+          Time_Slot: cart.Time_Slot
+        }),
         return_url: window.location.origin + "/success"
       }
     });
 
-    if (result.error) toast(result.error.message);
-
+    if (result.error) {
+      toast(result.error.message);
+      // window.location.href = window.location.origin + "/fail"
+    }
     else {
+      console.log(result);
     }
   };
 

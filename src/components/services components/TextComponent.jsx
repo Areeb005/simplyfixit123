@@ -3,34 +3,32 @@ import React from 'react'
 
 // import tv_size from "../../assets/Services/bracket_fixed.svg"
 
-function TextComponent({ onClick, text, size, image, desc, price }) {
+function TextComponent({onClick, text, size, image, desc, price}) {
     return (
         <>
             {/* <Navbar /> */}
 
-            <section className='text_component'>
-                <div className='d-flex jc-center my-4'>
-                    <button className='btn select_btn' onClick={onClick}>
-                        <div className='d-flex ai-center jc-between my-2'>
-                            <div className='d-flex'>
-                                <h6 className='mb-0'>{text}</h6>
-                                <small>{size}</small>
-                                {
-                                    <p className={`mb-0 ml-4 ${!price && 'd-none'}`}>+(${price})</p>
-                                }
-                            </div>
-                            <div>{
-                                image && alert('abc')
-                                // <img src={''} alt="image" className='img-fluid' style={{ height: "40px" }} />
+            <div className='d-flex jc-center my-4'>
+                <button className='btn select_btn' onClick={onClick}>
+                    <div className='d-flex ai-center jc-between my-2'>
+                        <div className='d-flex'>
+                            <h6 className='mb-0'>{text}</h6>
+                            <small>{size}</small>
+                            {
+                                <p className={`mb-0 ml-4 ${!price && 'd-none'}`}>+(${price})</p>
                             }
-                            </div>
                         </div>
-                        <div className={`description ${!desc && 'd-none'}`}>
-                            {/* <p>e.g. Hanging small pieces of art, replacing ceiling fans or light fixtures or fixing closet doors</p> */}
+                        <div>{
+                                image && alert('abc')
+                            // <img src={''} alt="image" className='img-fluid' style={{ height: "40px" }} />
+                            }
                         </div>
-                    </button>
-                </div>
-            </section>
+                    </div>
+                    <div className={`description ${!desc && 'd-none'}`}>
+                        {/* <p>e.g. Hanging small pieces of art, replacing ceiling fans or light fixtures or fixing closet doors</p> */}
+                    </div>
+                </button>
+            </div>
         </>
     )
 }

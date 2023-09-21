@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { CLIENT_ID } from '../../config/config';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import { addOrders } from "../../firebase/apis";
+import { addCalendar, addOrders } from "../../firebase/apis";
 import usePersistedState from "use-persisted-state-hook";
 
 
@@ -15,37 +15,29 @@ function PaypalComponent({ orderID, setOrderID, setPaymentType, setPaymentShow, 
 
     // creates a paypal order
     const createOrder = (data, actions) => {
+        let __value = 0;
+
+        if ((cart.product).length > 0) {
+            if ((cart.product)[0].length > 0) {
+                const d = cart.product[0]
+                d.forEach((item) => {
+                    __value += parseFloat(item.price)
+                });
+            }
+        }
+
         return actions.order.create({
             purchase_units: [
                 {
-                    description: "Sunflower",
+                    description: quiz,
                     amount: {
                         currency_code: "USD",
-                        value: 20,
+                        value: __value,
                     },
                 },
             ],
         }).then((orderID) => {
             setOrderID(orderID);
-            const payload = {
-                paymentMethod: "paypal",
-                quiz,
-                date: cart.date,
-                time: cart.Time_Slot,
-                product: JSON.stringify(cart.product),
-                name,
-                email,
-                phone,
-                city,
-                address,
-                orderID,
-                price,
-            }
-            addOrders(payload)
-            .then(data => {
-              console.log(data);
-              window.location.href=window.location.origin + "/success"
-            })
             return orderID;
         });
     };
@@ -67,6 +59,32 @@ function PaypalComponent({ orderID, setOrderID, setPaymentType, setPaymentShow, 
         if (success) {
             alert("Payment successful!!");
             console.log('Order successful . Your order id is--', orderID);
+            const payload = {
+                paymentMethod: "paypal",
+                quiz,
+                date: cart.date,
+                time: cart.Time_Slot,
+                product: JSON.stringify(cart.product),
+                name,
+                email,
+                phone,
+                city,
+                address,
+                orderID,
+                price,
+                paymentType: "fixed"
+            }
+            console.log(payload);
+            console.log(orderID);
+            addOrders(payload)
+                .then(async data => {
+                    console.log(data);
+                    await addCalendar({
+                        date: cart.date,
+                        Time_Slot: cart.Time_Slot
+                    })
+                    window.location.href = window.location.origin + "/success"
+                })
         }
     }, [success]);
 
