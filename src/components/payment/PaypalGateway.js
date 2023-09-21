@@ -1,12 +1,17 @@
 import { useState, useEffect } from "react";
 import { CLIENT_ID } from '../../config/config';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { addOrders } from "../../firebase/apis";
+import usePersistedState from "use-persisted-state-hook";
 
 
 
-function PaypalComponent({ orderID, setOrderID, setPaymentType, setPaymentShow }) {
+function PaypalComponent({ orderID, setOrderID, setPaymentType, setPaymentShow, name, email, phone, city, address, price }) {
     const [success, setSuccess] = useState(false);
     const [ErrorMessage, setErrorMessage] = useState("");
+
+    const [cart] = usePersistedState('thisCart')
+    const [quiz] = usePersistedState('thisQuiz')
 
     // creates a paypal order
     const createOrder = (data, actions) => {
@@ -22,6 +27,25 @@ function PaypalComponent({ orderID, setOrderID, setPaymentType, setPaymentShow }
             ],
         }).then((orderID) => {
             setOrderID(orderID);
+            const payload = {
+                paymentMethod: "paypal",
+                quiz,
+                date: cart.date,
+                time: cart.Time_Slot,
+                product: JSON.stringify(cart.product),
+                name,
+                email,
+                phone,
+                city,
+                address,
+                orderID,
+                price,
+            }
+            addOrders(payload)
+            .then(data => {
+              console.log(data);
+              window.location.href=window.location.origin + "/success"
+            })
             return orderID;
         });
     };

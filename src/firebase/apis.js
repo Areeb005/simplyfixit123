@@ -1,20 +1,5 @@
-import {
-    collection,
-    addDoc,
-    query,
-    where,
-    getDocs,
-    setDoc,
-    doc,
-    updateDoc,
-    deleteDoc,
-    getCountFromServer
-} from 'firebase/firestore'
-import {
-    fs,
-    fbStorage,
-    auth
-} from './index'
+import { collection, addDoc, query, where, getDocs, setDoc, doc, updateDoc, deleteDoc, getCountFromServer } from 'firebase/firestore'
+import { fs, fbStorage, auth } from './index'
 
 
 
@@ -240,22 +225,152 @@ export async function deleteEmail(id) {
 
 
 
+export async function addOrders(data) {
+    data.timestamp = Date.now();
+    data.id = await count('orders');
+    const docRef = await addDoc(collection(fs, "orders"), data)
+    console.log("Document written: ", docRef);
+    console.log("Document id: ", docRef.id);
+
+    await updateDoc(docRef, {
+        _id: docRef.id
+    });
+}
+
+export function getOrders() {
+    return new Promise((resolve, reject) => {
+        const q = query(collection(fs, "orders"))
+        getDocs(q)
+            .then(querySnapshot => {
+                let business = [];
+                querySnapshot.forEach(doc => {
+                    business.push(doc.data())
+                })
+                resolve(business);
+            })
+            .catch(e => {
+                console.log(e);
+                reject(e)
+            })
+    })
+}
+
+export function getSingleOrders(id) {
+    return new Promise((resolve, reject) => {
+        const q = query(collection(fs, "orders"), where('_id', '==', id))
+        getDocs(q)
+            .then(querySnapshot => {
+                let business = [];
+                querySnapshot.forEach(doc => {
+                    business.push(doc.data())
+                })
+                resolve(business);
+            })
+            .catch(e => {
+                console.log(e);
+                reject(e)
+            })
+    })
+}
+
+export function editOrders(myData) {
+    return new Promise((resolve, reject) => {
+        const myDocRef = doc(fs, "orders", myData._id);
+        updateDoc(myDocRef, myData)
+            .then(() => {
+                resolve('ok');
+                console.log("Document successfully updated!");
+            })
+            .catch((error) => {
+                // The document probably doesn't exist.
+                console.error("Error updating document: ", error);
+            });
+    })
+}
+
+export async function deleteOrders(id) {
+    return await deleteDoc(doc(fs, "orders", id))
+        .then(data => {
+            console.log(data);
+            return true
+        })
+        .catch(() => {
+            return false
+        })
+}
 
 
 
 
+export async function addCalendar(data) {
+    data.timestamp = Date.now();
+    data.id = await count('calendar');
+    const docRef = await addDoc(collection(fs, "calendar"), data)
+    console.log("Document written: ", docRef);
+    console.log("Document id: ", docRef.id);
 
+    await updateDoc(docRef, {
+        _id: docRef.id
+    });
+}
 
+export function getCalendar() {
+    return new Promise((resolve, reject) => {
+        const q = query(collection(fs, "calendar"))
+        getDocs(q)
+            .then(querySnapshot => {
+                let business = [];
+                querySnapshot.forEach(doc => {
+                    business.push(doc.data())
+                })
+                resolve(business);
+            })
+            .catch(e => {
+                console.log(e);
+                reject(e)
+            })
+    })
+}
 
+export function editCalendar(myData) {
+    return new Promise((resolve, reject) => {
+        const c = query(collection(fs, "calendar"), where('date', '==', myData.date))
+        getDocs(c)
+            .then(querySnapshot => {
+                let _date = [];
+                querySnapshot.forEach(doc => {
+                    _date.push(doc.data())
+                })
+                console.log("date before",_date);
+                
+                for (const slot of _date[0].slots) {
+                    if (slot.time === myData.Time_Slot) {
+                        slot.bookes = true;
+                        break; // Exit the loop once the update is done
+                    }
+                }
+                
+                const myDocRef = doc(fs, "calendar", _date[0]._id);
+                updateDoc(myDocRef, _date[0])
+                    .then(() => {
+                        resolve('ok');
+                        console.log("Document successfully updated!");
+                    })
+                    .catch((error) => {
+                        // The document probably doesn't exist.
+                        console.error("Error updating document: ", error);
+                        reject(error)
+                    });
 
+                resolve(_date);
+            })
+            .catch(e => {
+                console.log(e);
+                reject(e)
+            })
 
-
-
-
-
-
-
-
+    })
+}
 
 
 

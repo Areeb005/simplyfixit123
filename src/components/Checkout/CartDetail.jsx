@@ -7,6 +7,7 @@ import usePersistedState from 'use-persisted-state-hook'
 
 // import { CLIENT_ID } from './config/config'
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { editCalendar } from "../../firebase/apis";
 
 
 
@@ -48,9 +49,18 @@ function Cart() {
         })
     }, [])
 
+    async function bookdate() {
+        const date = cart.date;    
+        const Time_Slot = cart.Time_Slot;
+
+        const res = await editCalendar({date, Time_Slot})
+    }
+
     return (
         <>
             <Navbar />
+
+            <button onClick={() => bookdate()}>Add Date</button>
 
             <section className="cart-section">
                 <div className="container">
@@ -66,8 +76,8 @@ function Cart() {
 
                                             {
                                                 <div>
-                                                    <p>Time: {cart.Time_Slot}</p>
-                                                    <p>Date: {cart.date}</p>
+                                                    <p>Time: {cart?.Time_Slot}</p>
+                                                    <p>Date: {cart?.date}</p>
                                                     {
                                                         (cart.product).map((item, i) => {
                                                             return <div key={i} className="card mb-3 desktop-card">
@@ -374,8 +384,8 @@ function Cart() {
                                                             </form>
                                                             :
                                                             <>
-                                                                {(paymentShow && paymentType == "paypal") && <PaypalGateway orderID={orderID} setOrderID={setOrderID} setPaymentType={setPaymentType} setPaymentShow={setPaymentShow} />}
-                                                                {(paymentShow && paymentType == "stripe") && <StripeGateway orderID={orderID} setOrderID={setOrderID} setPaymentType={setPaymentType} setPaymentShow={setPaymentShow} />}
+                                                                {(paymentShow && paymentType == "paypal") && <PaypalGateway orderID={orderID} setOrderID={setOrderID} setPaymentType={setPaymentType} setPaymentShow={setPaymentShow} name={name} email={email} phone={phone} city={city} address={address} price={price} />}
+                                                                {(paymentShow && paymentType == "stripe") && <StripeGateway orderID={orderID} setOrderID={setOrderID} setPaymentType={setPaymentType} setPaymentShow={setPaymentShow} name={name} email={email} phone={phone} city={city} address={address} price={price} />}
                                                             </>
                                                     }
 

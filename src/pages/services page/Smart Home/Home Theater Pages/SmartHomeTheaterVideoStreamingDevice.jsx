@@ -206,7 +206,7 @@ function SmartHomeTheaterVideoStreamingDevice() {
                 {(hashValue == 5) &&
                     <div>
                         <div className="button">
-                            <button className='continue_btn' onClick={() => { navigate(`/services`) }}>Add Another Service</button>
+                            {/* <button className='continue_btn' onClick={() => { navigate(`/services`) }}>Add Another Service</button> */}
                         </div>
                         <div className="button">
                             <button className='continue_btn' onClick={() => navigate(`#${hashValue + 1}`)}>Continue</button>

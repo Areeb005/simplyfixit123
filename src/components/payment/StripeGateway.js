@@ -93,7 +93,7 @@ const StripeCheckoutForm = ({ setPaymentType, setPaymentShow }) => {
       }
     });
 
-    if (result.error)toast(result.error.message);
+    if (result.error) toast(result.error.message);
 
     else {
     }
@@ -101,7 +101,7 @@ const StripeCheckoutForm = ({ setPaymentType, setPaymentShow }) => {
 
   return (
     <>
-            <ToastContainer />
+      <ToastContainer />
 
       <form onSubmit={handleSubmit} style={{ margin: "20px 0px" }}>
         <PaymentElement />

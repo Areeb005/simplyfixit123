@@ -201,7 +201,7 @@ function SmartHomeThermostat() {
                 {(hashValue == 7) &&
                     <div>
                         <div className="button">
-                            <button className='continue_btn' disabled onClick={() => { navigate(`/services`) }}>Add Another Service</button>
+                            {/* <button className='continue_btn' disabled onClick={() => { navigate(`/services`) }}>Add Another Service</button> */}
                         </div>
                         <div className="button">
                             <button className='continue_btn' onClick={() => navigate(`#${hashValue + 1}`)}>Continue</button>
