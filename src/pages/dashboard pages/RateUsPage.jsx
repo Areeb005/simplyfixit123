@@ -23,13 +23,14 @@ const RateUsPage = () => {
         <Navbar />
 
 
-        <div className="container" style={{ minHeight: "90vh"}}>
+        <div className="container" style={{ minHeight: "90vh" }}>
 
-            <h1>Rate Us Data</h1>
 
-            <div className="row mx-0">
-                <div className="col-9"></div>
-                <div className="col-3">
+            <div className="row mx-0 mt-5">
+                <div className="col-9 d-flex align-items-center">
+                    <h1 className='text-center'>Rate Us Data</h1>
+                </div>
+                <div className="col-3 d-flex justify-content-end">
                     <button className="btn btn-primary my-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Menu</button>
 
                     <div className="offcanvas offcanvas-start" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
@@ -53,7 +54,7 @@ const RateUsPage = () => {
             <div className="row mx-0">
 
                 <div className="col-12">
-                    <table className="table table-dark table-striped">
+                    <table className="table table-light table-striped">
                         <thead>
                             <tr>
                                 <th scope="col">Name</th>

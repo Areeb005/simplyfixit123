@@ -3,12 +3,22 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import usePersistedState from 'use-persisted-state-hook'
 import { getCalendar, getSingleCalendar } from '../../firebase/apis';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 
 const Calendar = ({ daysCol, timeCol }) => {
     let navigate = useNavigate()
+
+
+    const notify = () => toast("Please Select Time Slot!", {
+        draggable: true,
+        theme: "light",
+        className: "react-toast-added"
+    });
+
 
     // const [num, setNum] = usePersistedState('num', 0)
     // const timeSlots = ['11am - 1pm', '12pm - 2pm', '1pm - 3pm', '2pm - 4pm', '3pm - 5pm', '4pm - 6pm', '5pm - 7pm', '6pm - 8pm']
@@ -115,40 +125,39 @@ const Calendar = ({ daysCol, timeCol }) => {
         e.preventDefault()
 
         if ((SelectedTimeSlot.time).length < 1) {
-            alert('Select A Time Slot')
+            notify()
         } else {
 
-            let customerData = getCustomerData()
+            // let customerData = getCustomerData()
 
-            if (customerData == null) customerData = [];
+            // if (customerData == null) customerData = [];
 
-            let found = data.find(e => SelectedDate.date == e.date)
-            let index = 0;
+            // let found = data.find(e => SelectedDate.date == e.date)
+            // let index = 0;
 
-            (found.slots).forEach((e, i) => {
-                if ((SelectedTimeSlot.time) == (e.time)) {
-                    index = i
-                }
-            });
+            // (found.slots).forEach((e, i) => {
+            //     if ((SelectedTimeSlot.time) == (e.time)) {
+            //         index = i
+            //     }
+            // });
 
-            found.slots[index].bookes = true
+            // found.slots[index].bookes = true
 
-            console.log(found);
+            // console.log(found);
 
-            data.forEach(e => {
-                if (e.date == found.date) {
-                    e.slots[index].bookes = true
-                }
-            });
+            // data.forEach(e => {
+            //     if (e.date == found.date) {
+            //         e.slots[index].bookes = true
+            //     }
+            // });
 
-            console.log(data);
+            // console.log(data);
 
-            localStorage.setItem('Calendar', JSON.stringify(data))
+            // // localStorage.setItem('Calendar', JSON.stringify(data))
 
             setCart({ ...cart, date: SelectedDate.date, Time_Slot: SelectedTimeSlot.time })
 
             setTimeout(() => {
-                // alert('submitted');
                 navigate('/cart')
             }, 1000);
 
@@ -166,7 +175,7 @@ const Calendar = ({ daysCol, timeCol }) => {
 
         const calendarDate = await getSingleCalendar(thisDate.date);
 
-        console.log(calendarDate);
+        // console.log(calendarDate);
 
         if (calendarDate.length <= 0) {
             return
@@ -174,7 +183,7 @@ const Calendar = ({ daysCol, timeCol }) => {
 
 
             calendarDate.forEach(backendDate => {
-                console.log(backendDate);
+                // console.log(backendDate);
 
                 let foundDate = data.filter((e) => e.date == backendDate.date)
 
@@ -196,63 +205,13 @@ const Calendar = ({ daysCol, timeCol }) => {
 
                 setData(data)
 
-                console.log(data);
+                // console.log(data);
 
 
             })
-
-
-            // let foundDate = data.filter((e) => e.date == calendarDate.forEach(backend => { return backend.date }))
-
-            // console.log(foundDate);
-
-            // let index = 0;
-
-            // (foundDate.slots).forEach((e, i) => {
-            //     if ((calendarDate[0].Time_Slot) == (e.time)) {
-            //         index = i
-            //     }
-            // });
-
-            // data.forEach(e => {
-            //     if (e.date == foundDate.date) {
-            //         e.slots[index].bookes = true
-            //     }
-            // });
-            // setData(data)
-
-            // console.log(data);
         }
     }
 
-
-    // const firstRender = async () => {
-
-    //     const calendarDate = await getSingleCalendar(SelectedDate.date);
-
-    //     if (calendarDate.length <= 0) {
-    //         return
-    //     } else {
-    //         let foundDate = data.find((e) => e.date == calendarDate[0].date)
-
-    //         let index = 0;
-
-    //         (foundDate.slots).forEach((e, i) => {
-    //             if ((calendarDate[0].Time_Slot) == (e.time)) {
-    //                 index = i
-    //             }
-    //         });
-
-    //         data.forEach(e => {
-    //             if (e.date == foundDate.date) {
-    //                 e.slots[index].bookes = true
-    //             }
-    //         });
-    //         setData(data)
-
-    //         console.log(data);
-    //     }
-    // }
 
 
     useMemo(() => {
@@ -267,6 +226,8 @@ const Calendar = ({ daysCol, timeCol }) => {
     // console.log(data);   
 
     return <>
+        <ToastContainer />
+
         <form onSubmit={(e) => submitData(e)}>
             <section className='calendar my-5'>
                 <div className="container">

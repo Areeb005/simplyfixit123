@@ -152,24 +152,32 @@ function Homepage() {
                                 <div className="s_card mobile_service_card">
                                     <div className="row">
                                         <div className="col-sm-3 col-6">
-                                            <div className="s_tab" onClick={() => setServices(1)}>
-                                                <h4>TV mounting</h4>
-                                            </div>
+                                            <Link to="/services/tv-mounting" style={{ textDecoration: "none" }}>
+                                                <div className="s_tab" onClick={() => setServices(1)}>
+                                                    <h4>TV mounting</h4>
+                                                </div>
+                                            </Link>
                                         </div>
                                         <div className="col-sm-3 col-6">
-                                            <div className="s_tab" onClick={() => setServices(2)}>
-                                                <h4>Handyman Services</h4>
-                                            </div>
+                                            <Link to="/services/handyman" style={{ textDecoration: "none" }}>
+                                                <div className="s_tab" onClick={() => setServices(2)}>
+                                                    <h4>Handyman Services</h4>
+                                                </div>
+                                            </Link>
                                         </div>
                                         <div className="col-sm-3 col-6">
-                                            <div className="s_tab" onClick={() => setServices(3)}>
-                                                <h4>Fan & Light</h4>
-                                            </div>
+                                            <Link to="/services/fan-light" style={{ textDecoration: "none" }}>
+                                                <div className="s_tab" onClick={() => setServices(3)}>
+                                                    <h4>Fan & Light</h4>
+                                                </div>
+                                            </Link>
                                         </div>
                                         <div className="col-sm-3 col-6">
-                                            <div className="s_tab" onClick={() => setServices(4)}>
-                                                <h4>Smart home installation</h4>
-                                            </div>
+                                            <Link to="/services/smart-home" style={{ textDecoration: "none" }}>
+                                                <div className="s_tab" onClick={() => setServices(4)}>
+                                                    <h4>Smart home installation</h4>
+                                                </div>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>

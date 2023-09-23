@@ -23,12 +23,13 @@ const InstantQuotePage = () => {
         <Navbar />
 
 
-        <div className="container" style={{ minHeight: "90vh"}}>
-            <h1>Instant Quote Data</h1>
+        <div className="container" style={{ minHeight: "90vh" }}>
 
-            <div className="row mx-0">
-                <div className="col-9"></div>
-                <div className="col-3">
+            <div className="row mx-0 mt-5">
+                <div className="col-9 d-flex align-items-center">
+                    <h1 className='text-center'>Instant Quote Data</h1>
+                </div>
+                <div className="col-3 d-flex justify-content-end">
                     <button className="btn btn-primary my-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Menu</button>
 
                     <div className="offcanvas offcanvas-start" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
@@ -37,11 +38,11 @@ const InstantQuotePage = () => {
                             <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div className="offcanvas-body">
-                            <ul style={{ listStyle: "none"}}>
-                                <li><a style={{ textDecoration: "none", color: "#2c3f6a", marginBottom: "15px", fontSize: "20px"}} href={'/admin/dashboard/instant-quotes-data'}> Instant Quote Data </a></li>
-                                <li><a style={{ textDecoration: "none", color: "#2c3f6a", marginBottom: "15px", fontSize: "20px"}} href={'/admin/dashboard/contact-data'}> Contact Data </a></li>
-                                <li><a style={{ textDecoration: "none", color: "#2c3f6a", marginBottom: "15px", fontSize: "20px"}} href={'/admin/dashboard/rate-us-data'}> Rate Us Data </a></li>
-                                <li><a style={{ textDecoration: "none", color: "#2c3f6a", marginBottom: "15px", fontSize: "20px"}} href={'/admin/dashboard/Orders'}> Orders </a></li>
+                            <ul style={{ listStyle: "none" }}>
+                                <li><a style={{ textDecoration: "none", color: "#2c3f6a", marginBottom: "15px", fontSize: "20px" }} href={'/admin/dashboard/instant-quotes-data'}> Instant Quote Data </a></li>
+                                <li><a style={{ textDecoration: "none", color: "#2c3f6a", marginBottom: "15px", fontSize: "20px" }} href={'/admin/dashboard/contact-data'}> Contact Data </a></li>
+                                <li><a style={{ textDecoration: "none", color: "#2c3f6a", marginBottom: "15px", fontSize: "20px" }} href={'/admin/dashboard/rate-us-data'}> Rate Us Data </a></li>
+                                <li><a style={{ textDecoration: "none", color: "#2c3f6a", marginBottom: "15px", fontSize: "20px" }} href={'/admin/dashboard/Orders'}> Orders </a></li>
                             </ul>
                         </div>
                     </div>
@@ -51,7 +52,7 @@ const InstantQuotePage = () => {
             <div className="row mx-0">
 
                 <div className="col-12">
-                    <table className="table table-dark table-striped">
+                    <table className="table table-light table-striped">
                         <thead>
                             <tr>
                                 <th scope="col">Name</th>

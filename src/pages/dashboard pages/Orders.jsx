@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../../components/Navbar'
 import { getOrders } from '../../firebase/apis'
 import { Link } from 'react-router-dom'
+import Modal from '../../components/Modal'
+
 
 
 
@@ -11,9 +13,25 @@ const Orders = () => {
 
     async function getMyOrders() {
         const data1 = await getOrders();
+
+        data1.sort((a, b) => {
+            // let dateA = convertToDate(a.id);
+            // let dateB = convertToDate(b.id);
+            return b.id - a.id;
+        })
+
         setdata(data1);
 
     }
+
+    const obj = {
+        TvMounting: 'Tv Mounting'
+    }
+
+    // const convertToDate = (dateStr) => {
+    //     let parts = dateStr.split('/');
+    //     return new Date(parts[2], parts[1], parts[0]);
+    // }
 
     function abc(product) {
         let products = JSON.parse(product)
@@ -30,14 +48,14 @@ const Orders = () => {
 
         <Navbar />
 
+        <div className="container" style={{ minHeight: "90vh" }}>
 
-        <div className="container" style={{ minHeight: "90vh"}}>
 
-            <h1>Orders</h1>
-
-            <div className="row mx-0">
-                <div className="col-9"></div>
-                <div className="col-3">
+            <div className="row mx-0 mt-5">
+                <div className="col-9 d-flex align-items-center">
+                    <h1 className='text-left'>Orders</h1>
+                </div>
+                <div className="col-3 d-flex justify-content-end">
                     <button className="btn btn-primary my-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Menu</button>
 
                     <div className="offcanvas offcanvas-start" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
@@ -61,22 +79,19 @@ const Orders = () => {
             <div className="row mx-0">
                 <div className="col-12">
                     <div className="table-responsive">
-                        <table className="table table-dark table-striped table-responsive">
+                        <table className="table table-light table-striped table-responsive">
                             <thead>
                                 <tr className='for-td'>
+                                    <th scope="col">Details</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Phone</th>
                                     <th scope="col">Address</th>
                                     <th scope="col">City</th>
                                     <th scope="col">Service</th>
                                     <th scope="col">Date</th>
                                     <th scope="col">Time</th>
                                     <th scope="col">Price</th>
-                                    <th scope="col">Order ID</th>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Payment Method</th>
-                                    <th scope="col">Included</th>
+                                    {/* <th scope="col">Included</th> */}
                                 </tr>
                             </thead>
                             <tbody>
@@ -84,50 +99,42 @@ const Orders = () => {
                                     data.map(e => {
                                         if (e.paymentType == "hourly") {
                                             return <tr className='for-td'>
+                                                <td><Modal data={e} /></td>
                                                 <th scope="row">{e.name}</th>
                                                 <td>{e.email}</td>
-                                                <td>{e.phone}</td>
-                                                <td>{e.address}</td>
+                                                <td className='for-td'>{e.address}</td>
                                                 <td>{e.city}</td>
                                                 <td>{e.quiz}</td>
                                                 <td>{e.date}</td>
                                                 <td>{e.time}</td>
                                                 <td>${e.price}</td>
-                                                <td>{e.orderID}</td>
-                                                <td>{e.id}</td>
-                                                <td>{e.paymentMethod}</td>
-                                                <td>{abc(e.product).map(item => {
+                                                {/* <td>{abc(e.product).map(item => {
                                                     return item.map(details => {
                                                         return <div className='mb-2'>
-                                                            {/* <li>  </li> */}
                                                             <li> {details.ques} : {details.q} </li>
                                                         </div>
                                                     })
-                                                })}</td>
+                                                })}</td> */}
                                             </tr>
                                         }
                                         else if (e.paymentType == 'fixed') {
-                                            return <tr>
+                                            return <tr className='for-td'>
+                                                <td><Modal data={e} /></td>
                                                 <th scope="row">{e.name}</th>
                                                 <td>{e.email}</td>
-                                                <td>{e.phone}</td>
-                                                <td>{e.address}</td>
+                                                <td >{e.address}</td>
                                                 <td>{e.city}</td>
                                                 <td>{e.quiz}</td>
                                                 <td>{e.date}</td>
                                                 <td>{e.time}</td>
                                                 <td>${e.price}</td>
-                                                <td>{e.orderID}</td>
-                                                <td>{e.id}</td>
-                                                <td>{e.paymentMethod}</td>
-                                                <td>{abc(e.product).map(item => {
+                                                {/* <td>{abc(e.product).map(item => {
                                                     return item.map(details => {
                                                         return <div className='mb-2'>
-                                                            {/* <li> {details.no} </li> */}
                                                             <li> {details.q} </li>
                                                         </div>
                                                     })
-                                                })}</td>
+                                                })}</td> */}
                                             </tr>
                                         }
 
@@ -140,7 +147,7 @@ const Orders = () => {
                 </div>
             </div>
 
-        </div>
+        </div >
     </>
 }
 

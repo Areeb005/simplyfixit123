@@ -147,7 +147,7 @@ const TvMounting = () => {
     ]
 
 
-    const collect = (item, no) => {
+    const collect = (item, no, ques) => {
 
         let dataTvMounting = JSON.parse(window.localStorage.getItem('dataTvMounting'))
         if (!dataTvMounting) dataTvMounting = []
@@ -156,6 +156,7 @@ const TvMounting = () => {
         // console.log(dataTvMounting, 'before');
 
         item.no = no
+        item.ques = ques
 
         if (no === 1) {
             dataTvMounting.push([item])
@@ -177,8 +178,9 @@ const TvMounting = () => {
         setselected(dataTvMounting);
     }
 
-    const checkboxData = (item, id, no) => {
+    const checkboxData = (item, id, no, ques) => {
         item.no = no
+        item.ques = ques
 
         let dataTvMounting = JSON.parse(window.localStorage.getItem('dataTvMounting'))
 
@@ -277,7 +279,7 @@ const TvMounting = () => {
                                                             <div className="accordion-body">
                                                                 <div className="row">
                                                                     {e.opt.map(item => {
-                                                                        return <MultipleSelectComponet text={item.q} checked={findCheckValue(item.id, e.no)} id={`checkValue${item.id}`} price={item.price} onClick={() => checkboxData(item, item.id, e.no)} />
+                                                                        return <MultipleSelectComponet text={item.q} checked={findCheckValue(item.id, e.no)} id={`checkValue${item.id}`} price={item.price} onClick={() => checkboxData(item, item.id, e.no, e.heading)} />
                                                                         // return <div>
                                                                         //     <label htmlFor={`checkValue${item.id}`}>
                                                                         //         <input type="checkbox" name="" checked={findCheckValue(item.id, e.no)} id={`checkValue${item.id}`} value={item.q} onClick={() => checkboxData(item, item.id, e.no)} />
@@ -301,7 +303,7 @@ const TvMounting = () => {
                                     return <div key={e.no}>
                                         <h2 className='e-heading'>{e.heading}</h2>
                                         {e.opt.map(item => {
-                                            return <TextComponent onClick={() => { collect(item, e.no); navigate(`#${hashValue + 1}`) }} text={item.q} price={item.price} />
+                                            return <TextComponent onClick={() => { collect(item, e.no, e.heading); navigate(`#${hashValue + 1}`) }} text={item.q} price={item.price} />
                                         })}
                                     </div>
                                 }
