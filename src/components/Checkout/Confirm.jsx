@@ -131,7 +131,7 @@ function Confirm() {
                                                 <div className="card-body">
                                                     <div className="d-flex jc-between ai-center mb-4">
                                                         <h5 className="mb-0">User Details</h5>
-                                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp" className="img-fluid rounded-3" style={{ width: "45px" }} alt="Avatar" />
+                                                        {/* <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp" className="img-fluid rounded-3" style={{ width: "45px" }} alt="Avatar" /> */}
                                                     </div>
 
                                                     <form className="mt-4" onSubmit={(e) => checkout(e)}>
