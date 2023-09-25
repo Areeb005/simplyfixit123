@@ -8,14 +8,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import usePersistedState from "use-persisted-state-hook";
 
 
-const stripePromise = loadStripe("pk_test_51NoyKlAursW1G9pEJluCqSVwhowVRuKfab5ZBOQKwYBgmLO634GwNeES5AoPhjYXpgTwvMOWb3XWOKtWUHMNjgA3002j7Z0B5V");
-const apiKey = "sk_test_51NoyKlAursW1G9pEU7e8oGoTXgvzmPc9VzhL4HJP8b9ZFXFBSZgzf6kjcUz7vSUFSj8oWoYwg2GoyFfWIPBfqy4H00hT5ti1Hy";
-const url = "https://api.stripe.com/v1/payment_intents";
-const data = {
-  amount: 1099,
-  currency: "aud",
-  "automatic_payment_methods[enabled]": true
-};
+
+const stripePromise = loadStripe(process.env.REACT_APP_Stripe_PUBLISHABLE_KEY);
+const apiKey = process.env.REACT_APP_Stripe_SECRET_KEY;
+const url = process.env.REACT_APP_Stripe_PAYMENT_INTENTS_URL;
+
 const appearance = {
   theme: 'stripe',
   variables: {
@@ -44,6 +41,31 @@ const appearance = {
 
 function StripePayment({ setPaymentType, setPaymentShow, orderID, setOrderID, name, email, phone, city, address, price }) {
   const [secret, setSecret] = useState(null);
+  const [cart] = usePersistedState('thisCart')
+  const [quiz] = usePersistedState('thisQuiz')
+
+  const payload = {
+    paymentMethod: "stripe",
+    quiz,
+    date: cart.date,
+    time: cart.Time_Slot,
+    product: JSON.stringify(cart.product),
+    name,
+    email,
+    phone,
+    city,
+    address,
+    orderID: "",
+    price,
+    paymentType: "fixed"
+  }
+  console.log(payload);
+
+  const data = {
+    amount: parseFloat(price) * 100,
+    currency: "USD",
+    "automatic_payment_methods[enabled]": true
+  };
 
   useEffect(() => {
     fetch(url, {
@@ -71,37 +93,22 @@ function StripePayment({ setPaymentType, setPaymentShow, orderID, setOrderID, na
         stripe={stripePromise}
         options={{ clientSecret: secret.client_secret, appearance }}
       >
-        <StripeCheckoutForm setPaymentType={setPaymentType} setPaymentShow={setPaymentShow} orderID={orderID} setOrderID={setOrderID} name={name} email={email} phone={phone} city={city} address={address} price={price} />
+        {/* <StripeCheckoutForm setPaymentType={setPaymentType} setPaymentShow={setPaymentShow} orderID={orderID} setOrderID={setOrderID} name={name} email={email} phone={phone} city={city} address={address} price={price} /> */}
+        <StripeCheckoutForm payload={payload} setPaymentType={setPaymentType} setPaymentShow={setPaymentShow} />
       </Elements>
     );
   }
   return <h2 className="mt-3">Loading...</h2>
 }
 
-const StripeCheckoutForm = ({ setPaymentType, setPaymentShow, orderID, setOrderID, name, email, phone, city, address, price }) => {
+// const StripeCheckoutForm = ({ setPaymentType, setPaymentShow, orderID, setOrderID, name, email, phone, city, address, price }) => {
+const StripeCheckoutForm = ({ payload, setPaymentType, setPaymentShow }) => {
   const stripe = useStripe();
   const elements = useElements();
 
   const [cart] = usePersistedState('thisCart')
   const [quiz] = usePersistedState('thisQuiz')
 
-
-  const payload = {
-    paymentMethod: "stripe",
-    quiz,
-    date: cart.date,
-    time: cart.Time_Slot,
-    product: JSON.stringify(cart.product),
-    name,
-    email,
-    phone,
-    city,
-    address,
-    orderID: "",
-    price,
-    paymentType: "fixed"
-  }
-  console.log(payload);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -122,7 +129,7 @@ const StripeCheckoutForm = ({ setPaymentType, setPaymentShow, orderID, setOrderI
 
     if (result.error) {
       toast(result.error.message);
-      // window.location.href = window.location.origin + "/fail"
+      window.location.href = window.location.origin + "/fail?error=" + result.error.message
     }
     else {
       console.log(result);
@@ -136,7 +143,7 @@ const StripeCheckoutForm = ({ setPaymentType, setPaymentShow, orderID, setOrderI
       <form onSubmit={handleSubmit} style={{ margin: "20px 0px" }}>
         <PaymentElement />
         <button disabled={!stripe} className="btn" style={{ color: "var(--theme-blue-color)", background: "white", margin: "10px 0px", fontSize: "14px", fontWeight: "600" }}>Pay Now</button>
-        <button disabled={!stripe} className="btn" onClick={() => { setPaymentType(null); setPaymentShow(false) }} style={{ color: "var(--theme-blue-color)", background: "white", margin: "10px 5px", fontSize: "14px", fontWeight: "600" }}>
+        <button disabled={!stripe} className="btn" onClick={(e) => { e.preventDefault(); setPaymentType(null); setPaymentShow(false) }} style={{ color: "var(--theme-blue-color)", background: "white", margin: "10px 5px", fontSize: "14px", fontWeight: "600" }}>
           <i className="fa fa-arrow-left me-1"></i> Go Back
         </button>
       </form>
