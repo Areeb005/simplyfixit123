@@ -1907,6 +1907,11 @@
   width: 100%;
 }
 
+.footer .as00{
+  display: flex;
+  justify-content: space-between !important;
+}
+
 .footer p {
   text-align: center;
 }
@@ -2267,6 +2272,11 @@
     min-width: 400px;
     margin: auto;
   }
+
+  .footer .as00{
+    display: block;
+  }
+  
 }
 
 @media screen and (max-width: 576px) {
