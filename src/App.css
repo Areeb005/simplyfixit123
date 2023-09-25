@@ -1255,6 +1255,48 @@
   box-shadow: 0px 4px 10px rgba(180, 185, 209, 0.385216);
 }
 
+.cart-section .card .summary {
+  color: var(--theme-blue-color);
+  margin: auto;
+  margin-bottom: 1rem;
+}
+
+.cart-section .card .summary h5 {
+  text-align: left;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.cart-section .card .summary .service_detail h6 {
+  font-size: 18px;
+  margin-bottom: 0rem;
+}
+
+.cart-section .card .summary .service_detail p {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 0rem;
+  text-align: right;
+}
+
+.cart-section .card .summary .estimated_time {
+  border-bottom: 1px solid var(--theme-blue-color);
+  padding: 0.5rem 0;
+}
+
+.cart-section .card .summary .summary_detail h6 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 0rem;
+}
+
+.cart-section .card .summary .summary_detail p {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 0rem;
+  text-align: right;
+}
+
 .cart-section .card h5 {
   color: var(--theme-blue-color);
 }
@@ -1356,7 +1398,7 @@
 .confirm-section .summary {
   /* padding: 0 4rem; */
   color: var(--theme-blue-color);
-  max-width: 450px;
+  /* max-width: 450px; */
   margin: auto;
 }
 
@@ -2085,6 +2127,10 @@
     font-size: 13px;
   }
 
+  .confirm-section .confirm {
+    margin-bottom: 20px;
+  }
+
   .confirm-section .summary .confirm_btn {
     margin-bottom: 2rem;
   }
@@ -2217,7 +2263,10 @@
   }
 
   .tv-mountaing-table {
-    margin-top: 2rem;
+    margin-top: 2rem !important;
+    max-width: 400px;
+    min-width: 400px;
+    margin: auto;
   }
 }
 
@@ -2410,11 +2459,18 @@
     margin: auto;
   }
 
-  .select_btn {
+  .text_component .select_btn {
     max-width: 300px;
     min-width: 300px;
     margin: auto;
     padding: 10px 20px;
+  }
+
+  .tv-mountaing-table {
+    margin-top: 2rem !important;
+    max-width: 300px;
+    min-width: 300px;
+    margin: auto;
   }
 
   .cart-section .card-body h5 {
@@ -2442,7 +2498,7 @@
   }
 
   .cart-section .desktop-card {
-    display: none;
+    /* display: none; */
   }
 
   .cart-section .mobile-card {
@@ -2505,11 +2561,18 @@
     margin: auto;
   }
 
-  .select_btn {
+  .text_component .select_btn {
     max-width: 290px;
     min-width: 290px;
     margin: auto;
     padding: 10px 20px;
+  }
+
+  .tv-mountaing-table {
+    margin-top: 2rem !important;
+    max-width: 290px;
+    min-width: 290px;
+    margin: auto;
   }
 
   .inc_dec .select_btn {
@@ -2752,11 +2815,18 @@
     margin-bottom: 2rem;
   }
 
-  .select_btn {
+  .text_component .select_btn {
     max-width: 270px;
     min-width: 270px;
     margin: auto;
     padding: 7px 15px;
+  }
+
+  .tv-mountaing-table {
+    margin-top: 2rem !important;
+    max-width: 270px;
+    min-width: 270px;
+    margin: auto;
   }
 
   .textAraeComponent .textArea {

@@ -3,11 +3,14 @@ import Navbar from "../Navbar";
 import StripeGateway from '../payment/StripeGateway';
 import PaypalGateway from '../payment/PaypalGateway';
 import usePersistedState from 'use-persisted-state-hook'
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 // import { CLIENT_ID } from './config/config'
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { editCalendar } from "../../firebase/apis";
+
 
 
 
@@ -33,7 +36,7 @@ function Cart() {
         if (paymentType == "" || paymentType == null) {
             setPaymentType("")
             setPaymentShow(false)
-            return alert("Select Payment Type")
+            return toast("Select Payment Type")
         }
         setPaymentShow(true)
     }
@@ -58,6 +61,9 @@ function Cart() {
 
     return (
         <>
+
+            <ToastContainer />
+
             <Navbar />
 
             {/* <button onClick={() => bookdate()}>Add Date</button> */}
@@ -76,8 +82,36 @@ function Cart() {
 
                                             {
                                                 <div>
-                                                    <p>Time: {cart?.Time_Slot}</p>
-                                                    <p>Date: {cart?.date}</p>
+
+                                                    <div className="summary">
+                                                        <h5>Appointment Summary</h5>
+
+                                                        <div className='summary_body'>
+                                                            <div className="service_detail">
+                                                                <div className='d-flex jc-between ai-center'>
+                                                                    <div className="s_name">
+                                                                        <h6>Date</h6>
+                                                                    </div>
+                                                                    <div className="s_charges">
+                                                                        <p>{cart?.date}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div className='d-flex jc-between ai-center'>
+                                                                    <div className="s_name">
+                                                                        <h6>Time</h6>
+                                                                    </div>
+                                                                    <div className="s_charges">
+                                                                        <p>{cart?.Time_Slot}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                    {/* <p>Time: {cart?.Time_Slot}</p>
+                                                    <p>Date: {cart?.date}</p> */}
+
                                                     {
                                                         (cart.product).map((item, i) => {
                                                             return <div key={i} className="card mb-3 desktop-card">
@@ -87,13 +121,13 @@ function Cart() {
                                                                             if (product.no == 1) {
                                                                                 return <div key={i} className="d-flex jc-between row-flex">
                                                                                     <div className="d-flex flex-row ai-center">
-                                                                                        <div className="ms-3">
+                                                                                        <div className="">
                                                                                             <h5>{product.q}</h5>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div className="d-flex flex-row ai-center text-center">
                                                                                         <div style={{ width: "80px" }}>
-                                                                                            <h5 className="mb-0">${product.price}</h5>
+                                                                                            <h5 className="mb-0 text-end">${product.price}</h5>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -101,13 +135,13 @@ function Cart() {
                                                                         } else {
                                                                             return <div key={i} className="d-flex jc-between row-flex">
                                                                                 <div className="d-flex flex-row ai-center">
-                                                                                    <div className="ms-3">
+                                                                                    <div className="">
                                                                                         <h5>{product.q}</h5>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div className="d-flex flex-row ai-center text-center">
                                                                                     <div style={{ width: "80px" }}>
-                                                                                        <h5 className="mb-0">${product.price}</h5>
+                                                                                        <h5 className="mb-0 text-end">${product.price}</h5>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -224,9 +258,11 @@ function Cart() {
                                                 </div>
                                             </div> */}
 
+
+
                                             {/* MOBILE CARDS */}
 
-                                            <div className="card mb-3 mobile-card">
+                                            {/* <div className="card mb-3 mobile-card">
                                                 <div className="card-body">
                                                     <div className="mb-3">
                                                         <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp" className="img-fluid rounded-3 cart-item" alt="Shopping item" style={{ width: "65px" }} />
@@ -310,7 +346,7 @@ function Cart() {
                                                         <a href="#!" style={{ color: "#cecece" }}><i className="fas fa-trash-alt"></i></a>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> */}
 
                                         </div>
 
@@ -323,10 +359,10 @@ function Cart() {
                                                     </div>
 
                                                     <p className="small mb-2">Payment Method</p>
-                                                    <a href="#!" onClick={() => setPaymentType("stripe")} type="submit" className={`${setPaymentType == "stripe" ? 'payment_method' : "me-2"} text-white`}>
+                                                    <a href="" onClick={() => setPaymentType("stripe")} type="submit" className={`${setPaymentType == "stripe" ? 'payment_method' : "me-2"} text-white`}>
                                                         <i className="fab fa-cc-stripe fa-2x"></i>
                                                     </a>
-                                                    <a href="#!" onClick={() => setPaymentType("paypal")} type="submit" className={`${setPaymentType == "paypal" ? 'payment_method' : ""} text-white`}>
+                                                    <a href="" onClick={() => setPaymentType("paypal")} type="submit" className={`${setPaymentType == "paypal" ? 'payment_method' : ""} text-white`}>
                                                         <i className="fab fa-cc-paypal fa-2x"></i>
                                                     </a>
 
@@ -381,6 +417,8 @@ function Cart() {
                                                 </div>
                                             </div>
                                         </div>
+
+
                                     </div>
                                 </div>
                             </div>

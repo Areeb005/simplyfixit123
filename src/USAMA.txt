@@ -1,0 +1,23 @@
+USAMA
+=> "Ready to book your service?" k btn pay vlivk kerne say services wale page pay redirect hojai
+=> "Become a Tech" ka sectio bana k Home page maiin hi add kerdo, for refrence Puls ya HelloTech say dekhlo
+=> End main "Cart" pay ka icon remove kerdena Nav say 
+=> Schedule wale page ki designing keri hay
+=> "http://localhost:3000/services/tv-mounting#6" jb "Schedule It" btn pay click hoto "Cart" wale page pay redirect hojain.
+
+
+
+AREEB
+=> "RATE US" Form fill kerna hay or save kerna hay and dashboard main show bhi kerna hay 
+=> "Get An Instant Quote" Form fill kerna hay or save kerna hay and dashboard main show bhi kerna hay 
+=> "CONTACT" Form fill kerna hay or save kerna hay and dashboard main show bhi kerna hay 
+=> "Checkout" form submit pay Order db mai save hojai or dashboard main show ho.
+=> "Checkout Successful" hone pay "Success" Page pay redirect hojai
+=> "Checkout Failed" hone pay "Failed" Page pay redirect hojai
+
+NOTE: Sare Forms ka data submit hone pay db main save hoon
+
+NOTE :
+ 
+=> "Tv Mounting" & "Smart Home" services main cart wala component show hoga
+=> "Handyman" & "Fan & Light" services main confirm wala component show hoga 

@@ -9,7 +9,7 @@ function ImageUploadComponent({ onChange, img }) {
     // useEffect(() => {
     // setabc('image Uploaded')
     // }, [FanInstallationPics])
-     
+
     return (
         <>
             <section className='imgUploadComp my-5'>
@@ -21,7 +21,7 @@ function ImageUploadComponent({ onChange, img }) {
                                     <div className="camera-image"></div>
                                     <input type="file" accept='image/*' onChange={onChange} style={{ display: "none" }} />
                                     <p>Browse for photos</p>
-                                    < img src={img} alt="image" height={'200px'} width={'200px'} />
+                                    {img && < img src={img} alt="image" height={'200px'} width={'200px'} />}
                                 </span>
 
                             </div>
