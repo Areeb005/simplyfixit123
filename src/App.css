@@ -1296,16 +1296,15 @@
   text-align: right;
 }
 
-.cart-section .card .card-body h5 {
-  color: var(--theme-blue-color);
-  font-size: 18px;
-}
-
-.cart-section .card .card-body p {
+.cart-section .card h5 {
   color: var(--theme-blue-color);
 }
 
-.cart-section .card .card-body a {
+.cart-section .card p {
+  color: var(--theme-blue-color);
+}
+
+.cart-section .card a {
   text-decoration: none;
 }
 
