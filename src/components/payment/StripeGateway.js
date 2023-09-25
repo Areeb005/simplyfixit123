@@ -43,6 +43,7 @@ function StripePayment({ setPaymentType, setPaymentShow, orderID, setOrderID, na
   const [secret, setSecret] = useState(null);
   const [cart] = usePersistedState('thisCart')
   const [quiz] = usePersistedState('thisQuiz')
+  const [__orderData, set__OrderData] = usePersistedState('orderData', null)
 
   const payload = {
     paymentMethod: "stripe",
@@ -80,6 +81,7 @@ function StripePayment({ setPaymentType, setPaymentShow, orderID, setOrderID, na
         // alert('Payment intent created successfully!');
         console.log(data);
         setSecret(data);
+        set__OrderData({ name, email, phone, city, address, price, orderID: "", paymentMethod: "STRIPE" })
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -118,11 +120,11 @@ const StripeCheckoutForm = ({ payload, setPaymentType, setPaymentShow }) => {
     const result = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        a: await addOrders(payload),
-        b: await addCalendar({
-          date: cart.date,
-          Time_Slot: cart.Time_Slot
-        }),
+        // a: await addOrders(payload),
+        // b: await addCalendar({
+        //   date: cart.date,
+        //   Time_Slot: cart.Time_Slot
+        // }),
         return_url: window.location.origin + "/success"
       }
     });

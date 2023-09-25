@@ -12,6 +12,7 @@ function PaypalComponent({ orderID, setOrderID, setPaymentType, setPaymentShow, 
 
     const [cart] = usePersistedState('thisCart')
     const [quiz] = usePersistedState('thisQuiz')
+    const [__orderData, set__OrderData] = usePersistedState('orderData', null)
 
     // creates a paypal order
     const createOrder = (data, actions) => {
@@ -38,6 +39,7 @@ function PaypalComponent({ orderID, setOrderID, setPaymentType, setPaymentShow, 
             ],
         }).then((orderID) => {
             setOrderID(orderID);
+            set__OrderData({ name, email, phone, city, address, price, orderID, paymentMethod: "PAYPAL" })
             return orderID;
         });
     };
@@ -57,10 +59,9 @@ function PaypalComponent({ orderID, setOrderID, setPaymentType, setPaymentShow, 
 
     useEffect(() => {
         if (success) {
-            alert("Payment successful!!");
-            console.log('Order successful . Your order id is--', orderID);
+            // alert("Payment successful!!");
+            // console.log('Order successful . Your order id is--', orderID);
             const payload = {
-                paymentMethod: "paypal",
                 quiz,
                 date: cart.date,
                 time: cart.Time_Slot,
@@ -76,15 +77,17 @@ function PaypalComponent({ orderID, setOrderID, setPaymentType, setPaymentShow, 
             }
             console.log(payload);
             console.log(orderID);
-            addOrders(payload)
-                .then(async data => {
-                    console.log(data);
-                    await addCalendar({
-                        date: cart.date,
-                        Time_Slot: cart.Time_Slot
-                    })
-                    window.location.href = window.location.origin + "/success"
-                })
+
+
+            // addOrders(payload)
+            //     .then(async data => {
+            //         console.log(data);
+            //         await addCalendar({
+            //             date: cart.date,
+            //             Time_Slot: cart.Time_Slot
+            //         })
+            //     })
+            window.location.href = window.location.origin + "/success"
         }
     }, [success]);
 

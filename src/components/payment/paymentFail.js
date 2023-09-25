@@ -20,7 +20,7 @@ export function Fail() {
                     <h1>Payment Fail</h1>
                     {
                         (id != null && id != "" && typeof id != "undefined") &&
-                        <h3>Order ID: {id}</h3>
+                        <h3>{id}</h3>
                     }
                 </div>
             </div>

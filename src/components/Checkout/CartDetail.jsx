@@ -357,10 +357,10 @@ function Cart() {
                                                     </div>
 
                                                     <p className="small mb-2">Payment Method</p>
-                                                    <a href="" onClick={() => setPaymentType("stripe")} type="submit" className={`${setPaymentType == "stripe" ? 'payment_method' : "me-2"} text-white`}>
+                                                    <a href="" onClick={(e) => {e.preventDefault(); setPaymentType("stripe")}} type="button" className={`${setPaymentType == "stripe" ? 'payment_method' : "me-2"} text-white`}>
                                                         <i className="fab fa-cc-stripe fa-2x"></i>
                                                     </a>
-                                                    <a href="" onClick={() => setPaymentType("paypal")} type="submit" className={`${setPaymentType == "paypal" ? 'payment_method' : ""} text-white`}>
+                                                    <a href="" onClick={(e) => {e.preventDefault(); setPaymentType("paypal")}} type="button" className={`${setPaymentType == "paypal" ? 'payment_method' : ""} text-white`}>
                                                         <i className="fab fa-cc-paypal fa-2x"></i>
                                                     </a>
 

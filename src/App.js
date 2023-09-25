@@ -50,11 +50,23 @@ import SmartHomeTheaterOtherDevices from './pages/services page/Smart Home/Home 
 import SmartHomeHomeTheater from './pages/services page/Smart Home/Home Theater Pages/SmartHomeHomeTheater';
 import { Success } from './components/payment/paymentSuccess';
 import { Fail } from './components/payment/paymentFail';
+import { useEffect } from 'react';
 
 
 
 function App() {
   const isAuth = sessionStorage.getItem("id") ? true : false;
+
+  useEffect(() => {
+    if (((window.location.host).includes("localhost")) == false) {
+      setInterval(() => {
+        console.clear()
+      }, 1000);
+    }
+    
+  }, [])
+
+
 
   return <>
     <Routes>
@@ -92,7 +104,7 @@ function App() {
       <Route exact path={`/services/smart-home-installation-home-theater-gaming-system`} element={<SmartHomeTheaterGamingSystem />} />
       <Route exact path={`/services/smart-home-installation-home-theater-universal-remote`} element={<SmartHomeTheaterUniversalRemote />} />
       <Route exact path={`/services/smart-home-installation-home-theater-other-smart-devices`} element={<SmartHomeTheaterOtherDevices />} />
-      
+
       <Route exact path={`/services/smart-home-installation/wifi-connection`} element={<WiFiConnection />} />
       <Route exact path={`/services/smart-home-installation-wifi-connection-setup`} element={<SmartHomeWifiConnectionSetup />} />
       <Route exact path={`/services/smart-home-installation-single-extension-setup`} element={<SmartHomeSingleExtensionSetup />} />
