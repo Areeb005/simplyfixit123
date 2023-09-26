@@ -59,11 +59,15 @@ function App() {
 
   useEffect(() => {
     if (((window.location.host).includes("localhost")) == false) {
+      if (window.location.protocol == 'http:') {
+        window.location.protocol = "https:"
+      }
+
       setInterval(() => {
         console.clear()
       }, 1000);
     }
-    
+
   }, [])
 
 

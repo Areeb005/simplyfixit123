@@ -79,7 +79,7 @@ const Orders = () => {
             <div className="row mx-0">
                 <div className="col-12">
                     <div className="table-responsive">
-                        <table className="table table-light table-striped table-responsive">
+                        <table className="table table-light table-striped">
                             <thead>
                                 <tr className='for-td'>
                                     <th scope="col">Details</th>
